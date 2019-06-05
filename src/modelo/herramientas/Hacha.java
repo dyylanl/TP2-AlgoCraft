@@ -20,5 +20,5 @@ public abstract class Hacha {
 		// TODO Auto-generated method stub
 		durabilidad -= fuerza*factorDeDesgaste;
 	}
-	
+
 }
