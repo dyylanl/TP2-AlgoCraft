@@ -1,6 +1,8 @@
 package modelo.materiales;
 
-public class Material {
+import modelo.herramientas.Hacha;
+
+public abstract class Material {
 	
 	protected int durabilidad;
 	
@@ -8,4 +10,5 @@ public class Material {
 		return durabilidad;
 	}
 
+	public abstract void resibeGolpeDe(Hacha hachaDePiedra);
 }
