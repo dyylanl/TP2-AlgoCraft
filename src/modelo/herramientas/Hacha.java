@@ -1,9 +1,12 @@
 package modelo.herramientas;
 
+import modelo.materiales.Material;
+
 public abstract class Hacha {
 	
-	public int durabilidad;
-	public int fuerza;
+	protected int durabilidad;
+	protected int fuerza;
+	protected double factorDeDesgaste;
 	
 	public int getDurabilidad() {
 		return durabilidad;
@@ -11,6 +14,11 @@ public abstract class Hacha {
 
 	public int getFuerza() {
 		return fuerza;
+	}
+
+	public void usar(Material unMaterial) {
+		// TODO Auto-generated method stub
+		durabilidad -= fuerza*factorDeDesgaste;
 	}
 	
 }
