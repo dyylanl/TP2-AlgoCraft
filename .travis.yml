@@ -12,5 +12,7 @@ after_success:
 notifications:
   email:
     recipients:
-      - jbustamante@fi.uba.ar
+      - dledesma@fi.uba.ar
+      - rocioarrua95@gmail.com
+      - alberto.sayos.daniel@gmail.com
     on_failure: always
