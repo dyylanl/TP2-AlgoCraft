@@ -15,4 +15,5 @@ notifications:
       - dledesma@fi.uba.ar
       - rocioarrua95@gmail.com
       - alberto.sayos.daniel@gmail.com
+      - joseph_vv@hotmail.com
     on_failure: always
