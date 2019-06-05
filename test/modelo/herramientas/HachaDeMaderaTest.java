@@ -19,7 +19,7 @@ public class HachaDeMaderaTest {
 	@Test
 	public void hachaDeMaderaIniciaCon5DeFuerza() {
 		Hacha hachaDeMadera = new HachaDeMadera();
-		Assert.assertEquals(1,hachaDeMadera.getFuerza());
+		Assert.assertEquals(2,hachaDeMadera.getFuerza());
 	}
 	
 }
