@@ -10,5 +10,5 @@ public abstract class Material {
 		return durabilidad;
 	}
 
-	public abstract void resibeGolpeDe(Hacha hachaDePiedra);
+	public abstract void recibeGolpeDe(Hacha hachaDePiedra);
 }

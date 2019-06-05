@@ -15,7 +15,7 @@ public class PiedraTest {
 	public void PiedraEsGolpeadaPorPicoDePiedra() {
 		Hacha hachaDePiedra = new HachaDePiedra();
 		Material piedra = new Piedra();
-		piedra.resibeGolpeDe(hachaDePiedra);
+		piedra.recibeGolpeDe(hachaDePiedra);
 		Assert.assertEquals(25,piedra.getDurabilidad());
 	}
 	/*

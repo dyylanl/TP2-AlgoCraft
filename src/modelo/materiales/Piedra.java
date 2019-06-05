@@ -8,7 +8,7 @@ public class Piedra extends Material {
 		durabilidad = 30;
 	}
 	
-	public void resibeGolpeDe(Hacha unaHerramienta) {
+	public void recibeGolpeDe(Hacha unaHerramienta) {
 		durabilidad -= unaHerramienta.getFuerza(); 
 	}
 }
