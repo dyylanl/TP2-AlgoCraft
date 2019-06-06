@@ -18,4 +18,5 @@ public class HachaDeMadera extends Hacha  {
 		
 	}
 	
+	
 }

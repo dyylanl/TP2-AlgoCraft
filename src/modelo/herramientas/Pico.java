@@ -1,6 +1,6 @@
 package modelo.herramientas;
 
-import modelo.materiales.Material;
+import modelo.materiales.*;
 
 public abstract class Pico{
 	
@@ -16,6 +16,10 @@ public abstract class Pico{
 		return fuerza;
 	}
 
+	public Boolean validar(Material unMaterial){
+		return (unMaterial instanceof Piedra) ;
+	}
+	
 	public abstract void usar(Material unMaterial);
 	
 }

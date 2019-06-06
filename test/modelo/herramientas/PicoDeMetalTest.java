@@ -5,10 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import junit.framework.Assert;
-import modelo.materiales.Madera;
-import modelo.materiales.Material;
-import modelo.materiales.Metal;
-import modelo.materiales.Piedra;
+import modelo.materiales.*;
 
 
 public class PicoDeMetalTest {
@@ -24,5 +21,15 @@ public class PicoDeMetalTest {
 		Pico pico = new PicoDeMetal();
 		Assert.assertEquals(12, pico.getFuerza());
 	}
+	
+	@Test
+	public void PicoDeMetalSeUsaContraPiedraEsTrue() {
+		Pico pico = new PicoDeMetal();
+		Material piedra = new Piedra();
+		
+		Assert.assertTrue(pico.validar(piedra));
+	}
+	
+	
 
 }

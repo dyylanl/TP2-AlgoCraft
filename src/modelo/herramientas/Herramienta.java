@@ -1,6 +1,6 @@
 package modelo.herramientas;
 
-import modelo.materiales.Material;
+import modelo.materiales.*;
 import modelo.golpeador.Golpeador;
 
 
@@ -14,6 +14,7 @@ public abstract class Herramienta{
 
     public abstract void desgastarse();
 
+    public abstract Boolean validar(Material unMaterial);
 
     public int getFuerza(){
 

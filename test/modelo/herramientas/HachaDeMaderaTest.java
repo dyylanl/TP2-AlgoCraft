@@ -25,6 +25,21 @@ public class HachaDeMaderaTest {
 		Hacha hachaDeMadera = new HachaDeMadera();
 		Assert.assertEquals(2,hachaDeMadera.getFuerza());
 	}
+	
+	@Test
+	public void hachaDeMaderaGolpeaPiedraEsFalse() {
+		Hacha hachaDeMadera = new HachaDeMadera();
+		Material piedra = new Piedra();		
+		Assert.assertFalse(hachaDeMadera.validar(piedra));
+	}
+	
+	@Test
+	public void hachaDeMaderaGolpeaMaderaEsTrue() {
+		Hacha hachaDeMadera = new HachaDeMadera();
+		Material madera = new Madera();		
+		Assert.assertTrue(hachaDeMadera.validar(madera));
+	}
+	
 	/*
 	@Test
 	public void hachaDeMaderaSeUsaContraMadera() {

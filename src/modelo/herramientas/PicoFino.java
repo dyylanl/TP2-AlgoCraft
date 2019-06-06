@@ -1,6 +1,6 @@
 package modelo.herramientas;
 
-import modelo.materiales.Material;
+import modelo.materiales.*;
 
 public class PicoFino extends Pico{
 	
@@ -19,5 +19,11 @@ public class PicoFino extends Pico{
 		durabilidad -= durabilidad * factorDesgaste;
 	}
 
+	@Override
+	public Boolean validar(Material unMaterial){
+		return (unMaterial instanceof Diamante) ;
+	}
+	
+	
 	
 }

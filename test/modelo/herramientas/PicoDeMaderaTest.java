@@ -5,11 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import junit.framework.Assert;
-import modelo.materiales.Madera;
-import modelo.materiales.Material;
-import modelo.materiales.Metal;
-import modelo.materiales.Piedra;
-
+import modelo.materiales.*;
 
 public class PicoDeMaderaTest {
 
@@ -20,9 +16,26 @@ public class PicoDeMaderaTest {
 	}
 
 	@Test
-	public void PicoDePiedraIniciaConFuerza2() {
+	public void PicoDeMaderaIniciaConFuerza2() {
 		Pico pico = new PicoDeMadera();
 		Assert.assertEquals(2, pico.getFuerza());
 	}
+	
+	@Test
+	public void PicoDeMaderaGolpeaMetalEsFalse() {
+		Pico pico = new PicoDeMadera();
+		Material metal = new Metal();
+		
+		Assert.assertFalse(pico.validar(metal));
+	}
+	
+	@Test
+	public void PicoDeMaderaGolpeaPiedraEsTrue() {
+		Pico pico = new PicoDeMadera();
+		Material piedra = new Piedra();
+		
+		Assert.assertTrue(pico.validar(piedra));
+	}
+	
 
 }

@@ -1,6 +1,6 @@
 package modelo.herramientas;
 
-import modelo.materiales.Material;
+import modelo.materiales.*;
 
 public class PicoDePiedra extends Pico{
 	
@@ -12,6 +12,11 @@ public class PicoDePiedra extends Pico{
 		fuerza = 4;
 		factorDesgaste = 1.5f;
 		
+	}
+	
+	@Override
+	public Boolean validar(Material unMaterial){
+		return (unMaterial instanceof Piedra || unMaterial instanceof Metal ) ;
 	}
 	
 	public void usar(Material unMaterial) {
