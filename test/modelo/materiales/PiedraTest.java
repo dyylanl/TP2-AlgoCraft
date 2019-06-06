@@ -7,6 +7,7 @@ import org.junit.Test;
 import junit.framework.Assert;
 import modelo.herramientas.Hacha;
 import modelo.herramientas.HachaDeMadera;
+import modelo.herramientas.HachaDeMetal;
 import modelo.herramientas.HachaDePiedra;
 
 public class PiedraTest {
@@ -35,4 +36,40 @@ public class PiedraTest {
 		Assert.assertEquals(30,piedra.getDurabilidad());
 		}
 		*/
+	
+	@Test
+	public void hachaDeMaderaGolpeaPiedraYPiedraNoReduceSuDurabilidad() {
+		Hacha hachaDeMadera = new HachaDeMadera();
+		Material piedra= new Piedra();	
+		
+		int durabilidadIni = piedra.getDurabilidad();
+		
+		hachaDeMadera.usar(piedra);	
+		
+		Assert.assertEquals(durabilidadIni , piedra.getDurabilidad());
+	}
+	
+	@Test
+	public void hachaDePiedraGolpeaPiedraYPiedraNoReduceSuDurabilidad() {
+		Hacha hachaDePiedra = new HachaDePiedra();
+		Material piedra= new Piedra();	
+		
+		int durabilidadIni = piedra.getDurabilidad();
+		
+		hachaDePiedra.usar(piedra);	
+		
+		Assert.assertEquals(durabilidadIni , piedra.getDurabilidad());
+	}
+	
+	@Test
+	public void hachaDeMetalGolpeaPiedraYPiedraNoReduceSuDurabilidad() {
+		Hacha hachaDeMetal = new HachaDeMetal();
+		Material piedra= new Piedra();	
+		
+		int durabilidadIni = piedra.getDurabilidad();
+		
+		hachaDeMetal.usar(piedra);	
+		
+		Assert.assertEquals(durabilidadIni , piedra.getDurabilidad());
+	}
 }

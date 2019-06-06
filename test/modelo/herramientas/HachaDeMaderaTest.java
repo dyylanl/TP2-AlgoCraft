@@ -51,17 +51,6 @@ public class HachaDeMaderaTest {
 	}
 	
 	// DESDE ACA SEPARAR A OTRO A PACKAGE
-	@Test
-	public void hachaDeMaderaGolpeaMaderaYMaderaReduceSuDurabilidadEn2() {
-		Hacha hachaDeMadera = new HachaDeMadera();
-		Material madera = new Madera();	
-		
-		int durabilidadIni = madera.getDurabilidad();
-		
-		hachaDeMadera.usar(madera);	
-		
-		Assert.assertEquals(durabilidadIni-2 , madera.getDurabilidad());
-	}
 	
 	@Test
 	public void hachaDeMaderaGolpeaMaderaYHachaReduceSuDurabilidadEn2() {
@@ -87,17 +76,6 @@ public class HachaDeMaderaTest {
 		Assert.assertEquals(durabilidadIni-2 , hachaDeMadera.getDurabilidad());
 	}
 	
-	@Test
-	public void hachaDeMaderaGolpeaPiedraYPiedraNoReduceSuDurabilidad() {
-		Hacha hachaDeMadera = new HachaDeMadera();
-		Material piedra= new Piedra();	
-		
-		int durabilidadIni = piedra.getDurabilidad();
-		
-		hachaDeMadera.usar(piedra);	
-		
-		Assert.assertEquals(durabilidadIni , piedra.getDurabilidad());
-	}
 	
 	@Test
 	public void hachaDeMaderaGolpeaMetalYHachaReduceSuDurabilidadEn2() {
