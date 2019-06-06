@@ -1,10 +1,19 @@
 package modelo.herramientas;
 
+import modelo.golpeador.Golpeador;
+
 public class HachaDeMetal extends Hacha  {
 	
 	public HachaDeMetal() {
-		durabilidad = 400;
+		durabilidad = 400f;
 		fuerza = 10;
-		factorDeDesgaste = 0.5;
+		factorDeDesgaste = 0.5f;
+		golpeador = new Golpeador("Madera");
+	}
+
+	@Override
+	public void desgastarse() {
+		// TODO Auto-generated method stub
+		
 	}
 }

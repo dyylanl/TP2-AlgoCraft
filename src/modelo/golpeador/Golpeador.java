@@ -1,5 +1,8 @@
 package modelo.golpeador;
 
+import modelo.herramientas.Herramienta;
+import modelo.materiales.Material;
+
 public class Golpeador{
 
     //Atributos:
@@ -19,7 +22,7 @@ public class Golpeador{
 
         if(unMaterial.getClase() == materialQueDania){
 
-            unMaterial.reducirDurabilidad(unaHerramienta.obtenerFuerza()):
+            unMaterial.reducirDurabilidad(unaHerramienta.getFuerza());
             unaHerramienta.desgastarse();
 
         }

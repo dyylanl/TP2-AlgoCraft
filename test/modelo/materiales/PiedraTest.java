@@ -11,6 +11,7 @@ import modelo.herramientas.HachaDePiedra;
 
 public class PiedraTest {
 	
+	/*
 	@Test
 	public void PiedraEsGolpeadaPorPicoDePiedra() {
 		Hacha hachaDePiedra = new HachaDePiedra();
@@ -18,6 +19,7 @@ public class PiedraTest {
 		piedra.recibeGolpeDe(hachaDePiedra);
 		Assert.assertEquals(25,piedra.getDurabilidad());
 	}
+	*/
 	/*
 	@Test
 	public void PiedraEsGolpeadaPorPicoDeMadera() {
