@@ -9,7 +9,7 @@ public abstract class Herramienta{
 
     protected float durabilidad;
     protected int fuerza;
-    protected Golpeador golpeador;
+ ///   protected Golpeador golpeador;
     protected float factorDeDesgaste;
 
     public abstract void desgastarse();

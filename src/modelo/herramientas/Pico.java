@@ -2,24 +2,25 @@ package modelo.herramientas;
 
 import modelo.materiales.*;
 
-public abstract class Pico{
+public abstract class Pico extends Herramienta{
 	
-	protected int durabilidad;
-	protected int fuerza;
-	protected double factorDeDesgaste;
+	public void usar(Material unMaterial) {
+		
+		if(this.validar(unMaterial)){ 
+			unMaterial.reducirDurabilidad(this.getFuerza());
+		}
+		this.desgastarse();
+		
+	}
 	
-	public int getDurabilidad() {
-		return durabilidad;
-	}
-
-	public int getFuerza() {
-		return fuerza;
-	}
-
 	public Boolean validar(Material unMaterial){
 		return (unMaterial instanceof Piedra) ;
 	}
 	
-	public abstract void usar(Material unMaterial);
-	
+	@Override
+	public void desgastarse() {
+		durabilidad -= fuerza*factorDeDesgaste;
+		if(durabilidad <0) durabilidad = 0; // ENTONCES SE ROMPE LA HERRAMIENTA
+											// FALTA IMPLEMENTAR ESO
+	}
 }

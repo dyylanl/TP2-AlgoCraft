@@ -13,9 +13,9 @@ public class PicoDeMetalTest {
 	@Test
 	public void PicoDeMetalIniciaConDurabilidad400() {
 		Pico pico = new PicoDeMetal();
-		Assert.assertEquals(400, pico.getDurabilidad());
+		Assert.assertEquals(400f, pico.getDurabilidad());
 	}
-
+	
 	@Test
 	public void PicoDeMetalIniciaConFuerza12() {
 		Pico pico = new PicoDeMetal();
@@ -29,7 +29,7 @@ public class PicoDeMetalTest {
 		
 		Assert.assertTrue(pico.validar(piedra));
 	}
-	
+	// TERMINAR DE HACER LOS TESTS
 	
 
 }

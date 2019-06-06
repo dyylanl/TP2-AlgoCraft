@@ -4,20 +4,19 @@ import modelo.materiales.Material;
 
 public class PicoDeMetal extends Pico{
 	
-	protected float factorDesgaste;
-	
 	public PicoDeMetal(){
-	
-		durabilidad = 400;
-		fuerza = 12;
-		factorDesgaste = 10;
 		
+		durabilidad = 400f;
+		fuerza = 12;
+		factorDeDesgaste = 10f; // ESTO EN REALIDAD ES LA CANTIDAD DE USOS
+
 	}
 	
-	public void usar(Material unMaterial) {
-		
-		if (factorDesgaste >= 1) factorDesgaste -= 1;
-		
+	@Override
+	public void desgastarse() {
+		factorDeDesgaste -= 1;
+		if(factorDeDesgaste == 1) durabilidad = 0; // ENTONCES SE ROMPE LA HERRAMIENTA
+											// FALTA IMPLEMENTAR ESO
 	}
 
 	

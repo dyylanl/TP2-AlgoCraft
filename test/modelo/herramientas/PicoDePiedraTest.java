@@ -12,7 +12,7 @@ public class PicoDePiedraTest {
 	@Test
 	public void PicoDePiedraIniciaConDurabilidad200() {
 		Pico pico = new PicoDePiedra();
-		Assert.assertEquals(200, pico.getDurabilidad());
+		Assert.assertEquals(200f, pico.getDurabilidad());
 	}
 
 	@Test

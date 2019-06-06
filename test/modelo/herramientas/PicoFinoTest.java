@@ -16,7 +16,7 @@ public class PicoFinoTest {
 	@Test
 	public void PicoFinoIniciaConDurabilidad1000() {
 		Pico pico = new PicoFino();
-		Assert.assertEquals(1000, pico.getDurabilidad());
+		Assert.assertEquals(1000f, pico.getDurabilidad());
 	}
 
 	@Test

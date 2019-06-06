@@ -12,7 +12,7 @@ public class PicoDeMaderaTest {
 	@Test
 	public void PicoDeMaderaIniciaConDurabilidad100() {
 		Pico pico = new PicoDeMadera();
-		Assert.assertEquals(100, pico.getDurabilidad());
+		Assert.assertEquals(100f , pico.getDurabilidad());
 	}
 
 	@Test
@@ -37,5 +37,49 @@ public class PicoDeMaderaTest {
 		Assert.assertTrue(pico.validar(piedra));
 	}
 	
-
+	@Test
+	public void PicoDeMaderaGolpeaMaderaEsFalse() {
+		Pico pico = new PicoDeMadera();
+		Material madera = new Madera();
+		
+		Assert.assertFalse(pico.validar(madera));
+	}
+	
+	@Test
+	public void PicoDeMaderaGolpeaDiamanteEsFalse() {
+		Pico pico = new PicoDeMadera();
+		Material diamante = new Diamante();
+		
+		Assert.assertFalse(pico.validar(diamante));
+	}
+	
+	
+	//ESTO SEPARAR EN OTRO PAKCAGE
+	
+	@Test
+	public void PicoDeMaderaGolpeaMaderaYPicoReduceDurabilidadEn2() {
+		Pico pico = new PicoDeMadera();
+		Material madera = new Madera();
+		
+		float durabilidadIni = pico.getDurabilidad();
+		
+		pico.usar(madera);
+		
+		
+		Assert.assertEquals(durabilidadIni-2, pico.getDurabilidad());
+	}
+	
+	@Test
+	public void PicoDeMaderaGolpeaMaderaYMaderaNoReduceDurabilidad() {
+		Pico pico = new PicoDeMadera();
+		Material madera = new Madera();
+		
+		int durabilidadIni = madera.getDurabilidad();
+		
+		pico.usar(madera);
+		
+		Assert.assertEquals(durabilidadIni, madera.getDurabilidad());
+	}
+	
+	
 }

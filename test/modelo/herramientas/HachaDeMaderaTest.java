@@ -5,11 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import junit.framework.Assert;
-import modelo.materiales.Madera;
-import modelo.materiales.Material;
-import modelo.materiales.Metal;
-import modelo.materiales.Piedra;
-
+import modelo.materiales.*;
 
 public class HachaDeMaderaTest {
 	
@@ -26,7 +22,7 @@ public class HachaDeMaderaTest {
 		Assert.assertEquals(2,hachaDeMadera.getFuerza());
 	}
 	
-	@Test
+	@Test 
 	public void hachaDeMaderaGolpeaPiedraEsFalse() {
 		Hacha hachaDeMadera = new HachaDeMadera();
 		Material piedra = new Piedra();		
@@ -39,6 +35,96 @@ public class HachaDeMaderaTest {
 		Material madera = new Madera();		
 		Assert.assertTrue(hachaDeMadera.validar(madera));
 	}
+	
+	@Test
+	public void hachaDeMaderaGolpeaMetalEsFalse() {
+		Hacha hachaDeMadera = new HachaDeMadera();
+		Material metal = new Metal();		
+		Assert.assertFalse(hachaDeMadera.validar(metal));
+	}
+	
+	@Test
+	public void hachaDeMaderaGolpeaDiamanteEsFalse() {
+		Hacha hachaDeMadera = new HachaDeMadera();
+		Material diamante = new Diamante();		
+		Assert.assertFalse(hachaDeMadera.validar(diamante));
+	}
+	
+	// DESDE ACA SEPARAR A OTRO A PACKAGE
+	@Test
+	public void hachaDeMaderaGolpeaMaderaYMaderaReduceSuDurabilidadEn2() {
+		Hacha hachaDeMadera = new HachaDeMadera();
+		Material madera = new Madera();	
+		
+		int durabilidadIni = madera.getDurabilidad();
+		
+		hachaDeMadera.usar(madera);	
+		
+		Assert.assertEquals(durabilidadIni-2 , madera.getDurabilidad());
+	}
+	
+	@Test
+	public void hachaDeMaderaGolpeaMaderaYHachaReduceSuDurabilidadEn2() {
+		Hacha hachaDeMadera = new HachaDeMadera();
+		Material madera = new Madera();	
+		
+		float durabilidadIni = hachaDeMadera.getDurabilidad();
+		
+		hachaDeMadera.usar(madera);	
+		
+		Assert.assertEquals(durabilidadIni-2 , hachaDeMadera.getDurabilidad());
+	}
+	
+	@Test
+	public void hachaDeMaderaGolpeaPiedraYHachaReduceSuDurabilidadEn2() {
+		Hacha hachaDeMadera = new HachaDeMadera();
+		Material piedra = new Piedra();	
+		
+		float durabilidadIni = hachaDeMadera.getDurabilidad();
+		
+		hachaDeMadera.usar(piedra);	
+		
+		Assert.assertEquals(durabilidadIni-2 , hachaDeMadera.getDurabilidad());
+	}
+	
+	@Test
+	public void hachaDeMaderaGolpeaPiedraYPiedraNoReduceSuDurabilidad() {
+		Hacha hachaDeMadera = new HachaDeMadera();
+		Material piedra= new Piedra();	
+		
+		int durabilidadIni = piedra.getDurabilidad();
+		
+		hachaDeMadera.usar(piedra);	
+		
+		Assert.assertEquals(durabilidadIni , piedra.getDurabilidad());
+	}
+	
+	@Test
+	public void hachaDeMaderaGolpeaMetalYHachaReduceSuDurabilidadEn2() {
+		Hacha hachaDeMadera = new HachaDeMadera();
+		Material metal = new Metal();	
+		
+		float durabilidadIni = hachaDeMadera.getDurabilidad();
+		
+		hachaDeMadera.usar(metal);	
+		
+		Assert.assertEquals(durabilidadIni-2 , hachaDeMadera.getDurabilidad());
+	}
+	
+	@Test
+	public void hachaDeMaderaGolpeaMetalYMetalNoReduceSuDurabilidad() {
+		Hacha hachaDeMadera = new HachaDeMadera();
+		Material metal = new Metal();	
+		
+		int durabilidadIni = metal.getDurabilidad();
+		
+		hachaDeMadera.usar(metal);	
+		
+		Assert.assertEquals(durabilidadIni , metal.getDurabilidad());
+	}
+	
+	//FALTA OCNTRA HACHA DE DIAMANTE
+	
 	
 	/*
 	@Test
