@@ -21,7 +21,7 @@ public abstract class Herramienta{
 
     }
 
-    public int getDurabilidad(){
+    public float getDurabilidad(){
 
         return this.durabilidad;
 

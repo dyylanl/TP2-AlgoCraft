@@ -2,13 +2,11 @@ package modelo.herramientas;
 
 import modelo.materiales.Material;
 
-public abstract class Hacha extends Herramienta{
-
-
+public abstract class Hacha {
+	
+	protected int durabilidad;
+	protected int fuerza;
 	protected double factorDeDesgaste;
-	protected String materialQueDania;
-
-	public Hacha(String materialQueDania){ this.materialQueDania = materialQueDania; }
 	
 	public int getDurabilidad() {
 		return durabilidad;
@@ -22,5 +20,5 @@ public abstract class Hacha extends Herramienta{
 		// TODO Auto-generated method stub
 		durabilidad -= fuerza*factorDeDesgaste;
 	}
-
+	
 }
