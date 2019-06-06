@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import junit.framework.Assert;
+import modelo.materiales.Diamante;
 import modelo.materiales.Madera;
 import modelo.materiales.Material;
 import modelo.materiales.Metal;
@@ -24,14 +25,14 @@ public class HachaDePiedraTest{
 		Assert.assertEquals(5,hachaDePiedra.getFuerza());
 	}
 	
-	/*
+	
 	@Test
 	public void hachaDePiedraSeUsaContraMadera() {
 		Hacha hachaDePiedra = new HachaDePiedra();
 		Material madera = new Madera ();
 		hachaDePiedra.usar(madera);
 		
-		Assert.assertEquals(195,hachaDePiedra.getDurabilidad());
+		Assert.assertEquals(195f,hachaDePiedra.getDurabilidad());
 	}
 	
 	@Test
@@ -40,7 +41,7 @@ public class HachaDePiedraTest{
 		Material piedra = new Piedra ();
 		hachaDePiedra.usar(piedra);
 		
-		Assert.assertEquals(195,hachaDePiedra.getDurabilidad());
+		Assert.assertEquals(195f,hachaDePiedra.getDurabilidad());
 	}
 	
 	@Test
@@ -49,7 +50,16 @@ public class HachaDePiedraTest{
 		Material metal = new Metal();
 		hachaDePiedra.usar(metal);
 		
-		Assert.assertEquals(195,hachaDePiedra.getDurabilidad());
+		Assert.assertEquals(195f,hachaDePiedra.getDurabilidad());
 	}
-	*/
+	
+	@Test
+	public void hachaDePiedraSeUsaContraDiamante() {
+		Hacha hachaDePiedra = new HachaDePiedra();
+		Material diamante = new Diamante();
+		hachaDePiedra.usar(diamante);
+		
+		Assert.assertEquals(195f,hachaDePiedra.getDurabilidad());
+	}
+	
 }

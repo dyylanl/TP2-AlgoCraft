@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import junit.framework.Assert;
+import modelo.materiales.Diamante;
 import modelo.materiales.Madera;
 import modelo.materiales.Material;
 import modelo.materiales.Metal;
@@ -25,32 +26,42 @@ public class HachaDeMetalTest {
 		Hacha hachaDeMetal = new HachaDeMetal();
 		Assert.assertEquals(10,hachaDeMetal.getFuerza());
 	}
-	/*
+	
 	@Test
-	public void hachaDeMetalSeUsaContraMadera() {
+	public void hachaDeMetalSeUsaContraMaderaYSeReduceSuDurabilidad() {
 		Hacha hachaDeMetal = new HachaDeMetal();
 		Material madera = new Madera ();
-		hachaDeMetal.usar(madera);
-		
-		Assert.assertEquals(395,hachaDeMetal.getDurabilidad());
+		float durabilidadInicial = hachaDeMetal.getDurabilidad();
+		hachaDeMetal.usar(madera);	
+		Assert.assertEquals(durabilidadInicial - 5,hachaDeMetal.getDurabilidad());
 	}
 	
 	@Test
-	public void hachaDeMaderaSeUsaContraPiedra() {
+	public void hachaDeMetalSeUsaContraPiedraYSeReduceSuDurabilidad() {
 		Hacha hachaDeMetal = new HachaDeMetal();
 		Material piedra = new Piedra ();
+		float durabilidadInicial = hachaDeMetal.getDurabilidad();
 		hachaDeMetal.usar(piedra);
-		
-		Assert.assertEquals(395,hachaDeMetal.getDurabilidad());
+		Assert.assertEquals(durabilidadInicial -5,hachaDeMetal.getDurabilidad());
 	}
 	
 	@Test
-	public void hachaDeMaderaSeUsaContraMetal() {
+	public void hachaDeMetalSeUsaContraMetalYSeReduceSuDurabilidad() {
 		Hacha hachaDeMetal = new HachaDeMetal();
 		Material metal = new Metal();
+		float durabilidadInicial = hachaDeMetal.getDurabilidad();
 		hachaDeMetal.usar(metal);
 		
-		Assert.assertEquals(395,hachaDeMetal.getDurabilidad());
+		Assert.assertEquals(durabilidadInicial -5,hachaDeMetal.getDurabilidad());
 	}
-	*/
+	
+	@Test
+	public void hachaDeMetalSeUsaContraDiamanteYSeReduceSuDurabilidad() {
+		Hacha hachaDeMetal = new HachaDeMetal();
+		Material diamante = new Diamante();
+		float durabilidadInicial = hachaDeMetal.getDurabilidad();
+		hachaDeMetal.usar(diamante);	
+		Assert.assertEquals(durabilidadInicial -5,hachaDeMetal.getDurabilidad());
+	}
+	
 }
