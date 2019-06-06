@@ -1,7 +1,5 @@
 package modelo.materiales;
 
-import modelo.herramientas.Hacha;
-
 public abstract class Material {
 
 	//Atributos:
