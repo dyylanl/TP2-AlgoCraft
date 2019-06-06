@@ -8,7 +8,7 @@ public class PicoDePiedra extends Pico{
 		
 		durabilidad = 200f;
 		fuerza = 4;
-		factorDeDesgaste = 1.5f;
+		factorDeDesgaste = 2f/3f;
 
 	}
 
@@ -16,6 +16,9 @@ public class PicoDePiedra extends Pico{
 	public Boolean validar(Material unMaterial){
 		return (unMaterial instanceof Piedra || unMaterial instanceof Metal) ;
 	}
-	
-	
+	/*
+	@Override
+	public void desgastarse() {
+		durabilidad -= fuerza/factorDeDesgaste;
+	}*/
 }

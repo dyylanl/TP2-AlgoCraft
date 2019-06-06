@@ -2,6 +2,8 @@ package modelo.herramientas;
 
 import static org.junit.Assert.assertEquals;
 
+import java.awt.Paint;
+
 import org.junit.Test;
 
 import junit.framework.Assert;
@@ -45,5 +47,42 @@ public class PicoDePiedraTest {
 		Assert.assertTrue(pico.validar(Metal));
 	}
 
+	@Test
+	public void PicoDePiedraGolpeaMaderaYSeReduceSuDurabilidad() {
+		Pico picoDePiedra = new PicoDePiedra();
+		Material madera = new Madera();
+		float durabilidadInicial = picoDePiedra.getDurabilidad();
+		picoDePiedra.usar(madera);
+		float factorDeDesgaste = 8f/3f;
+		Assert.assertEquals(durabilidadInicial-factorDeDesgaste,picoDePiedra.getDurabilidad());
+	}
+	@Test
+	public void PicoDePiedraGolpeaPiedraYSeReduceSuDurabilidad() {
+		Pico picoDePiedra = new PicoDePiedra();
+		Material piedra = new Piedra();
+		float durabilidadInicial = picoDePiedra.getDurabilidad();
+		picoDePiedra.usar(piedra);
+		float factorDeDesgaste = 8f/3f;
+		Assert.assertEquals(durabilidadInicial-factorDeDesgaste,picoDePiedra.getDurabilidad());
+	}
 	
+	@Test
+	public void PicoDePiedraGolpeaMetalYSeReduceSuDurabilidad() {
+		Pico picoDePiedra = new PicoDePiedra();
+		Material metal = new Metal();
+		float durabilidadInicial = picoDePiedra.getDurabilidad();
+		picoDePiedra.usar(metal);
+		float factorDeDesgaste = 8f/3f;
+		Assert.assertEquals(durabilidadInicial-factorDeDesgaste,picoDePiedra.getDurabilidad());
+	}
+	
+	@Test
+	public void PicoDePiedraGolpeaDiamanteYSeReduceSuDurabilidad() {
+		Pico picoDePiedra = new PicoDePiedra();
+		Material diamante = new Diamante();
+		float durabilidadInicial = picoDePiedra.getDurabilidad();
+		picoDePiedra.usar(diamante);
+		float factorDeDesgaste = 8f/3f;
+		Assert.assertEquals(durabilidadInicial-factorDeDesgaste,picoDePiedra.getDurabilidad());
+	}
 }
