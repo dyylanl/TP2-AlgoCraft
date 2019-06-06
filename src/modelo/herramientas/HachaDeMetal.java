@@ -8,12 +8,8 @@ public class HachaDeMetal extends Hacha  {
 		durabilidad = 400f;
 		fuerza = 10;
 		factorDeDesgaste = 0.5f;
-		golpeador = new Golpeador("Madera");
+		//golpeador = new Golpeador("Madera");
 	}
 
-	@Override
-	public void desgastarse() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

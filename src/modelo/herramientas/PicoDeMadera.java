@@ -1,20 +1,16 @@
 package modelo.herramientas;
 
+import modelo.golpeador.Golpeador;
 import modelo.materiales.Material;
 
 public class PicoDeMadera extends Pico{
 	
 	public PicoDeMadera(){
 	
-		durabilidad = 100;
+		durabilidad = 100f;
 		fuerza = 2;
-		
-	}
-	
-	public void usar(Material unMaterial) {
-		// TODO Auto-generated method stub
-		durabilidad -= fuerza;
-	}
+		factorDeDesgaste = 1f;
 
+	}
 	
 }

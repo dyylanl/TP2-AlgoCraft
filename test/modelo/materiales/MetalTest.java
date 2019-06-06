@@ -13,6 +13,6 @@ public class MetalTest {
 		Material metal = new Metal();
 		
 		Assert.assertEquals(50, metal.getDurabilidad());
-		
+	
 	}
 }

@@ -8,11 +8,7 @@ public class HachaDePiedra extends Hacha {
 		durabilidad = 200.0f;
 		fuerza = 5;
 		factorDeDesgaste = 1;
-		golpeador = new Golpeador("madera");
+		//golpeador = new Golpeador("madera");
 	}
 
-	@Override
-	public void desgastarse() {
-		
-	}
 }
