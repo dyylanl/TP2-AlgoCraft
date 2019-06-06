@@ -11,6 +11,12 @@ import modelo.herramientas.HachaDePiedra;
 
 public class PiedraTest {
 	
+	@Test
+	public void PiedraIniciaConUnaDurabilidadDe30() {
+		Material piedra = new Piedra();
+		Assert.assertEquals(30, piedra.getDurabilidad());
+	}
+	
 	/*
 	@Test
 	public void PiedraEsGolpeadaPorPicoDePiedra() {
