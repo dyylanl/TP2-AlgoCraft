@@ -22,6 +22,7 @@ public class HachaDeMaderaTest {
 		Assert.assertEquals(2,hachaDeMadera.getFuerza());
 	}
 	
+	/*
 	@Test 
 	public void hachaDeMaderaGolpeaPiedraEsFalse() {
 		Hacha hachaDeMadera = new HachaDeMadera();
@@ -49,6 +50,7 @@ public class HachaDeMaderaTest {
 		Material diamante = new Diamante();		
 		Assert.assertFalse(hachaDeMadera.validar(diamante));
 	}
+	*/
 	
 	// DESDE ACA SEPARAR A OTRO A PACKAGE
 	

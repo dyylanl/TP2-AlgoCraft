@@ -21,6 +21,7 @@ public class PicoDeMaderaTest {
 		Assert.assertEquals(2, pico.getFuerza());
 	}
 	
+	/*
 	@Test
 	public void PicoDeMaderaGolpeaMetalEsFalse() {
 		Pico pico = new PicoDeMadera();
@@ -52,7 +53,7 @@ public class PicoDeMaderaTest {
 		
 		Assert.assertFalse(pico.validar(diamante));
 	}
-	
+	*/
 	
 	//ESTO SEPARAR EN OTRO PAKCAGE
 	

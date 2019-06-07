@@ -12,6 +12,7 @@ public class PicoFino extends Pico{
 		
 	}
 	
+	/*
 	@Override
 	public void usar(Material unMaterial) {
 		
@@ -22,6 +23,7 @@ public class PicoFino extends Pico{
 		}
 		
 	}
+	*/
 	
 	@Override
 	public void desgastarse() {
@@ -29,9 +31,24 @@ public class PicoFino extends Pico{
 		//if(durabilidad <0) durabilidad = 0; // ENTONCES SE ROMPE LA HERRAMIENTA
 											// FALTA IMPLEMENTAR ESO
 	}
-	
+	/*
 	public Boolean validar(Material unMaterial){
 		return (unMaterial instanceof Diamante) ;
+	}
+	*/
+	
+	public void gopear(Madera unaMadera) {
+	}
+	
+	public void gopear(Piedra unaPiedra) {
+	}
+	
+	public void gopear(Metal unMetal) {
+	}
+	
+	public void gopear(Diamante unDiamante) {
+		unDiamante.reducirDurabilidad(this.getFuerza());
+		this.desgastarse();
 	}
 	
 	

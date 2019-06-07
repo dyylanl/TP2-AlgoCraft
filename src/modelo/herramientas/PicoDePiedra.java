@@ -11,14 +11,24 @@ public class PicoDePiedra extends Pico{
 		factorDeDesgaste = 2f/3f;
 
 	}
-
+/*
 	@Override
 	public Boolean validar(Material unMaterial){
 		return (unMaterial instanceof Piedra || unMaterial instanceof Metal) ;
 	}
-	/*
-	@Override
-	public void desgastarse() {
-		durabilidad -= fuerza/factorDeDesgaste;
-	}*/
+	*/
+	
+	public void gopear(Piedra unaPiedra) {
+		unaPiedra.reducirDurabilidad(this.getFuerza());
+		this.desgastarse();
+	}
+	
+	public void gopear(Metal unMetal) {
+		unMetal.reducirDurabilidad(this.getFuerza());
+		this.desgastarse();
+	}
+	
+	public void gopear(Diamante unaDiamante) {
+		this.desgastarse();
+	}
 }

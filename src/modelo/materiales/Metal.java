@@ -1,6 +1,8 @@
 package modelo.materiales;
 
 import modelo.herramientas.Hacha;
+import modelo.herramientas.Herramienta;
+import modelo.herramientas.Pico;
 
 public class Metal extends Material {
 
@@ -8,7 +10,8 @@ public class Metal extends Material {
 		durabilidad = 50;
 	}
 	
-	public void recibeGolpeDe(Hacha unaHerramienta) {
-		durabilidad -= unaHerramienta.getFuerza(); 
+
+	public void recibeGolpeDe(Herramienta unaHerramienta) {
+		unaHerramienta.gopear(this);
 	}
 }
