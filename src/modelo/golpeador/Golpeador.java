@@ -16,7 +16,7 @@ public class Golpeador{
         this.materialQueDania = unMaterial;
 
     }
-
+/*
 
     public void golpear(Material unMaterial,Herramienta unaHerramienta){
 
@@ -33,6 +33,6 @@ public class Golpeador{
         }
     }
 
-
+*/
 
 }

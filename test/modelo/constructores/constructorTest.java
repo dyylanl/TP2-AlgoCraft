@@ -36,5 +36,40 @@ public class constructorTest{
 		Assert.assertTrue(hachaDeMetal instanceof HachaDeMetal);
 	}
 	
+	@Test
+	public void constructorDevuelvePicoDeMadera() {
+		Constructor constructor = new Constructor();
+		
+		Herramienta picoDeMadera = constructor.getHerramienta("111010010");
+		
+		Assert.assertTrue(picoDeMadera instanceof PicoDeMadera);
+	}
 	
+	@Test
+	public void constructorDevuelvePicoDePiedra() {
+		Constructor constructor = new Constructor();
+		
+		Herramienta picoDePiedra = constructor.getHerramienta("222010010");
+		
+		Assert.assertTrue(picoDePiedra instanceof PicoDePiedra);
+	}
+	
+	
+	@Test
+	public void constructorDevuelvePicoDeMetal() {
+		Constructor constructor = new Constructor();
+		
+		Herramienta picoDeMetal = constructor.getHerramienta("333010010");
+		
+		Assert.assertTrue(picoDeMetal instanceof PicoDeMetal);
+	}
+	
+	@Test
+	public void constructorDevuelvePicoFico() {
+		Constructor constructor = new Constructor();
+		
+		Herramienta picoFino = constructor.getHerramienta("333210010");
+		
+		Assert.assertTrue(picoFino instanceof PicoFino);
+	}
 }

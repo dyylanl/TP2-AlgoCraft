@@ -8,6 +8,7 @@ public class Diamante extends Material{
 	
 	public Diamante(){
 		durabilidad = 100;
+		identidad = "4";
 	}
 	
 

@@ -7,17 +7,10 @@ import modelo.herramientas.Pico;
 public abstract class Material {
 
 	//Atributos:
-	protected String miClase;
+	protected String identidad;
 	protected int durabilidad;
 
-
 	//Metodos:
-	/*
-	public Herramienta Herramienta(String miClase){ 
-		this.miClase = miClase;
-	}
-	*/
-
 	public abstract void recibeGolpeDe(Herramienta unaHerramienta);
 
 	public int getDurabilidad(){
@@ -28,8 +21,8 @@ public abstract class Material {
 		this.durabilidad -=fuerza; 
 	}
 
-	public String getClase() {
-		return miClase;
+	public String getIdentidad() {
+		return identidad;
 	}
 
 }
