@@ -6,9 +6,9 @@ public class PicoDePiedra extends Pico{
 	
 	public PicoDePiedra(){
 		
-		durabilidad = 200f;
-		fuerza = 4;
-		factorDeDesgaste = 2f/3f;
+		this.durabilidad = 200f;
+		this.fuerza = 4;
+		this.factorDeDesgaste = 2f/3f;
 
 	}
 /*
@@ -18,17 +18,23 @@ public class PicoDePiedra extends Pico{
 	}
 	*/
 	
-	public void gopear(Piedra unaPiedra) {
+	public void golpear(Piedra unaPiedra) {
+
 		unaPiedra.reducirDurabilidad(this.getFuerza());
 		this.desgastarse();
+
 	}
 	
-	public void gopear(Metal unMetal) {
+	public void golpear(Metal unMetal) {
+
 		unMetal.reducirDurabilidad(this.getFuerza());
 		this.desgastarse();
+
 	}
 	
-	public void gopear(Diamante unaDiamante) {
+	public void golpear(Diamante unaDiamante) {
+
 		this.desgastarse();
+
 	}
 }

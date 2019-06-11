@@ -6,9 +6,9 @@ public class PicoFino extends Pico{
 
 	public PicoFino(){
 		
-		durabilidad = 1000;
-		fuerza = 20;
-		factorDeDesgaste = 0.1f;
+		this.durabilidad = 1000;
+		this.fuerza = 20;
+		this.factorDeDesgaste = 0.1f;
 		
 	}
 	
@@ -36,20 +36,22 @@ public class PicoFino extends Pico{
 		return (unMaterial instanceof Diamante) ;
 	}
 	*/
+
+
+	public void golpear(Madera unaMadera) { }
+
 	
-	public void gopear(Madera unaMadera) {
-	}
+	public void golpear(Piedra unaPiedra) { }
+
 	
-	public void gopear(Piedra unaPiedra) {
-	}
-	
-	public void gopear(Metal unMetal) {
-	}
-	
-	public void gopear(Diamante unDiamante) {
+	public void golpear(Metal unMetal) { }
+
+
+	public void golpear(Diamante unDiamante) {
+
 		unDiamante.reducirDurabilidad(this.getFuerza());
 		this.desgastarse();
+
 	}
-	
-	
+
 }

@@ -17,16 +17,20 @@ public abstract class Pico extends Herramienta{
 											// FALTA IMPLEMENTAR ESO
 	}
 	
-	public void gopear(Madera unaMadera) {
+
+	public void golpear(Madera unaMadera) {
+
 		this.desgastarse();
+
 	}
+
+
+	public void golpear(Piedra unaPiedra) { }
 	
-	public void gopear(Piedra unaPiedra) {
-	}
-	
-	public void gopear(Metal unaMaetal) {
-	}
-	
-	public void gopear(Diamante unaDiamante) {
-	}
+
+	public void golpear(Metal unaMaetal) { }
+
+
+	public void golpear(Diamante unaDiamante) { }
+
 }

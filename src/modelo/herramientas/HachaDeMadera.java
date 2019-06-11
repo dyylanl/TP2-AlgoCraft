@@ -1,16 +1,14 @@
 package modelo.herramientas;
 
-import modelo.golpeador.Golpeador;
-import modelo.materiales.Material;
+import modelo.materiales.*;
 
 public class HachaDeMadera extends Hacha  {
 
 
 	public HachaDeMadera() {
-		durabilidad = 100;
-		fuerza = 2;
-		factorDeDesgaste = 1.0f;
-		//golpeador = new Golpeador("madera");
+		this.durabilidad = 100;
+		this.fuerza = 2;
+		this.factorDeDesgaste = 1.0f;
 	}
 
 	

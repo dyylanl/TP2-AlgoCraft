@@ -4,6 +4,7 @@ import modelo.materiales.*;
 
 public abstract class Hacha extends Herramienta{
 
+
 	/*
 	public void usar(Material unMaterial) {
 		
@@ -31,21 +32,27 @@ public abstract class Hacha extends Herramienta{
 											 * */									
 	}
 	
-	public void gopear(Madera unaMadera) {
+	public void golpear(Madera unaMadera) {
 		unaMadera.reducirDurabilidad(this.getFuerza());
 		this.desgastarse();
 	}
 	
-	public void gopear(Piedra unaPiedra) {
+	public void golpear(Piedra unaPiedra) {
+
 		this.desgastarse();
+
 	}
 	
-	public void gopear(Metal unaMaetal) {
+	public void golpear(Metal unaMaetal) {
+
 		this.desgastarse();
+
 	}
 	
-	public void gopear(Diamante unaDiamante){
+	public void golpear(Diamante unaDiamante){
+
 		this.desgastarse();
+
 	}
 	
 }

@@ -1,7 +1,6 @@
 package modelo.herramientas;
 
 
-import modelo.golpeador.Golpeador;
 import modelo.materiales.Diamante;
 import modelo.materiales.Madera;
 import modelo.materiales.Material;
@@ -14,8 +13,8 @@ public abstract class Herramienta{
 
     protected float durabilidad;
     protected int fuerza;
- ///   protected Golpeador golpeador;
     protected float factorDeDesgaste;
+
 
     public abstract void desgastarse();
 /*
@@ -39,11 +38,11 @@ public abstract class Herramienta{
 	}
 
 
-	public abstract void gopear(Madera unaMadera);
+	public abstract void golpear(Madera unaMadera);
 	
-	public abstract void gopear(Piedra unaPiedra);
+	public abstract void golpear(Piedra unaPiedra);
 	
-	public abstract void gopear(Metal unaMaetal);
+	public abstract void golpear(Metal unaMaetal);
 	
-	public abstract void gopear(Diamante unaDiamante);
+	public abstract void golpear(Diamante unaDiamante);
 }
