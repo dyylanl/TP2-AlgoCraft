@@ -4,16 +4,34 @@ public class Posicion{
 	protected int x;
 	protected int y;
 	
-	public Posicion(){
-	
-	}
-
-	public void setX(int x){
+	public Posicion(int x, int y){
 		this.x = x;
+		this.y = y;
+		
 	}
 
-	public void setY(int y){
-		this.y = y;
+	@Override
+	public boolean equals(Object obj){
+		
+		if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Posicion otraPos = (Posicion) obj;
+        //return this.igualPosicionA(otraPos);
+		return igualPosicionA(otraPos);
+		
+	}
+	
+	@Override
+	public int hashCode(){
+		final int prime = 31;
+	    int result = 1;
+	    result = prime * result + x;
+        result = prime * result + y;
+        return result;	
 	}
 
 	public int x(){
@@ -23,15 +41,18 @@ public class Posicion{
 	public int y(){
 		return y;
 	}
-	public Boolean igualPosicionA(Posicion otraPosicion){
+	
+	public boolean igualPosicionA(Posicion otraPosicion){
 
 		return ((this.x == otraPosicion.x()) && (this.y == otraPosicion.y()));
 
 	}
 
+	/*
 	public void nuevaPosicion(Posicion nuevaPosicion){
 		this.x = nuevaPosicion.x();
 		this.y = nuevaPosicion.y();
 	}
+	*/
 
 }

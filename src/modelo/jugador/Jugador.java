@@ -12,8 +12,6 @@ public class Jugador {
 	public Jugador() {
 		
 		herramientaEquipada = new HachaDeMadera();
-		posicionActual = new Posicion();
-	
 
 	}
 	
@@ -22,12 +20,20 @@ public class Jugador {
 	}
 
 
-	public Boolean moverAUnaPosicion(Mapa mapa, Posicion nuevaPosicion){
-		this.posicionActual.nuevaPosicion(nuevaPosicion);
-		return mapa.ocuparEspacio(this, nuevaPosicion); //atrapar la excepcion
-
+	public void moverAUnaPosicion(Mapa mapa, Posicion nuevaPosicion){
+		 //atrapar la excepcion
+		//mapa.ocuparEspacio(this, nuevaPosicion)
+		JugadorEnMapa objeto = new JugadorEnMapa(this);
+		if(mapa.ocuparEspacio(objeto, nuevaPosicion)){
+			this.posicionActual = nuevaPosicion;
+			
+		}
+		
 	}
 
 
-
+	public Posicion miPosicion(){
+		return posicionActual;
+	}
+	
 }

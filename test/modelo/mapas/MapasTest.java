@@ -14,54 +14,52 @@ public class MapasTest{
 
 	@Test
 	public void JugadorIntentaOcuparUnEspacioVacioEnMapaEsTrue(){
-		Posicion posicion = new Posicion();
+		Posicion posicion = new Posicion(2 , 5);
 		Jugador jugador = new Jugador();
 		
+		ObjetoEnMapa jugadorEnMapa = new JugadorEnMapa(jugador);
 		int filasMapa = 20, columnasMapa = 40;
-		posicion.setX(2);
-		posicion.setY(5);
+
 
 		Mapa mapa = new Mapa(filasMapa, columnasMapa);
 
-		Assert.assertTrue(mapa.ocuparEspacio(jugador, posicion));
+		Assert.assertTrue(mapa.ocuparEspacio(jugadorEnMapa, posicion));
 	}
 
 	@Test
 	public void JugadorIntentaOcuparElEspacioOcupadoDeMaterialEsFalse(){
-		Posicion posicion = new Posicion();
+		Posicion posicion = new Posicion(2 , 5);
 		Material material = new Metal();
 		Jugador jugador = new Jugador();
 		
+		ObjetoEnMapa jugadorEnMapa = new JugadorEnMapa(jugador);
+		
+		
 		int filasMapa = 20, columnasMapa = 40;
-		posicion.setX(2);
-		posicion.setY(5);
 
 		Mapa mapa = new Mapa(filasMapa, columnasMapa);
-		mapa.ocuparEspacio(material, posicion);
-		Assert.assertFalse(mapa.ocuparEspacio(jugador, posicion));
+		
+		ObjetoEnMapa materialEnMapa = new MaterialEnMapa(material);
+		
+		mapa.ocuparEspacio(materialEnMapa, posicion);
+		Assert.assertFalse(mapa.ocuparEspacio(jugadorEnMapa, posicion));
 	}
-
-
 
 	@Test
-	public void MapainicializadoCorrectamente(){
-
-		int filasMapa = 20, columnasMapa = 40;
-		Mapa  mapa = new Mapa(filasMapa, columnasMapa);
-		Boolean ocupado = true; 
-		Posicion pos = new Posicion();
+	public void seObtieneElObjetoEsperado(){
+		Posicion posicion = new Posicion(2, 5);
+		Posicion otraPos = new Posicion(2, 5);
+		Jugador jugador = new Jugador();
 		
-		for(int i = 0; i<filasMapa ;i++){
-			pos.setX(i);
-			for(int j = 0; j<columnasMapa ;j++){
-				pos.setY(i);
-				ocupado = mapa.posicionOcupada(pos); // lugares desocupados
-					if(ocupado) break;
-			}
-		}
+		int filasMapa = 20, columnasMapa = 40;
 
-		Assert.assertFalse(ocupado);
 
+		Mapa mapa = new Mapa(filasMapa, columnasMapa);
+		jugador.moverAUnaPosicion(mapa, posicion);
+		
+		ObjetoEnMapa objeto = mapa.obtenerObjeto(posicion);
+		
+		Assert.assertTrue(otraPos.igualPosicionA(objeto.miPosicion()));
 	}
-
+	
 }

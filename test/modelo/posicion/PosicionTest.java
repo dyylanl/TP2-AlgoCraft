@@ -9,39 +9,16 @@ import junit.framework.Assert;
 public class PosicionTest{
 
 	@Test
-	public void PosicionSeteado3EnXDevuelve3EnX(){
+	public void PosicionSeteado3EnX2EnYDevuelve3EnX2EnY(){
 
-		Posicion posicion = new Posicion();
-		int posX = 3;
+		int posX = 3, posY= 2;
 
-		posicion.setX(posX);
-		Assert.assertEquals(3, posicion.x());
-	}
+		Posicion posicion = new Posicion(posX, posY);
+	
 
-	@Test
-	public 	void PosicionSeteado2EnYDevuelve2EnX(){
-
-		Posicion posicion = new Posicion();
-		int posY = 2;
-
-		posicion.setY(posY);
-		Assert.assertEquals(2, posicion.y());
-	}
-
-	@Test
-	public 	void ComparoPosicion2enX1enYConOtraPosicionIgualEsTrue() {
-
-		Posicion posicion = new Posicion();
-		int posX = 2, posY = 1;
-		posicion.setX(posX);
-		posicion.setY(posY);
-
-		Posicion otraPosicion = new Posicion();
-		otraPosicion.setX(2);
-		otraPosicion.setY(1);
-
-		Assert.assertTrue(posicion.igualPosicionA(otraPosicion));
+		Assert.assertTrue(posicion.x() == 3 && posicion.y()==2);
 	}
 
 
+	
 }

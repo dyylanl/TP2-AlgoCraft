@@ -31,11 +31,19 @@ public abstract class Material {
 		return identidad;
 	}
 	
+	public Posicion miPosicion(){
+		return this.posicion;
+	}
 
-	public Boolean posicionar(Mapa mapa, Posicion nuevaPosicion){
-		this.posicion.nuevaPosicion(nuevaPosicion);
-		return mapa.ocuparEspacio(this, nuevaPosicion); //atrapar la excepcion
-
+	public boolean posicionar(Mapa mapa, Posicion nuevaPosicion){
+		
+		MaterialEnMapa objeto = new MaterialEnMapa(this);
+		
+		if(mapa.ocuparEspacio(objeto, nuevaPosicion)){ //atrapar la excepcion
+			this.posicion = nuevaPosicion;
+			return true;
+		}
+		return false;
 	}
 
 }
