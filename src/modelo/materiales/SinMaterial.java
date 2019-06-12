@@ -5,8 +5,8 @@ import modelo.herramientas.Herramienta;
 public class SinMaterial extends Material{
 	
 	public SinMaterial() {
-		durabilidad = 0;
-		identidad = "SinMaterial"; 
+		this.durabilidad = 0;
+		this.identidad = "0";
 	}
 
 	@Override

@@ -13,7 +13,9 @@ public class Diamante extends Material{
 	
 
 	public void recibeGolpeDe(Herramienta unaHerramienta) {
-		unaHerramienta.gopear(this);
+
+		unaHerramienta.golpear(this);
+
 	}
 
 }

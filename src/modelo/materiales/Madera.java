@@ -7,13 +7,27 @@ import modelo.herramientas.Pico;
 public class Madera extends Material{
 		
 	public Madera(){
-		durabilidad = 10;
-		identidad = "1";
+		this.durabilidad = 10;
+		this.identidad = "1";
 	}
 
 	
 	public void recibeGolpeDe(Herramienta unaHerramienta) {
-		unaHerramienta.gopear(this);
+
+		unaHerramienta.golpear(this);
+
+	}
+
+	public void reducirDurabilidad(int conFuerza){
+
+		this.durabilidad = this.durabilidad - conFuerza;
+
+	}
+
+	public String getIdentidad(){
+
+		return this.identidad;
+
 	}
 
 	

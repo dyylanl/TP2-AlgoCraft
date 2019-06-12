@@ -1,7 +1,5 @@
 package modelo.constructores;
 
-import java.util.*;
-
 import modelo.herramientas.*;
 
 public abstract class ConstructorDeHerramientas{
