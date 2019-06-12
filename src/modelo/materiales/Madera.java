@@ -15,6 +15,6 @@ public class Madera extends Material{
 	public void recibeGolpeDe(Herramienta unaHerramienta) {
 		unaHerramienta.gopear(this);
 	}
-	
+
 	
 }

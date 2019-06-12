@@ -6,7 +6,7 @@ public class SinMaterial extends Material{
 	
 	public SinMaterial() {
 		durabilidad = 0;
-		identidad = "0"; 
+		identidad = "SinMaterial"; 
 	}
 
 	@Override

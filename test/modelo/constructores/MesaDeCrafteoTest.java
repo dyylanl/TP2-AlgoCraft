@@ -23,6 +23,7 @@ public class MesaDeCrafteoTest{
 		Assert.assertTrue(hachaDeMadera instanceof HachaDeMadera);
 	}
 	
+/*
 	@Test
 	public void MesaDeCrafteoCreaUnHachaDePiedra() {
 		MesaDeCrafteo mesaDeCrafteo = new MesaDeCrafteo();
@@ -35,7 +36,7 @@ public class MesaDeCrafteoTest{
 		Herramienta hachaDePiedra = mesaDeCrafteo.crearHerramienta();
 		Assert.assertTrue(hachaDePiedra instanceof HachaDePiedra);
 	}
-	
+/*	
 	@Test
 	public void MesaDeCrafteoCreaUnHachaDeMetal() {
 		MesaDeCrafteo mesaDeCrafteo = new MesaDeCrafteo();
@@ -101,4 +102,6 @@ public class MesaDeCrafteoTest{
 		Herramienta picoFino = mesaDeCrafteo.crearHerramienta();
 		Assert.assertTrue(picoFino instanceof PicoFino);
 	}
+	
+	*/
 }

@@ -12,6 +12,10 @@ public abstract class Material {
 
 	//Metodos:
 	public abstract void recibeGolpeDe(Herramienta unaHerramienta);
+	
+	public boolean esEquivalante(Material otroMaterial) {
+		return this.getIdentidad() == otroMaterial.getIdentidad();
+	}
 
 	public int getDurabilidad(){
 		return durabilidad;
@@ -24,5 +28,6 @@ public abstract class Material {
 	public String getIdentidad() {
 		return identidad;
 	}
+	
 
 }
