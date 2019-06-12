@@ -10,8 +10,8 @@ public class Codificador {
 		codigo = "";
 	}
 	
-	public String getCodigo(Material[] mesa, int tamaño) {
-		for(int i = 0;i < tamaño;i++) {
+	public String getCodigo(Material[] mesa, int tamano) {
+		for(int i = 0;i < tamano;i++) {
 			codigo = codigo + mesa[i].getIdentidad();
 		}
 		return codigo;

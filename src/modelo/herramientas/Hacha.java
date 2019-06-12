@@ -4,7 +4,6 @@ import modelo.materiales.*;
 
 public abstract class Hacha extends Herramienta{
 
-
 	/*
 	public void usar(Material unMaterial) {
 		
