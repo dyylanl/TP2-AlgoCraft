@@ -14,7 +14,7 @@ public abstract class Material {
 
 	//Metodos:
 	public abstract void recibeGolpeDe(Herramienta unaHerramienta);
-	
+
 	public boolean esEquivalante(Material otroMaterial) {
 		return this.getIdentidad() == otroMaterial.getIdentidad();
 	}
@@ -30,20 +30,12 @@ public abstract class Material {
 	public String getIdentidad() {
 		return identidad;
 	}
-	
+
 	public Posicion miPosicion(){
+
 		return this.posicion;
+
 	}
 
-	public boolean posicionar(Mapa mapa, Posicion nuevaPosicion){
-		
-		MaterialEnMapa objeto = new MaterialEnMapa(this);
-		
-		if(mapa.ocuparEspacio(objeto, nuevaPosicion)){ //atrapar la excepcion
-			this.posicion = nuevaPosicion;
-			return true;
-		}
-		return false;
-	}
 
 }

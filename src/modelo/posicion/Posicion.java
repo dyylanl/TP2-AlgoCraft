@@ -48,11 +48,4 @@ public class Posicion{
 
 	}
 
-	/*
-	public void nuevaPosicion(Posicion nuevaPosicion){
-		this.x = nuevaPosicion.x();
-		this.y = nuevaPosicion.y();
-	}
-	*/
-
 }
