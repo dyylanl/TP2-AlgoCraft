@@ -6,32 +6,27 @@ public class MovimientosJugador {
 
 	public boolean moverJugadorArriba(Jugador unJugador, Mapa mapa){
 		
-		Posicion posAnterior = unJugador.miPosicion();
-		Posicion posNueva = new Posicion(posAnterior.x(), posAnterior.y()+1); 
-		
+		Posicion posNueva = unJugador.miPosicion().getPosicionArriba();
 		return mapa.posicionarJugador(unJugador, posNueva);
 			
 	}
 	
 	public boolean moverJugadorAbajo(Jugador unJugador, Mapa mapa){
 		
-		Posicion posAnterior = unJugador.miPosicion();
-		Posicion posNueva = new Posicion(posAnterior.x(), posAnterior.y()-1); 
+		Posicion posNueva = unJugador.miPosicion().getPosicionAbajo();
 		
 		return mapa.posicionarJugador(unJugador, posNueva);
 
 	}
 
 	public boolean moverJugadorDerecha(Jugador unJugador, Mapa mapa){
-		Posicion posAnterior = unJugador.miPosicion();
-		Posicion posNueva = new Posicion(posAnterior.x()+1, posAnterior.y()); 
+		Posicion posNueva = unJugador.miPosicion().getPosicionDerecha();
 		
 		return mapa.posicionarJugador(unJugador, posNueva);
 	}
 
 	public boolean moverJugadorIzquierda(Jugador unJugador, Mapa mapa){
-		Posicion posAnterior = unJugador.miPosicion();
-		Posicion posNueva = new Posicion(posAnterior.x()-1, posAnterior.y()); 
+		Posicion posNueva = unJugador.miPosicion().getPosicionIzquierda();
 		
 		return mapa.posicionarJugador(unJugador, posNueva);
 	}

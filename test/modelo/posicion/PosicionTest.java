@@ -15,10 +15,37 @@ public class PosicionTest{
 
 		Posicion posicion = new Posicion(posX, posY);
 	
-
-		Assert.assertTrue(posicion.x() == 3 && posicion.y()==2);
+		Assert.assertTrue(true);
 	}
 
+	@Test
+	public void UnaPosicionEstaEnLimites(){
 
+		int posX = 3, posY= 2;
+
+		Posicion posicion = new Posicion(posX, posY);
+	
+		Assert.assertTrue(posicion.estaEnLimmites(3, 0, 10, 20));
+	}
+
+	@Test
+	public void UnaPosicionEstaFueraDeLimites(){
+
+		int posX = 3, posY= 2;
+
+		Posicion posicion = new Posicion(posX, posY);
+	
+		Assert.assertFalse(posicion.estaEnLimmites(4, 111, 10, 202));
+	}
+	
+	@Test
+	public void UnaPosicionNegativaEstaFueraDeLimites(){
+
+		int posX = -3, posY= -2;
+
+		Posicion posicion = new Posicion(posX, posY);
+	
+		Assert.assertFalse(posicion.estaEnLimmites(4, 111, 10, 202));
+	}
 	
 }

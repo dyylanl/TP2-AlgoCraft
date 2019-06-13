@@ -15,14 +15,6 @@ public class MesaDeCrafteo{
 	public MesaDeCrafteo(){
 		mesa = new Mesa(cantidad);
 		//constructor = new ConstructorDeHerramientas[cantidad];
-		constructores = Arrays.asList(new ConstructorDeHachaDeMadera(), 
-										new ConstructorDeHachaDePiedra(),
-										new ConstructorDeHachaDeMetal(),
-										new ConstructorDePicoDeMetal(),
-										new ConstructorDePicoDeMadera(),
-										new ConstructorDePicoDePiedra(),
-										new ConstructorDePicoFino()
-										);
 	}
 	
 	public void agregarMaterialEnPosicion(Material unMaterial,int unaPosicion) {
@@ -30,7 +22,7 @@ public class MesaDeCrafteo{
 	}
 	
 	public Herramienta crearHerramienta(){
-		for(ConstructorDeHerramientas constructor: constructores) {
+		for(ConstructorDeHerramientas constructor: ConstructorDeHerramientas.getConstructores()) {
 			if(constructor.puedeConstruir(mesa)) {
 				return constructor.ConstruirHerramienta();
 			}

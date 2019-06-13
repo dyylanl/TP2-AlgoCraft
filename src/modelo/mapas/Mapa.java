@@ -25,16 +25,7 @@ public class Mapa{
 		
 	}
 
-	/*
-	public boolean ocuparEspacio(ObjetoEnMapa objeto, Posicion unaPosicion){
-		
-		if(this.posicionOcupada(unaPosicion)) return false;
-		
-		this.terreno.put(unaPosicion, objeto);
-		
-		return true;
-	}
-	 */
+	
 	public ObjetoMinecraft obtenerObjeto(Posicion unaPos){
 		
 		return this.terreno.get(unaPos);		
@@ -43,7 +34,7 @@ public class Mapa{
 	
 	public boolean posicionInvalida(Posicion unaPosicion){
 		boolean filtro1 = this.terreno.containsKey(unaPosicion);
-		boolean filtro2 = (unaPosicion.x() > maxX || unaPosicion.y() > maxY);
+		boolean filtro2 = (!unaPosicion.estaEnLimmites(0, 0, this.maxX, this.maxY));
 		
 		return (filtro1 || filtro2);
 	}

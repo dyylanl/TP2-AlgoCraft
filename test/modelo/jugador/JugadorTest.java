@@ -24,7 +24,7 @@ public class JugadorTest {
 		Mapa mapa = new Mapa(20 , 33);
 		Posicion posicion = new Posicion(1,1);
 
-		Assert.assertTrue(mapa.posicionarJugador(jugador));
+		Assert.assertTrue(mapa.posicionarJugador(jugador, posicion));
 	}
 
 	/*@Test

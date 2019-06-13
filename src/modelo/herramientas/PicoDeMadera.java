@@ -19,11 +19,6 @@ public class PicoDeMadera extends Pico{
 
 	}
 	
-	public void golpear(Metal unaMaetal) {
-
-		this.desgastarse();
-
-	}
 	
 	public void golpear(Diamante unaDiamante) {
 

@@ -5,7 +5,8 @@ import modelo.materiales.*;
 public class Mesa {
 	
 	protected Material[] mesa;
-	private int cantidad; 
+	private int cantidad;
+	
 	public Mesa(int unaCantidad) {
 		cantidad = unaCantidad;
 		mesa = new Material[cantidad];

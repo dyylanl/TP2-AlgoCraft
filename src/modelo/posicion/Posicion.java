@@ -21,7 +21,7 @@ public class Posicion{
             return false;
         Posicion otraPos = (Posicion) obj;
         //return this.igualPosicionA(otraPos);
-		return igualPosicionA(otraPos);
+		return (this.x == otraPos.x && this.y == otraPos.y);
 		
 	}
 	
@@ -34,18 +34,28 @@ public class Posicion{
         return result;	
 	}
 
-	public int x(){
-		return x;
+	public Posicion getPosicionArriba() {
+		return new Posicion(this.x, this.y + 1);
 	}
 
-	public int y(){
-		return y;
+	public Posicion getPosicionAbajo() {
+		return new Posicion(this.x, this.y -1);
+	}
+
+	public Posicion getPosicionDerecha() {
+		return new Posicion(this.x + 1, this.y);
+	}
+
+	public Posicion getPosicionIzquierda() {
+		return new Posicion(this.x - 1, this.y + 1);
+	}
+
+	public boolean estaEnLimmites(int limiteInfX, int limiteInfY ,int limiteSupX ,int limiteSupY) {
+		
+		boolean ok1 = (this.x >= limiteInfX && this.x <= limiteSupX);
+		boolean ok2 = (this.y >= limiteInfY && this.y <= limiteSupY);
+		
+		return (ok1 && ok2);
 	}
 	
-	public boolean igualPosicionA(Posicion otraPosicion){
-
-		return ((this.x == otraPosicion.x()) && (this.y == otraPosicion.y()));
-
-	}
-
 }
