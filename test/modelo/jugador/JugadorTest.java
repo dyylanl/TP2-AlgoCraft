@@ -23,11 +23,8 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		Mapa mapa = new Mapa(20 , 33);
 		Posicion posicion = new Posicion(1,1);
-		
-		
-		jugador.moverAUnaPosicion(mapa, posicion);
 
-		Assert.assertTrue(jugador.miPosicion().x() == 1 && jugador.miPosicion().y() ==1);
+		Assert.assertTrue(mapa.posicionarJugador(jugador));
 	}
 
 	/*@Test

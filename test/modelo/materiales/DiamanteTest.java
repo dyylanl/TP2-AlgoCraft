@@ -13,6 +13,5 @@ public class DiamanteTest {
 		Material diamante = new Diamante();
 		
 		Assert.assertEquals(100, diamante.getDurabilidad());
-		
 	}
 }

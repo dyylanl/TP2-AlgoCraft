@@ -1,11 +1,12 @@
 package modelo.materiales;
 
 import modelo.herramientas.*;
+import modelo.interfaz.*;
 import modelo.posicion.*;
 import modelo.materiales.*;
 import modelo.mapas.*;
 
-public abstract class Material {
+public abstract class Material implements ObjetoMinecraft{
 
 	//Atributos:
 	protected String identidad;

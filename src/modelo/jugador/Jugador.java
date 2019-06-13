@@ -2,8 +2,9 @@ package modelo.jugador;
 import modelo.herramientas.*;
 import modelo.posicion.*;
 import modelo.mapas.*;
+import modelo.interfaz.*;
 
-public class Jugador {
+public class Jugador implements ObjetoMinecraft{
 	
 	protected HachaDeMadera herramientaEquipada;
 	
@@ -20,18 +21,11 @@ public class Jugador {
 	}
 
 
-	public void moverAUnaPosicion(Mapa mapa, Posicion nuevaPosicion){
-		 //atrapar la excepcion
-		//mapa.ocuparEspacio(this, nuevaPosicion)
-		JugadorEnMapa objeto = new JugadorEnMapa(this);
-		if(mapa.ocuparEspacio(objeto, nuevaPosicion)){
-			this.posicionActual = nuevaPosicion;
-			
-		}
+	public void moverAUnaPosicion(Posicion nuevaPosicion){	 
+		this.posicionActual = nuevaPosicion;
 		
 	}
-
-
+	
 	public Posicion miPosicion(){
 		return posicionActual;
 	}

@@ -9,43 +9,56 @@ import modelo.posicion.*;
 import modelo.materiales.*;
 import modelo.jugador.*;
 import modelo.mapas.*;
+import modelo.interfaz.*;
 
 public class MapasTest{
 
 	@Test
-	public void JugadorIntentaOcuparUnEspacioVacioEnMapaEsTrue(){
+	public void JugadorPuedeOcuparUnCasilleroDesocupado(){
 		Posicion posicion = new Posicion(2 , 5);
 		Jugador jugador = new Jugador();
 		
-		ObjetoEnMapa jugadorEnMapa = new JugadorEnMapa(jugador);
 		int filasMapa = 20, columnasMapa = 40;
 
 
 		Mapa mapa = new Mapa(filasMapa, columnasMapa);
 
-		Assert.assertTrue(mapa.ocuparEspacio(jugadorEnMapa, posicion));
+		Assert.assertTrue(mapa.posicionarJugador(jugador));
 	}
 
+
 	@Test
-	public void JugadorIntentaOcuparElEspacioOcupadoDeMaterialEsFalse(){
+	public void JugadorNoPuedeOcuparUnCasilleroOcupado(){
 		Posicion posicion = new Posicion(2 , 5);
+		Posicion mismaPosicion = new Posicion(2 , 5);
 		Material material = new Metal();
 		Jugador jugador = new Jugador();
 		
-		ObjetoEnMapa jugadorEnMapa = new JugadorEnMapa(jugador);
-		
 		
 		int filasMapa = 20, columnasMapa = 40;
 
 		Mapa mapa = new Mapa(filasMapa, columnasMapa);
 		
-		ObjetoEnMapa materialEnMapa = new MaterialEnMapa(material);
+		mapa.posicionarJugador(jugador, posicion);
+		Assert.assertFalse(mapa.posicionarJugador(jugador, mismaPosicion));
+	}
+	
+	@Test
+	public void MaterialPuedeOcuparUnCasilleroDesocupado(){
+		Posicion posicion = new Posicion(2 , 5);
+		Material material= new Madera();
 		
-		mapa.ocuparEspacio(materialEnMapa, posicion);
-		Assert.assertFalse(mapa.ocuparEspacio(jugadorEnMapa, posicion));
+		int filasMapa = 20, columnasMapa = 40;
+
+
+		Mapa mapa = new Mapa(filasMapa, columnasMapa);
+
+		Assert.assertTrue(mapa.posicionarMaterial(material));
 	}
 
-	@Test
+
+
+	/*@Test
 	public void seObtieneElObjetoEsperado(){
 		Posicion posicion = new Posicion(2, 5);
 		Posicion otraPos = new Posicion(2, 5);
@@ -55,11 +68,12 @@ public class MapasTest{
 
 
 		Mapa mapa = new Mapa(filasMapa, columnasMapa);
-		jugador.moverAUnaPosicion(mapa, posicion);
+		mapa.posicionarJugador(jugador, posicion);
+		ObjetoMinecraft objeto = mapa.obtenerObjeto(posicion);
 		
-		ObjetoEnMapa objeto = mapa.obtenerObjeto(posicion);
 		
-		Assert.assertTrue(otraPos.igualPosicionA(objeto.miPosicion()));
+		Assert.assertTrue();
 	}
+*/	
 	
 }

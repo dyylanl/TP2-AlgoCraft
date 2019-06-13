@@ -2,25 +2,30 @@ package modelo.mapas;
 
 import java.util.*;
 
+
 import modelo.herramientas.*;
 import modelo.jugador.*;
 import modelo.posicion.*;
 import modelo.materiales.*;
+import modelo.interfaz.*;
 
 public class Mapa{
 
-	protected HashMap<Posicion, ObjetoEnMapa> terreno;
+	protected HashMap<Posicion, ObjetoMinecraft> terreno;
 	private int x,y;
+	protected int maxX, maxY; 
 	
 
 	public Mapa(int filas, int columnas){
 		this.x = 0;
 		this.y = 0;
-		this.terreno = new HashMap<Posicion, ObjetoEnMapa>();
-
+		this.maxX = columnas;
+		this.maxY = filas;
+		this.terreno = new HashMap<Posicion, ObjetoMinecraft>();
 		
 	}
 
+	/*
 	public boolean ocuparEspacio(ObjetoEnMapa objeto, Posicion unaPosicion){
 		
 		if(this.posicionOcupada(unaPosicion)) return false;
@@ -29,32 +34,49 @@ public class Mapa{
 		
 		return true;
 	}
-
-	public ObjetoEnMapa obtenerObjeto(Posicion unaPos){
+	 */
+	public ObjetoMinecraft obtenerObjeto(Posicion unaPos){
 		
 		return this.terreno.get(unaPos);		
 			
 	}
 	
-	public Boolean posicionOcupada(Posicion unaPosicion){
-		return this.terreno.containsKey(unaPosicion);
+	public boolean posicionInvalida(Posicion unaPosicion){
+		boolean filtro1 = this.terreno.containsKey(unaPosicion);
+		boolean filtro2 = (unaPosicion.x() > maxX || unaPosicion.y() > maxY);
+		
+		return (filtro1 || filtro2);
 	}
 
 
-	public void posicionarMaterial(Material unMaterial){
+	public boolean posicionarMaterial(Material unMaterial){
 
-		MaterialEnMapa material = new MaterialEnMapa(unMaterial);
-
-		this.terreno.put(obtenerPosicionAleatoria(),material);
-
+		//MaterialEnMapa material = new MaterialEnMapa(unMaterial);
+		Posicion unaPosicion = this.obtenerPosicionAleatoria();
+		if(this.posicionInvalida(unaPosicion)) return false;
+		
+		this.terreno.put(unaPosicion, unMaterial);
+		return true;
 	}
 
 
-	public void posicionarJugador(Jugador unJugador){
+	public boolean posicionarJugador(ObjetoMinecraft unJugador){
 
-		JugadorEnMapa jugador = new JugadorEnMapa(unJugador);
+		//JugadorEnMapa jugador = new JugadorEnMapa(unJugador);
+		Posicion unaPosicion = this.obtenerPosicionAleatoria();
+		if(this.posicionInvalida(unaPosicion)) return false;
+		this.terreno.put(unaPosicion, unJugador);
+		return true;
 
-		this.terreno.put(obtenerPosicionAleatoria(),jugador);
+	}
+
+	public boolean posicionarJugador(Jugador unJugador, Posicion unaPosicion){
+
+		//JugadorEnMapa jugador = new JugadorEnMapa(unJugador);
+		if(this.posicionInvalida(unaPosicion)) return false;
+		this.terreno.put(unaPosicion, unJugador);
+		unJugador.moverAUnaPosicion(unaPosicion);
+		return true;
 
 	}
 
