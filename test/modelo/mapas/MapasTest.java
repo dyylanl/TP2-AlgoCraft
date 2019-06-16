@@ -1,30 +1,13 @@
 package modelo.mapas;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
-
 import junit.framework.Assert;
 import modelo.posicion.*;
 import modelo.materiales.*;
 import modelo.jugador.*;
-import modelo.mapas.*;
-import modelo.interfaz.*;
+
 
 public class MapasTest{
-
-	@Test
-	public void JugadorPuedeOcuparUnCasilleroDesocupado(){
-		Posicion posicion = new Posicion(2 , 5);
-		Jugador jugador = new Jugador();
-		
-		int filasMapa = 20, columnasMapa = 40;
-
-
-		Mapa mapa = new Mapa(filasMapa, columnasMapa);
-
-		Assert.assertTrue(mapa.posicionarJugador(jugador));
-	}
 
 
 	@Test
@@ -33,47 +16,30 @@ public class MapasTest{
 		Posicion mismaPosicion = new Posicion(2 , 5);
 		Material material = new Metal();
 		Jugador jugador = new Jugador();
-		
-		
-		int filasMapa = 20, columnasMapa = 40;
-
-		Mapa mapa = new Mapa(filasMapa, columnasMapa);
-		
+		Mapa mapa = new Mapa();
 		mapa.posicionarJugador(jugador, posicion);
+
 		Assert.assertFalse(mapa.posicionarJugador(jugador, mismaPosicion));
 	}
-	
+
+
 	@Test
-	public void MaterialPuedeOcuparUnCasilleroDesocupado(){
-		Posicion posicion = new Posicion(2 , 5);
-		Material material= new Madera();
-		
-		int filasMapa = 20, columnasMapa = 40;
+	public void mapaSeInicializaVacio(){
 
+		Mapa mapa = new Mapa();
 
-		Mapa mapa = new Mapa(filasMapa, columnasMapa);
+		for(int i = 0; i <= 13; i++){
 
-		Assert.assertTrue(mapa.posicionarMaterial(material));
+			for(int j = 0; j <= 13; j++){
+
+				Posicion posicionActual = new Posicion(i,j);
+				Assert.assertTrue(mapa.obtenerObjeto(posicionActual) == null);
+
+			}
+
+		}
+
 	}
 
 
-
-	/*@Test
-	public void seObtieneElObjetoEsperado(){
-		Posicion posicion = new Posicion(2, 5);
-		Posicion otraPos = new Posicion(2, 5);
-		Jugador jugador = new Jugador();
-		
-		int filasMapa = 20, columnasMapa = 40;
-
-
-		Mapa mapa = new Mapa(filasMapa, columnasMapa);
-		mapa.posicionarJugador(jugador, posicion);
-		ObjetoMinecraft objeto = mapa.obtenerObjeto(posicion);
-		
-		
-		Assert.assertTrue();
-	}
-*/	
-	
 }

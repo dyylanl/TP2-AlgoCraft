@@ -8,83 +8,87 @@ import java.util.Map;
 
 public class Juego {
 
+    public Mapa mapa;
+
+
     public void iniciar(){
 
-        Mapa mapa = new Mapa(9,13);
-        cargarTerreno(mapa);
-        cargarJugador(mapa);
+        this.mapa = new Mapa();
+        cargarJugador();
+        cargarTerreno();
 
     }
 
-    public void cargarJugador(Mapa unMapa){
+
+    public void cargarJugador(){
 
         Jugador jugador = new Jugador();
-        unMapa.posicionarJugador(jugador);
-    }
-
-
-    public void cargarTerreno(Mapa unMapa){
-
-        cargarMadera(unMapa);
-        cargarPiedra(unMapa);
-        cargarMetal(unMapa);
-        cargarDiamante(unMapa);
-
-    }
-
-    public void cargarMadera(Mapa unMapa){
-
-        Madera madera = new Madera();
-        unMapa.posicionarMaterial(madera);
-        Madera madera1 = new Madera();
-        unMapa.posicionarMaterial(madera1);
-        Madera madera2 = new Madera();
-        unMapa.posicionarMaterial(madera2);
-        Madera madera3 = new Madera();
-        unMapa.posicionarMaterial(madera3);
-        Madera madera4 = new Madera();
-        unMapa.posicionarMaterial(madera4);
-        Madera madera5 = new Madera();
-        unMapa.posicionarMaterial(madera5);
+        this.mapa.posicionarJugador(jugador);
 
     }
 
 
-    public void cargarPiedra(Mapa unMapa){
+    public void cargarTerreno(){
 
-        Piedra piedra = new Piedra();
-        unMapa.posicionarMaterial(piedra);
-        Piedra piedra1 = new Piedra();
-        unMapa.posicionarMaterial(piedra1);
-        Piedra piedra2 = new Piedra();
-        unMapa.posicionarMaterial(piedra2);
-        Piedra piedra3 = new Piedra();
-        unMapa.posicionarMaterial(piedra3);
-        Piedra piedra4 = new Piedra();
-        unMapa.posicionarMaterial(piedra4);
+        cargarMadera();
+        cargarPiedra();
+        cargarMetal();
+        cargarDiamante();
 
     }
 
 
-    public void cargarMetal(Mapa unMapa){
+    public void cargarMadera(){
 
-        Metal metal = new Metal();
-        unMapa.posicionarMaterial(metal);
-        Metal metal1 = new Metal();
-        unMapa.posicionarMaterial(metal1);
-        Metal metal2 = new Metal();
-        unMapa.posicionarMaterial(metal2);
-        Metal metal3 = new Metal();
-        unMapa.posicionarMaterial(metal3);
+        for(int i = 0; i <= 8; i++){
+
+            Madera madera = new Madera();
+            this.mapa.posicionarMaterial(madera);
+
+        }
 
     }
 
 
-    public void cargarDiamante(Mapa unMapa){
+    public void cargarPiedra(){
+
+        for(int i = 0; i <= 5; i++){
+
+            Piedra piedra = new Piedra();
+            this.mapa.posicionarMaterial(piedra);
+
+        }
+
+    }
+
+
+    public void cargarMetal(){
+
+        for(int i = 0; i <= 4; i++){
+
+            Metal metal = new Metal();
+            this.mapa.posicionarMaterial(metal);
+
+        }
+
+    }
+
+
+    public void cargarDiamante(){
 
         Diamante diamante = new Diamante();
-        unMapa.posicionarMaterial(diamante);
+        this.mapa.posicionarMaterial(diamante);
+        Diamante diamante1 = new Diamante();
+        this.mapa.posicionarMaterial(diamante1);
 
     }
+
+
+    public Mapa getMapa(){
+
+        return this.mapa;
+
+    }
+
 
 }
