@@ -11,7 +11,7 @@ public class JuegoTest {
 
 
     @Test
-    public void juegoIniciaMapaCorrectamente(){
+    public void juegoIniciaMapaCorrectamenteAlJugador(){
 
         Juego juego = new Juego();
         juego.iniciar();
@@ -20,6 +20,19 @@ public class JuegoTest {
         Assert.assertFalse(mapa.obtenerObjeto(posicionJugador) == null);
 
     }
+
+
+    @Test
+    public void juegoIniciaMapaCorrectamenteMaterial(){
+
+        Juego juego = new Juego();
+        juego.iniciar();
+        Mapa mapa = juego.getMapa();
+        Posicion posicionMaterial = new Posicion(0,0);
+        Assert.assertFalse(mapa.obtenerObjeto(posicionMaterial) == null);
+
+    }
+
 
 
 }

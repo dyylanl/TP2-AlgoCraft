@@ -1,14 +1,18 @@
 package modelo.posicion;
 
 public class Posicion{
-	protected int x;
-	protected int y;
-	
+
+
+	public int x;
+	public int y;
+
+
 	public Posicion(int x, int y){
 		this.x = x;
 		this.y = y;
 		
 	}
+
 
 	@Override
 	public boolean equals(Object obj){
@@ -24,7 +28,8 @@ public class Posicion{
 		return (this.x == otraPos.x && this.y == otraPos.y);
 		
 	}
-	
+
+
 	@Override
 	public int hashCode(){
 		final int prime = 31;
@@ -34,21 +39,26 @@ public class Posicion{
         return result;	
 	}
 
+
 	public Posicion getPosicionArriba() {
 		return new Posicion(this.x, this.y + 1);
 	}
+
 
 	public Posicion getPosicionAbajo() {
 		return new Posicion(this.x, this.y -1);
 	}
 
+
 	public Posicion getPosicionDerecha() {
 		return new Posicion(this.x + 1, this.y);
 	}
 
+
 	public Posicion getPosicionIzquierda() {
 		return new Posicion(this.x - 1, this.y + 1);
 	}
+
 
 	public boolean estaEnLimmites(int limiteInfX, int limiteInfY ,int limiteSupX ,int limiteSupY) {
 		
@@ -57,5 +67,6 @@ public class Posicion{
 		
 		return (ok1 && ok2);
 	}
-	
+
+
 }

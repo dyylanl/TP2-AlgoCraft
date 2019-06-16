@@ -1,29 +1,37 @@
 package modelo.juego;
 
+import modelo.interfaz.ObjetoMinecraft;
 import modelo.jugador.Jugador;
 import modelo.mapas.Mapa;
 import modelo.materiales.*;
+import modelo.posicion.Posicion;
+import vista.VentanaColor;
 
+import javax.swing.*;
 import java.util.Map;
 
 public class Juego {
 
+
     public Mapa mapa;
+    public ModeloObservable modelo;
 
 
     public void iniciar(){
 
-        this.mapa = new Mapa();
+        this.mapa = new Mapa(this.modelo);
+        this.modelo = new ModeloObservable();
         cargarJugador();
         cargarTerreno();
-
+        crearVetanaColor();
     }
 
 
     public void cargarJugador(){
 
         Jugador jugador = new Jugador();
-        this.mapa.posicionarJugador(jugador);
+        Posicion posicion = this.mapa.posicionarJugador(jugador);
+        this.modelo.setModeloDato(posicion,1);
 
     }
 
@@ -43,7 +51,8 @@ public class Juego {
         for(int i = 0; i <= 8; i++){
 
             Madera madera = new Madera();
-            this.mapa.posicionarMaterial(madera);
+            Posicion posicion = this.mapa.posicionarMaterial(madera);
+            this.modelo.setModeloDato(posicion,2);
 
         }
 
@@ -55,7 +64,8 @@ public class Juego {
         for(int i = 0; i <= 5; i++){
 
             Piedra piedra = new Piedra();
-            this.mapa.posicionarMaterial(piedra);
+            Posicion posicion = this.mapa.posicionarMaterial(piedra);
+            this.modelo.setModeloDato(posicion,3);
 
         }
 
@@ -67,7 +77,8 @@ public class Juego {
         for(int i = 0; i <= 4; i++){
 
             Metal metal = new Metal();
-            this.mapa.posicionarMaterial(metal);
+            Posicion posicion = this.mapa.posicionarMaterial(metal);
+            this.modelo.setModeloDato(posicion,4);
 
         }
 
@@ -77,9 +88,12 @@ public class Juego {
     public void cargarDiamante(){
 
         Diamante diamante = new Diamante();
-        this.mapa.posicionarMaterial(diamante);
+        Posicion pos1 = this.mapa.posicionarMaterial(diamante);
         Diamante diamante1 = new Diamante();
-        this.mapa.posicionarMaterial(diamante1);
+        Posicion pos2 = this.mapa.posicionarMaterial(diamante1);
+        this.modelo.setModeloDato(pos1,5);
+        this.modelo.setModeloDato(pos2,5);
+
 
     }
 
@@ -88,6 +102,20 @@ public class Juego {
 
         return this.mapa;
 
+    }
+
+
+    private void crearVetanaColor() {
+
+        JFrame ventanaColor = new VentanaColor(13, modelo);
+
+        ventanaColor.setSize(500, 400);
+
+        ventanaColor.setLocation(8, 0);
+
+        ventanaColor.setVisible(true);
+
+        ventanaColor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
 
