@@ -17,22 +17,15 @@ public class ModeloObservable extends Observable {
 
 
     public int getModeloDato(Posicion posicion) {
+
         return modeloDatos[posicion.x][posicion.y];
+
     }
 
 
     public void setModeloDato(Posicion posicion, int dato) {
 
-        if(posicion.x > 12){
-            modeloDatos[posicion.x-1][posicion.y] = dato;
-        }
-        if(posicion.y > 12){
-            modeloDatos[posicion.x][posicion.y-1] = dato;
-        }
-        else{
-            modeloDatos[posicion.x][posicion.y] = dato;
-
-        }
+        modeloDatos[posicion.x][posicion.y] = dato;
 
     }
 
@@ -43,5 +36,6 @@ public class ModeloObservable extends Observable {
         setChanged();
 
     }
+
 
 }

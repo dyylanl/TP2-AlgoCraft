@@ -107,15 +107,16 @@ public class Juego {
 
     private void crearVetanaColor() {
 
-        JFrame ventanaColor = new VentanaColor(13, modelo);
+        JFrame ventanaColor = new VentanaColor(13, this.modelo);
 
-        ventanaColor.setSize(500, 400);
+        ventanaColor.setSize(500, 500);
 
         ventanaColor.setLocation(8, 0);
 
         ventanaColor.setVisible(true);
 
         ventanaColor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }
 
 

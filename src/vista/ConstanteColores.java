@@ -1,8 +1,9 @@
 package vista;
 
-import java.awt.Color;
+import java.awt.*;
 
 public class ConstanteColores {
+
 
     private static Color madera = new Color(195, 138, 15);
 
@@ -15,5 +16,6 @@ public class ConstanteColores {
     private static Color jugador = new Color(141, 6, 0);
 
     public static final Color[] coloresCool = {Color.white, jugador, madera, piedra, metal, diamante};
+
 
 }

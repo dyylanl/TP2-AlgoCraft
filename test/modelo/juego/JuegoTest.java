@@ -22,17 +22,4 @@ public class JuegoTest {
     }
 
 
-    @Test
-    public void juegoIniciaMapaCorrectamenteMaterial(){
-
-        Juego juego = new Juego();
-        juego.iniciar();
-        Mapa mapa = juego.getMapa();
-        Posicion posicionMaterial = new Posicion(0,0);
-        Assert.assertFalse(mapa.obtenerObjeto(posicionMaterial) == null);
-
-    }
-
-
-
 }
