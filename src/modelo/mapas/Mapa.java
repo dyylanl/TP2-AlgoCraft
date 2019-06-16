@@ -39,13 +39,13 @@ public class Mapa{
 
 	public void cargarMapa(ModeloObservable modelo){
 
-		for(int i = 0; i <= 13; i++){
+		for(int i = 0; i <= 12; i++){
 
-			for(int j = 0; j <= 13; j++){
+			for(int j = 0; j <= 12; j++){
 
 				Posicion posicion = new Posicion(i,j);
 				this.posicionesVacias.add(posicion);
-
+				modelo.setModeloDato(posicion,0);
 			}
 
 		}
@@ -58,9 +58,7 @@ public class Mapa{
 		Posicion posicion;
 		posicion = this.posicionesVacias.get(this.indicePosicionVacia);
 		this.posicionesVacias.remove(this.indicePosicionVacia);
-		this.indicePosicionVacia = (int)(Math.random() * 13 + 1);
-		System.out.println("[DEBUG] Posicion: (" +posicion.x + ","+posicion.y+")");
-		System.out.println("[DEBUG] Indice variable:"+this.indicePosicionVacia);
+		this.indicePosicionVacia = (int)(Math.random() * 150 + 1);
 		return posicion;
 
 	}

@@ -19,8 +19,8 @@ public class Juego {
 
     public void iniciar(){
 
-        this.mapa = new Mapa(this.modelo);
         this.modelo = new ModeloObservable();
+        this.mapa = new Mapa(this.modelo);
         cargarJugador();
         cargarTerreno();
         crearVetanaColor();
