@@ -15,7 +15,7 @@ public class Mapa{
 	public ArrayList<Posicion> posicionesVacias;
 	protected HashMap<Posicion, ObjetoMinecraft> terreno;
 	private int indicePosicionVacia;
-	//Maximo en x y en y igual a 13.
+	//Maximo en x y en y igual a 12.
 
 
 	public Mapa(){
@@ -57,8 +57,7 @@ public class Mapa{
 
 	public Posicion getPosicionVacia(){
 
-		Posicion posicion;
-		posicion = this.posicionesVacias.get(this.indicePosicionVacia);
+		Posicion posicion = this.posicionesVacias.get(this.indicePosicionVacia);
 		this.posicionesVacias.remove(this.indicePosicionVacia);
 		this.indicePosicionVacia = (int)(Math.random() * 150 + 1);
 		return posicion;
@@ -76,7 +75,7 @@ public class Mapa{
 	public boolean posicionInvalida(Posicion unaPosicion){
 
 		boolean filtro1 = this.terreno.containsKey(unaPosicion);
-		boolean filtro2 = (!unaPosicion.estaEnLimmites(0, 0, 13,13));
+		boolean filtro2 = (!unaPosicion.estaEnLimmites(0, 0, 12,12));
 		
 		return (filtro1 || filtro2);
 	}

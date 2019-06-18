@@ -28,9 +28,7 @@ public class JuegoTest {
     public void juegoCargaMapaVacio(){
 
         Juego juego = new Juego();
-
         juego.iniciar();
-
         Mapa mapa = juego.getMapa();
 
         for(int i = 0; i <= 12; i++){
@@ -39,6 +37,7 @@ public class JuegoTest {
 
                 Posicion posicion = new Posicion(i,j);
                 Assert.assertTrue(mapa.obtenerObjeto(posicion) != null);
+
             }
 
         }
