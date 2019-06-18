@@ -1,6 +1,5 @@
 package modelo.juego;
 
-
 import modelo.jugador.Jugador;
 import modelo.mapas.Mapa;
 import modelo.posicion.Posicion;
@@ -12,20 +11,7 @@ public class JuegoTest {
 
 
     @Test
-    public void juegoPosicionaJugadorEnElOrigen(){
-
-        Juego juego = new Juego();
-        juego.iniciar();
-        Mapa mapa = juego.getMapa();
-        Posicion origen = new Posicion(0,0);
-        Assert.assertTrue(mapa.obtenerObjeto(origen) instanceof Jugador);
-
-
-    }
-
-
-    @Test
-    public void juegoCargaMapaVacio(){
+    public void juegoCargaMapa(){
 
         Juego juego = new Juego();
         juego.iniciar();
@@ -41,7 +27,19 @@ public class JuegoTest {
             }
 
         }
+    }
+
+
+    @Test
+    public void jugadorSeIniciaEnElOrigen(){
+
+        Juego juego = new Juego();
+        juego.iniciar();
+        Mapa mapa = juego.getMapa();
+        Posicion origen = new Posicion(0,0);
+        Assert.assertTrue(mapa.obtenerObjeto(origen) instanceof Jugador);
 
     }
+
 
 }
