@@ -46,6 +46,8 @@ public class Mapa{
 				Posicion posicion = new Posicion(i,j);
 				this.posicionesVacias.add(posicion);
 				modelo.setModeloDato(posicion,0);
+				SinMaterial vacio = new SinMaterial();
+				posicionarMaterial(vacio,posicion);
 			}
 
 		}
@@ -85,6 +87,13 @@ public class Mapa{
 		Posicion posicion = getPosicionVacia();
 		this.terreno.put(posicion, unMaterial);
 		return posicion;
+	}
+
+
+	public void posicionarMaterial(Material unMaterial, Posicion unaPosicion){
+
+		this.terreno.put(unaPosicion, unMaterial);
+
 	}
 
 

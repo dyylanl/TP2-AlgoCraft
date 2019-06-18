@@ -1,6 +1,7 @@
 package modelo.juego;
 
 
+import modelo.jugador.Jugador;
 import modelo.mapas.Mapa;
 import modelo.posicion.Posicion;
 import org.junit.Assert;
@@ -11,15 +12,37 @@ public class JuegoTest {
 
 
     @Test
-    public void juegoIniciaMapaCorrectamenteAlJugador(){
+    public void juegoPosicionaJugadorEnElOrigen(){
 
         Juego juego = new Juego();
         juego.iniciar();
         Mapa mapa = juego.getMapa();
-        Posicion posicionJugador = new Posicion(0,0);
-        Assert.assertFalse(mapa.obtenerObjeto(posicionJugador) == null);
+        Posicion origen = new Posicion(0,0);
+        Assert.assertTrue(mapa.obtenerObjeto(origen) instanceof Jugador);
+
 
     }
 
+
+    @Test
+    public void juegoCargaMapaVacio(){
+
+        Juego juego = new Juego();
+
+        juego.iniciar();
+
+        Mapa mapa = juego.getMapa();
+
+        for(int i = 0; i <= 12; i++){
+
+            for(int j = 0; j <= 12; j++){
+
+                Posicion posicion = new Posicion(i,j);
+                Assert.assertTrue(mapa.obtenerObjeto(posicion) != null);
+            }
+
+        }
+
+    }
 
 }

@@ -2,13 +2,16 @@ package vista;
 
 import java.awt.Container;
 import java.awt.GridLayout;
-import javax.swing.JFrame;
+import javax.swing.*;
+
 import modelo.juego.ModeloObservable;
 import modelo.posicion.Posicion;
 
 public class VentanaColor extends JFrame {
 
+
     private static final long serialVersionUID = 7787529771808926374L;
+
 
     public VentanaColor(int cantidadFilasYColumnas, ModeloObservable modelo) {
 
@@ -26,6 +29,7 @@ public class VentanaColor extends JFrame {
         }
 
     }
+
 
 }
 
