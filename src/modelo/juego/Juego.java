@@ -1,6 +1,5 @@
 package modelo.juego;
 
-import modelo.interfaz.ObjetoMinecraft;
 import modelo.jugador.Jugador;
 import modelo.mapas.Mapa;
 import modelo.materiales.*;
@@ -8,7 +7,7 @@ import modelo.posicion.Posicion;
 import vista.VentanaColor;
 
 import javax.swing.*;
-import java.util.Map;
+
 
 public class Juego {
 
@@ -108,13 +107,9 @@ public class Juego {
     private void crearVetanaColor() {
 
         JFrame ventanaColor = new VentanaColor(13, this.modelo);
-
         ventanaColor.setSize(500, 500);
-
         ventanaColor.setLocation(8, 0);
-
         ventanaColor.setVisible(true);
-
         ventanaColor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }

@@ -1,5 +1,6 @@
 package controlador;
 
+
 import modelo.juego.ModeloObservable;
 import vista.VistaModeloDato;
 
@@ -37,6 +38,7 @@ public class ControladorMouse extends MouseAdapter {
                                             *El jugador esta en la posicion permitida
                                             *El jugador tiene la herramienta correcta
          */
+
         modelo.inicializarModeloDato(vista.posicion);
         modelo.notifyObservers(vista);
 
