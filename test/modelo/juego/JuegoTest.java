@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class JuegoTest {
 
-
+/*
     @Test
     public void juegoCargaMapa(){
 
@@ -40,6 +40,6 @@ public class JuegoTest {
         Assert.assertTrue(mapa.obtenerObjeto(origen) instanceof Jugador);
 
     }
-
+*/
 
 }

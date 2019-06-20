@@ -4,25 +4,20 @@ import modelo.jugador.Jugador;
 import modelo.mapas.Mapa;
 import modelo.materiales.*;
 import modelo.posicion.Posicion;
-import vista.VentanaColor;
 
-import javax.swing.*;
 
 
 public class Juego {
-
+	
 
     public Mapa mapa;
-    public ModeloObservable modelo;
-
 
     public void iniciar(){
 
-        this.modelo = new ModeloObservable();
-        this.mapa = new Mapa(this.modelo);
+        this.mapa = new Mapa();
         cargarJugador();
         cargarTerreno();
-        crearVetanaColor();
+        //crearVetanaColor();
     }
 
 
@@ -30,7 +25,6 @@ public class Juego {
 
         Jugador jugador = new Jugador();
         Posicion posicion = this.mapa.posicionarJugador(jugador);
-        this.modelo.setModeloDato(posicion,1);
 
     }
 
@@ -51,7 +45,6 @@ public class Juego {
 
             Madera madera = new Madera();
             Posicion posicion = this.mapa.posicionarMaterial(madera);
-            this.modelo.setModeloDato(posicion,2);
 
         }
 
@@ -64,7 +57,6 @@ public class Juego {
 
             Piedra piedra = new Piedra();
             Posicion posicion = this.mapa.posicionarMaterial(piedra);
-            this.modelo.setModeloDato(posicion,3);
 
         }
 
@@ -77,7 +69,6 @@ public class Juego {
 
             Metal metal = new Metal();
             Posicion posicion = this.mapa.posicionarMaterial(metal);
-            this.modelo.setModeloDato(posicion,4);
 
         }
 
@@ -90,8 +81,6 @@ public class Juego {
         Posicion pos1 = this.mapa.posicionarMaterial(diamante);
         Diamante diamante1 = new Diamante();
         Posicion pos2 = this.mapa.posicionarMaterial(diamante1);
-        this.modelo.setModeloDato(pos1,5);
-        this.modelo.setModeloDato(pos2,5);
 
 
     }
@@ -100,17 +89,6 @@ public class Juego {
     public Mapa getMapa(){
 
         return this.mapa;
-
-    }
-
-
-    private void crearVetanaColor() {
-
-        JFrame ventanaColor = new VentanaColor(13, this.modelo);
-        ventanaColor.setSize(500, 500);
-        ventanaColor.setLocation(8, 0);
-        ventanaColor.setVisible(true);
-        ventanaColor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 

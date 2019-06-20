@@ -2,7 +2,6 @@ package modelo.mapas;
 
 import java.util.*;
 
-import modelo.juego.ModeloObservable;
 import modelo.jugador.*;
 import modelo.posicion.*;
 import modelo.materiales.*;
@@ -27,17 +26,8 @@ public class Mapa{
 	}
 
 
-	public Mapa(ModeloObservable modelo){
 
-		this.indicePosicionVacia = 0;
-		this.posicionesVacias = new ArrayList<Posicion>();
-		this.terreno = new HashMap<Posicion, ObjetoMinecraft>();
-		cargarMapa(modelo);
-		
-	}
-
-
-	public void cargarMapa(ModeloObservable modelo){
+	public void cargarMapa(){
 
 		for(int i = 0; i <= 12; i++){
 
@@ -45,7 +35,6 @@ public class Mapa{
 
 				Posicion posicion = new Posicion(i,j);
 				this.posicionesVacias.add(posicion);
-				modelo.setModeloDato(posicion,0);
 				SinMaterial vacio = new SinMaterial();
 				posicionarMaterial(vacio,posicion);
 			}
