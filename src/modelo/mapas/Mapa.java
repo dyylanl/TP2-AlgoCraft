@@ -48,7 +48,7 @@ public class Mapa{
 
 		Posicion posicion = this.posicionesVacias.get(this.indicePosicionVacia);
 		this.posicionesVacias.remove(this.indicePosicionVacia);
-		this.indicePosicionVacia = (int)(Math.random() * 150 + 1);
+		this.indicePosicionVacia = (int)(Math.random() * 150) + 1;
 		return posicion;
 
 	}
