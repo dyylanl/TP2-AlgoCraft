@@ -27,7 +27,6 @@ public class Mapa{
 	}
 
 
-
 	private void cargarMapa(){
 
 		for(int i = 0; i <= 12; i++){
@@ -36,8 +35,7 @@ public class Mapa{
 
 				Posicion posicion = new Posicion(i,j);
 				this.posicionesVacias.add(posicion);
-				SinMaterial vacio = new SinMaterial();
-				posicionarMaterial(vacio,posicion);
+
 			}
 
 		}

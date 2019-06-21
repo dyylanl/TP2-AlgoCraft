@@ -45,13 +45,4 @@ public class MapasTest {
 
 	}
 
-	@Test
-	public void mapaIniciaPosicionesVacias() {
-
-		Mapa mapa = new Mapa();
-		Assert.assertEquals(mapa.posicionesVacias, new ArrayList<Posicion>());
-
-	}
-
-
 }
