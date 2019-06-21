@@ -2,6 +2,8 @@ package vista;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -9,10 +11,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class AlgoCraft extends Application {
 
     public static double width;
     public static double heigth;
@@ -24,9 +29,14 @@ public class Main extends Application {
         launch(args);
     }
 
+    public void start(Stage primaryStage){
 
-    public void start(Stage theStage){
 
+        loadMainMenu(primaryStage);
+
+
+
+        /*
         width = Screen.getPrimary().getVisualBounds().getWidth() * 0.8;
         heigth = Screen.getPrimary().getVisualBounds().getHeight() * 0.8;
         theStage.setTitle("MINECRAFT");
@@ -56,7 +66,7 @@ public class Main extends Application {
 
         });
 
-        theStage.show();
+        theStage.show();*/
     }
 
 
@@ -92,5 +102,38 @@ public class Main extends Application {
 
     }
 
+
+    public void loadMainMenu(Stage primaryStage){
+
+        BorderPane border = new BorderPane();
+        border.setPadding(new Insets(25,0,25,25));
+        border.setId("background");
+
+        Boton botonJugar = new Boton("Jugar");
+        Boton botonOpciones = new Boton("Opciones");
+        Boton botonCreditos = new Boton("Creditos");
+        Boton botonSalir = new Boton("Salir del Juego");
+
+
+        botonJugar.setMaxWidth(Double.MAX_VALUE);
+        botonOpciones.setMaxWidth(Double.MAX_VALUE);
+        botonCreditos.setMaxWidth(Double.MAX_VALUE);
+        botonSalir.setMaxWidth(Double.MAX_VALUE);
+        VBox vbButtons = new VBox();
+        vbButtons.setAlignment(Pos.CENTER);
+        vbButtons.setSpacing(10);
+        vbButtons.setPadding(new Insets(0, 25, 15, 25));
+        vbButtons.getChildren().addAll(botonJugar, botonOpciones, botonCreditos,botonSalir);
+
+        // Agrego VBox al BorderPane
+        border.setCenter(vbButtons);
+
+        Scene scene = new Scene(border, 900, 600);
+        primaryStage.setTitle("Algocraft");
+        primaryStage.setScene(scene);
+        primaryStage.getIcons().add(new Image("algocraft.png"));
+        primaryStage.show();
+
+    }
 
 }

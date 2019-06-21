@@ -17,8 +17,8 @@ public class PlayerView implements Drawable{
     public PlayerView(Group root) {
 
         this.root = root;
-        positionX = Main.width /2;
-        positionY = Main.heigth /2;
+        positionX = AlgoCraft.width /2;
+        positionY = AlgoCraft.heigth /2;
 
         playerImage = new ImageView();
         playerImage.setTranslateX(positionX);
@@ -43,7 +43,7 @@ public class PlayerView implements Drawable{
 
     public void moveHorizontal(int count) {
 
-        if (positionX + count > Main.width - playerImage.getImage().getWidth() * playerImage.getScaleX()+ 200|| positionX + count < - 50) {
+        if (positionX + count > AlgoCraft.width - playerImage.getImage().getWidth() * playerImage.getScaleX()+ 200|| positionX + count < - 50) {
             return;
         }
         if (count < 0 && playerImage.getScaleX() > 0) {
@@ -60,7 +60,7 @@ public class PlayerView implements Drawable{
 
     public void moveVertical(int count) {
 
-        if (positionY + count > Main.heigth - playerImage.getImage().getHeight() + 250 || positionY + count < - 100) {
+        if (positionY + count > AlgoCraft.heigth - playerImage.getImage().getHeight() + 250 || positionY + count < - 100) {
             return;
         }
         positionY += count;
