@@ -22,12 +22,13 @@ public class Mapa{
 		this.indicePosicionVacia = 0;
 		this.posicionesVacias = new ArrayList<Posicion>();
 		this.terreno = new HashMap<Posicion, ObjetoMinecraft>();
+		cargarMapa();
 
 	}
 
 
 
-	public void cargarMapa(){
+	private void cargarMapa(){
 
 		for(int i = 0; i <= 12; i++){
 
