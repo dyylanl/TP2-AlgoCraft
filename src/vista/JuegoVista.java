@@ -16,11 +16,12 @@ public class JuegoVista {
     public JuegoVista(ControladorDeEscena controladorDeEscena){
 
         this.main = new BorderPane();
-        this.main.setId("juego-escena");
+        this.main.setId("juego");
 
         this.mapa = new GridPane();
         this.mapa.setAlignment(Pos.CENTER);
-
+        this.mapa.setStyle(("-fx-background-image: url('fondo.png')"));
+        
         HBox menu = new HBox();
         menu.setAlignment(Pos.CENTER);
         Boton btnInventario = new Boton("Inventario - [E]");
@@ -44,21 +45,24 @@ public class JuegoVista {
         Boton btnArriba = new Boton("W");
         flechas.getChildren().addAll(btnArriba, flechasAbajo);
         btnIzquierda.setOnAction( e -> {
-            controlador.moverIzquierda();
+        	//controlador.moverIzquierda();
         });
         btnDerecha.setOnAction( e -> {
-            controlador.moverDerecha();
+            //controlador.moverDerecha();
         });
         btnAbajo.setOnAction( e -> {
-            controlador.moverAbajo();
+            //controlador.moverAbajo();
         });
         btnArriba.setOnAction( e -> {
-            controlador.moverArriba();
+            //controlador.moverArriba();
         });
-
+        
+        this.main.setTop(menu);
+        this.main.setBottom(flechas);
+        this.main.setCenter(this.mapa);
     }
 
-
+    
     public void setControlador(ControladorDelJuego controlador) {
         this.controlador = controlador;
     }

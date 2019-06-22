@@ -65,11 +65,13 @@ public class AlgoCraft extends Application {
             Scene scene = new Scene(border, 900, 600);
             primaryStage.setTitle("Algocraft");
             primaryStage.setScene(scene);
-            primaryStage.show();
+            
+            //primaryStage.show();
             ControladorDeEscena controladorDeEscena = new ControladorDeEscena(scene);
             JuegoVista juegoVista = new JuegoVista(controladorDeEscena);
             controladorDeEscena.agregarEscena("main", border);
             controladorDeEscena.agregarEscena("juego", juegoVista.getPane());
+            
             botonJugar.setOnAction(e -> {
                 controladorDeEscena.activate("juego");
             });
@@ -80,10 +82,11 @@ public class AlgoCraft extends Application {
                 Platform.exit();
             });
 
-            Juego juego = new Juego();
-
-            ControladorDelJuego controladorJuego = new ControladorDelJuego(juego, juegoVista);
-            controladorJuego.actualizarVista();
+            
+            primaryStage.show();
+            //ControladorDelJuego controladorJuego = new ControladorDelJuego(juego, juegoVista);
+            //controladorJuego.actualizarVista();
+            //primaryStage.show();
         }
         catch (Exception e) {
 
