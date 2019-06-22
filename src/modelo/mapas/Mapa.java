@@ -35,6 +35,8 @@ public class Mapa{
 
 				Posicion posicion = new Posicion(i,j);
 				this.posicionesVacias.add(posicion);
+				SinMaterial vacio = new SinMaterial();
+				this.terreno.put(posicion,vacio);
 
 			}
 

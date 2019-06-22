@@ -1,2 +1,8 @@
-module $MODULE_NAME$ {
+module AlgoCraft {
+
+    requires javafx.fxml;
+    requires javafx.controls;
+
+
+    opens vista;
 }

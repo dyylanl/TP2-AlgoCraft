@@ -19,9 +19,10 @@ public class ControladorDelJuego {
     private HashMap<Character, String> BloquesHash = new HashMap<>();
 
 
-    public ControladorDelJuego(Juego juego, JuegoVista juegoVista) {
+    public ControladorDelJuego(JuegoVista juegoVista) {
 
-        this.juego = juego;
+        this.juego = new Juego();
+        this.juego.iniciar();
         this.juegoVista = juegoVista;
         juegoVista.setControlador(this);
 
@@ -36,6 +37,7 @@ public class ControladorDelJuego {
                 Posicion posicion = new Posicion(row,col);
                 ObjetoMinecraft objeto = juego.getMapa().obtenerObjeto(posicion);
                 String nombreImagen = objeto.getImagen();
+                System.out.println(nombreImagen);
                 juegoVista.agregarElemento(nombreImagen, row, col);
             }
         }

@@ -20,8 +20,7 @@ public class JuegoVista {
 
         this.mapa = new GridPane();
         this.mapa.setAlignment(Pos.CENTER);
-        this.mapa.setStyle(("-fx-background-image: url('fondo.png')"));
-        
+
         HBox menu = new HBox();
         menu.setAlignment(Pos.CENTER);
         Boton btnInventario = new Boton("Inventario - [E]");
@@ -42,6 +41,7 @@ public class JuegoVista {
         Boton btnDerecha = new Boton("D");
         Boton btnAbajo = new Boton("S");
         flechasAbajo.getChildren().addAll(btnIzquierda,btnAbajo,btnDerecha);
+        flechasAbajo.setAlignment(Pos.CENTER);
         Boton btnArriba = new Boton("W");
         flechas.getChildren().addAll(btnArriba, flechasAbajo);
         btnIzquierda.setOnAction( e -> {
@@ -69,7 +69,8 @@ public class JuegoVista {
 
 
     public void agregarElemento(String nombreImagen, int fila, int col) {
-        ImageView img = new ImageView(new Image(getClass().getResourceAsStream("../../../res/"+nombreImagen+".png"), 32, 0, true, true));
+        System.out.println(nombreImagen);
+        ImageView img = new ImageView(nombreImagen);
         mapa.add(img, col, fila);
     }
 

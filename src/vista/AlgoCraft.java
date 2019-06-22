@@ -84,9 +84,9 @@ public class AlgoCraft extends Application {
 
             
             primaryStage.show();
-            //ControladorDelJuego controladorJuego = new ControladorDelJuego(juego, juegoVista);
-            //controladorJuego.actualizarVista();
-            //primaryStage.show();
+            ControladorDelJuego controladorJuego = new ControladorDelJuego(juegoVista);
+            controladorJuego.actualizarVista();
+            primaryStage.show();
         }
         catch (Exception e) {
 
