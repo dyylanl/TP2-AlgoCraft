@@ -35,6 +35,7 @@ public class AlgoCraft extends Application {
 
 
     public void loadMainMenu(Stage primaryStage){
+<<<<<<< HEAD
         try {
 
             BorderPane border = new BorderPane();
@@ -90,6 +91,38 @@ public class AlgoCraft extends Application {
             System.out.println("Ups... Algo salio mal :( " + e);
 
         }
+=======
+
+        BorderPane border = new BorderPane();
+        border.setPadding(new Insets(25,0,25,25));
+        border.setId("background");
+
+        Boton botonJugar = new Boton("Jugar");
+        Boton botonOpciones = new Boton("Opciones");
+        Boton botonCreditos = new Boton("Creditos");
+        Boton botonSalir = new Boton("Salir del Juego");
+        BotonSalirEventHandler botonSalirEventHandler = new BotonSalirEventHandler(botonSalir); 
+        botonSalir.setOnAction(botonSalirEventHandler);
+
+        botonJugar.setMaxWidth(Double.MAX_VALUE);
+        botonOpciones.setMaxWidth(Double.MAX_VALUE);
+        botonCreditos.setMaxWidth(Double.MAX_VALUE);
+        botonSalir.setMaxWidth(Double.MAX_VALUE);
+        VBox vbButtons = new VBox();
+        vbButtons.setAlignment(Pos.CENTER);
+        vbButtons.setSpacing(10);
+        vbButtons.setPadding(new Insets(0, 25, 15, 25));
+        vbButtons.getChildren().addAll(botonJugar, botonOpciones, botonCreditos,botonSalir);
+
+        // Agrego VBox al BorderPane
+        border.setCenter(vbButtons);
+
+        Scene scene = new Scene(border, 900, 600);
+        primaryStage.setTitle("Algocraft");
+        primaryStage.setScene(scene);
+        //primaryStage.getIcons().add(new Image("algocraft.png"));
+        primaryStage.show();
+>>>>>>> c8e3ee184f9baf6720c70ae4297556dccb98d03b
 
     }
 
