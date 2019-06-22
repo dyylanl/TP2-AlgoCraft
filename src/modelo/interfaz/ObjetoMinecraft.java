@@ -2,6 +2,7 @@ package modelo.interfaz;
 
 public interface ObjetoMinecraft {
 
+    public abstract String getImagen();
     /*
     0 = Vacio
     1 = Jugador
@@ -9,6 +10,5 @@ public interface ObjetoMinecraft {
     3 = Piedra
     4 = Metal
     5 = Diamante
-
      */
 }

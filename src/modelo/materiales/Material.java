@@ -1,5 +1,7 @@
 package modelo.materiales;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import modelo.herramientas.*;
 import modelo.interfaz.*;
 import modelo.posicion.*;
@@ -12,6 +14,7 @@ public abstract class Material implements ObjetoMinecraft{
 	protected String identidad;
 	protected int durabilidad;
 	protected Posicion posicion;
+	public String imagen;
 
 	//Metodos:
 	public abstract void recibeGolpeDe(Herramienta unaHerramienta);
@@ -32,11 +35,13 @@ public abstract class Material implements ObjetoMinecraft{
 		return identidad;
 	}
 
-	public Posicion miPosicion(){
+	public Posicion getPosicion(){
 
 		return this.posicion;
 
 	}
 
+
+	public String getImagen(){ return this.imagen; }
 
 }

@@ -1,5 +1,8 @@
 package modelo.juego;
 
+import javafx.scene.image.ImageView;
+import modelo.Direccion.Direccion;
+import modelo.interfaz.ObjetoMinecraft;
 import modelo.jugador.Jugador;
 import modelo.mapas.Mapa;
 import modelo.materiales.*;
@@ -11,20 +14,31 @@ public class Juego {
 	
 
     public Mapa mapa;
+    public Jugador jugador;
+
+    public void Juego(){
+
+        iniciar();
+
+    }
+
+    public Jugador getJugador(){ return this.jugador;}
+
 
     public void iniciar(){
 
         this.mapa = new Mapa();
-        cargarJugador();
+        Jugador jugador = cargarJugador();
         cargarTerreno();
-        //crearVetanaColor();
+
     }
 
 
-    public void cargarJugador(){
+    public Jugador cargarJugador(){
 
         Jugador jugador = new Jugador();
-        Posicion posicion = this.mapa.posicionarJugador(jugador);
+        this.mapa.posicionarJugador(jugador);
+        return jugador;
 
     }
 
@@ -84,6 +98,9 @@ public class Juego {
 
 
     }
+
+
+    public void moverJugador(Direccion direccion){}
 
 
     public Mapa getMapa(){
