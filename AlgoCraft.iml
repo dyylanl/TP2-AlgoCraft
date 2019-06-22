@@ -2,9 +2,11 @@
 <module type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="kotlin-language" name="Kotlin">
-      <configuration version="3" platform="JVM 1.6">
+      <configuration version="3" platform="JVM 1.8">
         <compilerSettings />
-        <compilerArguments />
+        <compilerArguments>
+          <option name="jvmTarget" value="1.8" />
+        </compilerArguments>
       </configuration>
     </facet>
   </component>
@@ -18,7 +20,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="javafx11" level="application" />
-    <orderEntry type="library" name="KotlinJavaRuntime (2)" level="project" />
     <orderEntry type="module-library" scope="TEST">
       <library name="JUnit4">
         <CLASSES>
@@ -29,5 +30,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="javafx-swt" level="project" />
+    <orderEntry type="library" name="KotlinJavaRuntime (2)" level="project" />
   </component>
 </module>

@@ -2,27 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controlador/ControladorDeEscena.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controlador/ControladorDelJuego.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelo/Direccion/Abajo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelo/Direccion/Arriba.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelo/Direccion/Derecha.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelo/Direccion/Direccion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelo/Direccion/Izquierda.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vista/JuegoVista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/algocraft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AlgoCraft/modelo/juego/Juego.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AlgoCraft/modelo/juego/Juego.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/interfaz/ObjetoMinecraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/interfaz/ObjetoMinecraft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/juego/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/juego/Juego.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/jugador/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/jugador/Jugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/materiales/Diamante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/materiales/Diamante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/materiales/Madera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/materiales/Madera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/materiales/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/materiales/Material.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/materiales/Metal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/materiales/Metal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/materiales/Piedra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/materiales/Piedra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/materiales/SinMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/materiales/SinMaterial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgoCraft.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AlgoCraft.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgoCraft/META-INF/AlgoCraft.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgoCraft/modelo/materiales/Madera.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AlgoCraft/modelo/materiales/Madera.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgoCraft/module-info.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vista/AlgoCraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vista/AlgoCraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vista/sample.fxml" beforeDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -85,21 +72,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vista/AlgoCraft.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="44" column="56" lean-forward="true" selection-start-line="44" selection-start-column="56" selection-end-line="44" selection-end-column="56" />
+            <state relative-caret-position="270">
+              <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#start#0;class#AlgoCraft#0" />
+                <element signature="e#660#661#0" expanded="true" />
+                <element signature="e#688#689#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modelo/jugador/Jugador.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -176,32 +155,20 @@
         <subPane>
           <expand>
             <path>
-              <item name="AlgoCraft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AlgoCraft" type="462c0819:PsiDirectoryNode" />
+              <item name="Algocraft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Algocraft" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="AlgoCraft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AlgoCraft" type="462c0819:PsiDirectoryNode" />
+              <item name="Algocraft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Algocraft" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AlgoCraft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AlgoCraft" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="modelo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AlgoCraft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AlgoCraft" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="vista" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -220,9 +187,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tp2Ezequiel" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Descargas/jar_files" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -360,6 +327,7 @@
       <workItem from="1561230052653" duration="67000" />
       <workItem from="1561230511829" duration="1000" />
       <workItem from="1561230520928" duration="5606000" />
+      <workItem from="1561238745891" duration="789000" />
     </task>
     <servers />
   </component>
@@ -370,14 +338,17 @@
     <history-entry file="All_in_AlgoCraft - 2019.06.20 at 22h 28m 31s.xml">
       <configuration name="All in AlgoCraft" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_AlgoCraft - 2019.06.22 at 18h 32m 43s.xml">
+      <configuration name="All in AlgoCraft" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12109000" />
+    <option name="totallyTimeSpent" value="12898000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.2621664" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.17727272" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -386,7 +357,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.47394136" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.31921825" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -396,11 +367,11 @@
       <window_info anchor="bottom" id="Problems" order="9" />
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" />
+      <window_info anchor="bottom" id="Event Log" order="12" weight="0.32899022" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32899022" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="15" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="16" visible="true" weight="0.95114005" />
+      <window_info anchor="bottom" id="Terminal" order="16" weight="0.95114005" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -434,34 +405,18 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vista/sample.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/module-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module-info.java" />
     <entry file="file://$PROJECT_DIR$/test/modelo/herramientas/HachaDeMetalTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vista/Boton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -476,25 +431,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controlador/Escena.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#363#364#0" expanded="true" />
-            <element signature="e#404#405#0" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
-            <element signature="e#490#491#0" expanded="true" />
-            <element signature="e#532#533#0" expanded="true" />
-            <element signature="e#581#582#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vista/Juego.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controlador/Escena.java" />
+    <entry file="file://$PROJECT_DIR$/src/vista/Juego.java" />
     <entry file="file://$PROJECT_DIR$/src/controlador/ControladorDeEscena.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -518,13 +456,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modelo/juego/Direccion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modelo/juego/Direccion.java" />
     <entry file="file://$PROJECT_DIR$/src/modelo/Direccion/Abajo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -688,18 +620,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modelo/jugador/Jugador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
+        <state relative-caret-position="390">
           <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Descargas/openjfx-11.0.2_linux-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.base.jar!/javafx/event/EventHandler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vista/Boton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="15" lean-forward="true" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vista/AlgoCraft.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="44" column="56" lean-forward="true" selection-start-line="44" selection-start-column="56" selection-end-line="44" selection-end-column="56" />
+        <state relative-caret-position="270">
+          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#start#0;class#AlgoCraft#0" />
+            <element signature="e#660#661#0" expanded="true" />
+            <element signature="e#688#689#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -744,6 +694,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
+          <last-edited>12</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -767,6 +718,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>javafx-swt</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

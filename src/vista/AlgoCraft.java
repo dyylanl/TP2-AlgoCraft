@@ -12,7 +12,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import modelo.juego.Juego;
-import modelo.jugador.Jugador;
 
 public class AlgoCraft extends Application {
 
@@ -27,14 +26,16 @@ public class AlgoCraft extends Application {
     }
 
 
-    public void start(Stage primaryStage){
+    public void start(Stage primaryStage) {
 
         loadMainMenu(primaryStage);
 
     }
 
 
-    public void loadMainMenu(Stage primaryStage){
+    public void loadMainMenu(Stage primaryStage) {
+
+
         try {
 
             BorderPane border = new BorderPane();
@@ -45,11 +46,8 @@ public class AlgoCraft extends Application {
             Boton botonOpciones = new Boton("Opciones");
             Boton botonCreditos = new Boton("Creditos");
             Boton botonSalir = new Boton("Salir del Juego");
-            BotonSalirEventHandler botonSalirEventHandler = new BotonSalirEventHandler(botonSalir); 
+            BotonSalirEventHandler botonSalirEventHandler = new BotonSalirEventHandler(botonSalir);
             botonSalir.setOnAction(botonSalirEventHandler);
-
-
-
             botonJugar.setMaxWidth(Double.MAX_VALUE);
             botonOpciones.setMaxWidth(Double.MAX_VALUE);
             botonCreditos.setMaxWidth(Double.MAX_VALUE);
@@ -81,18 +79,17 @@ public class AlgoCraft extends Application {
             botonSalir.setOnAction(e -> {
                 Platform.exit();
             });
+
             Juego juego = new Juego();
-            Jugador jugador = juego.getJugador();
 
             ControladorDelJuego controladorJuego = new ControladorDelJuego(juego, juegoVista);
             controladorJuego.actualizarVista();
-
         }
-        catch (Exception e){
+        catch (Exception e) {
 
-            System.out.println("Ups... Algo salio mal :( " + e);
+            System.out.println("Ups... Algo salio mal :( ");
+            System.out.println("Error: " + e);
 
         }
     }
-
 }
