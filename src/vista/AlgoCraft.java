@@ -113,7 +113,8 @@ public class AlgoCraft extends Application {
         Boton botonOpciones = new Boton("Opciones");
         Boton botonCreditos = new Boton("Creditos");
         Boton botonSalir = new Boton("Salir del Juego");
-
+        BotonSalirEventHandler botonSalirEventHandler = new BotonSalirEventHandler(botonSalir); 
+        botonSalir.setOnAction(botonSalirEventHandler);
 
         botonJugar.setMaxWidth(Double.MAX_VALUE);
         botonOpciones.setMaxWidth(Double.MAX_VALUE);
@@ -131,7 +132,7 @@ public class AlgoCraft extends Application {
         Scene scene = new Scene(border, 900, 600);
         primaryStage.setTitle("Algocraft");
         primaryStage.setScene(scene);
-        primaryStage.getIcons().add(new Image("algocraft.png"));
+        //primaryStage.getIcons().add(new Image("algocraft.png"));
         primaryStage.show();
 
     }
