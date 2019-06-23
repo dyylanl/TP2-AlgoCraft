@@ -30,15 +30,16 @@ public class ControladorDelJuego {
 
     public void actualizarVista() {
 
-        for(int row = 0; row < 12 ; row++)
+        for(int row = 0; row < 13 ; row++)
         {
-            for(int col = 0; col < 12; col++)
+            for(int col = 0; col < 13; col++)
             {
                 Posicion posicion = new Posicion(row,col);
                 ObjetoMinecraft objeto = juego.getMapa().obtenerObjeto(posicion);
                 String nombreImagen = objeto.getImagen();
-                System.out.println(nombreImagen);
-                juegoVista.agregarElemento(nombreImagen, row, col);
+                if(nombreImagen == null){}
+                else{
+                juegoVista.agregarElemento(nombreImagen,row, col);}
             }
         }
     }

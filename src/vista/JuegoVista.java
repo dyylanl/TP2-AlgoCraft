@@ -69,8 +69,8 @@ public class JuegoVista {
 
 
     public void agregarElemento(String nombreImagen, int fila, int col) {
-        System.out.println(nombreImagen);
-        ImageView img = new ImageView(nombreImagen);
+        System.out.println("El nombre de la imagen es: " + nombreImagen);
+        ImageView img = new ImageView(new Image(nombreImagen,100,0,true,true));
         mapa.add(img, col, fila);
     }
 
