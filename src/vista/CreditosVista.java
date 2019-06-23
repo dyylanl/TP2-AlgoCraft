@@ -42,7 +42,7 @@ public class CreditosVista {
         Text nombre1 = new Text("Ledesma, Dylan.");
         Text nombre2 = new Text("Albert");
         Text nombre3 = new Text("Joseph");
-        Text nombre4 = new Text("Rosa");
+        Text nombre4 = new Text("Rocio");
         tituloCred.setId("titulo-creditos");
         vacio.setId("vacio");
         nombre1.setId("nombre");
