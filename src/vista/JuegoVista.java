@@ -2,9 +2,14 @@ package vista;
 
 import controlador.ControladorDeEscena;
 import controlador.ControladorDelJuego;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 
 public class JuegoVista {
@@ -48,6 +53,8 @@ public class JuegoVista {
         flechasAbajo.setAlignment(Pos.CENTER);
         Boton btnArriba = new Boton("W");
         flechas.getChildren().addAll(btnArriba, flechasAbajo);
+
+
         btnIzquierda.setOnAction( e -> {
         	controlador.moverIzquierda(this.mapa);
         });
