@@ -27,11 +27,45 @@ public class Jugador implements ObjetoMinecraft{
 		this.posicionActual = nuevaPosicion;
 		
 	}
-	
+
+
 	public Posicion miPosicion(){
 		return posicionActual;
 	}
 
+
 	public String getImagen(){ return this.imagen;}
-	
+
+
+    public void moverArriba() {
+
+		Posicion posicionFutura = new Posicion(this.posicionActual.x+1,this.posicionActual.y);
+		this.posicionActual = posicionFutura;
+
+    }
+
+	public void moverDerecha() {
+
+
+		Posicion posicionFutura = new Posicion(this.posicionActual.x,this.posicionActual.y+1);
+		this.posicionActual = posicionFutura;
+
+
+
+	}
+
+	public void moverIzquierda() {
+
+		Posicion posicionFutura = new Posicion(this.posicionActual.x-1,this.posicionActual.y);
+		this.posicionActual = posicionFutura;
+
+	}
+
+	public void moverAbajo() {
+
+		Posicion posicionFutura = new Posicion(this.posicionActual.x,this.posicionActual.y-1);
+		this.posicionActual = posicionFutura;
+
+
+	}
 }
