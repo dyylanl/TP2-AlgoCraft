@@ -1,12 +1,10 @@
 package controlador;
 
-import javafx.geometry.Pos;
-import modelo.Direccion.Abajo;
-import modelo.Direccion.Arriba;
-import modelo.Direccion.Derecha;
-import modelo.Direccion.Izquierda;
+
 import modelo.interfaz.ObjetoMinecraft;
 import modelo.juego.Juego;
+import modelo.jugador.Jugador;
+import modelo.mapas.Mapa;
 import modelo.posicion.Posicion;
 import vista.JuegoVista;
 
@@ -16,13 +14,14 @@ public class ControladorDelJuego {
 
     private Juego juego;
     private JuegoVista juegoVista;
-    private HashMap<Character, String> BloquesHash = new HashMap<>();
-
+    public Mapa mapa;
+    public Jugador jugador;
 
     public ControladorDelJuego(JuegoVista juegoVista) {
 
         this.juego = new Juego();
         this.juego.iniciar();
+        this.mapa = juego.getMapa();
         this.juegoVista = juegoVista;
         juegoVista.setControlador(this);
 
@@ -42,24 +41,35 @@ public class ControladorDelJuego {
         }
     }
 
+
     public void moverArriba(){
 
-        juego.getJugador().moverArriba();
+        Posicion posicion = juego.getJugador().moverArriba();
+        this.mapa.posicionarJugador(jugador,posicion);
         actualizarVista();
     }
+
+
     public void moverAbajo(){
 
-        juego.getJugador().moverAbajo();
+        Posicion posicion = juego.getJugador().moverAbajo();
+        this.mapa.posicionarJugador(jugador,posicion);
         actualizarVista();
     }
+
+
     public void moverDerecha(){
 
-        juego.getJugador().moverDerecha();
+        Posicion posicion = juego.getJugador().moverDerecha();
+        this.mapa.posicionarJugador(jugador,posicion);
         actualizarVista();
     }
+
+
     public void moverIzquierda(){
 
-        juego.getJugador().moverIzquierda();
+        Posicion posicion = juego.getJugador().moverIzquierda();
+        this.mapa.posicionarJugador(jugador,posicion);
         actualizarVista();
     }
 
