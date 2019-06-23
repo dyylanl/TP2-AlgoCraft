@@ -40,8 +40,11 @@ public class Inventario {
 
         while((!herramientaEncontrada) && (indice < herramientas.size())){
 
-            if (herramienta.getClass() == this.herramientas.get(indice).getClass()) {
+
+            if (herramienta.esEquivalente(this.herramientas.get(indice))) {
+
                 herramientaEncontrada = true;
+
             }
 
             indice++;
@@ -59,7 +62,7 @@ public class Inventario {
 
         while((!materialEncontrado) && (indice < materiales.size())){
 
-            if (material.getClass() == this.materiales.get(indice).getClass()) {
+            if (material.esEquivalante(this.materiales.get(indice))) {
                 materialEncontrado = true;
             }
 
