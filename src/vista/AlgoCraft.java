@@ -93,7 +93,6 @@ public class AlgoCraft extends Application {
             Scene scene = new Scene(border,900, 600);
             primaryStage.setTitle("ERROR");
             primaryStage.setScene(scene);
-            Boton botonError = new Boton("Salir");
             primaryStage.show();
 
         }
