@@ -45,4 +45,6 @@ public abstract class Herramienta{
 	public abstract void golpear(Metal unaMaetal);
 	
 	public abstract void golpear(Diamante unaDiamante);
+
+    public abstract String getIdentificador();
 }

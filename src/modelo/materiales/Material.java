@@ -44,4 +44,5 @@ public abstract class Material implements ObjetoMinecraft{
 
 	public String getImagen(){ return this.imagen; }
 
+    public abstract Character getIdentificador();
 }

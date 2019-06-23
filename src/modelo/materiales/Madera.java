@@ -31,5 +31,10 @@ public class Madera extends Material{
 
 	}
 
-	
+	@Override
+	public Character getIdentificador() {
+		return 'm';
+	}
+
+
 }

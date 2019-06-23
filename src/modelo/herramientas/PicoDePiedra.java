@@ -37,4 +37,9 @@ public class PicoDePiedra extends Pico{
 		this.desgastarse();
 
 	}
+
+	@Override
+	public String getIdentificador() {
+		return "Pico de piedra";
+	}
 }

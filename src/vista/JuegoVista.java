@@ -9,9 +9,11 @@ import javafx.scene.layout.*;
 
 public class JuegoVista {
 
+
     GridPane mapa;
     ControladorDelJuego controlador;
     private BorderPane main;
+
 
     public JuegoVista(ControladorDeEscena controladorDeEscena){
 
@@ -19,7 +21,8 @@ public class JuegoVista {
         this.main.setId("juego");
 
         this.mapa = new GridPane();
-        this.mapa.setStyle(("-fx-background-image: url('fondo.png')"));
+
+        this.mapa.setStyle("-fx-background-image: url('fondo.png')");
         this.mapa.setAlignment(Pos.CENTER);
 
         HBox menu = new HBox();
@@ -76,4 +79,6 @@ public class JuegoVista {
 
 
     public Pane getPane(){ return this.main; }
+
+
 }

@@ -8,4 +8,8 @@ public class HachaDePiedra extends Hacha {
 		this.factorDeDesgaste = 1;
 	}
 
+	@Override
+	public String getIdentificador() {
+		return "Hacha de piedra";
+	}
 }
