@@ -26,11 +26,13 @@ public class ControladorDelJuego {
         this.jugadorPosX = 0;
         this.jugadorPosY = 0;
     }
-    
+
+
     public void obtenerJuegoCargado(Juego juego){
     	juego = this.juego;
     }
-    
+
+
     public void actualizarVista() {
 
         for(int row = 0; row < 12 ; row++)
@@ -45,6 +47,7 @@ public class ControladorDelJuego {
             }
         }
     }
+
 
     public void moverArriba(GridPane mapa){
     	
@@ -63,7 +66,8 @@ public class ControladorDelJuego {
     	mapa.add(jugadorNode, this.jugadorPosX, this.jugadorPosY);
    
     }
-    
+
+
     public void moverAbajo(GridPane mapa){
     	
     	if(!this.juego.getMovimientos().moverJugadorAbajo(this.juego.mapa)){
@@ -81,7 +85,8 @@ public class ControladorDelJuego {
     	mapa.add(jugadorNode, this.jugadorPosX, this.jugadorPosY);
 
     }
-    
+
+
     public void moverDerecha(GridPane mapa){
     	
     	if(!this.juego.getMovimientos().moverJugadorDerecha(this.juego.mapa)) return;
@@ -103,8 +108,7 @@ public class ControladorDelJuego {
     	    
     }
     
-    
-    
+
     public void moverIzquierda(GridPane mapa){
 
     	if(!this.juego.getMovimientos().moverJugadorIzquierda(this.juego.mapa)) return;
@@ -119,7 +123,8 @@ public class ControladorDelJuego {
        	mapa.add(jugadorNode, this.jugadorPosX, this.jugadorPosY);    		
     	
     }
-    
+
+
     private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {
         for (Node node : gridPane.getChildren()) {
             if (GridPane.getColumnIndex(node) == col && GridPane.getRowIndex(node) == row) {

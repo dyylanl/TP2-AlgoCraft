@@ -33,12 +33,12 @@ public class InventarioVista {
 
         Label titulo1 = new Label("Crafting");
         titulo1.setId("titulo-inventario");
-        this.inventario = crearInventario(3, 9);
+       // this.inventario = crearInventario(3, 9);
         Label titulo2 = new Label("Inventario");
         titulo2.setId("titulo-inventario");
-        HBox mesaDeCrafteo = crearMesa();
+        //HBox mesaDeCrafteo = crearMesa();
 
-        contenedor.getChildren().addAll(titulo1, mesaDeCrafteo, titulo2, inventario);
+       // contenedor.getChildren().addAll(titulo1, mesaDeCrafteo, titulo2, inventario);
 
 
         HBox menu = new HBox();
@@ -68,7 +68,7 @@ public class InventarioVista {
 
     }
 
-
+/*
     private GridPane crearInventario(int maxFil, int maxCol) {
 
         GridPane inventario = new GridPane();
@@ -96,10 +96,10 @@ public class InventarioVista {
         GridPane mesa = crearInventario(3, 3);
 
         ImageView flecha = getImagen("flecha", 48);
-        ImageView resultado = getImagen("casilla", 64);
-        resultado.setId("casilla");
+        ImageView casilla = getImagen("casilla", 64);
+        casilla.setId("casilla");
 
-        contenedor.getChildren().addAll(mesa, flecha, resultado);
+        contenedor.getChildren().addAll(mesa, flecha, casilla);
 
         return contenedor;
 
@@ -163,6 +163,6 @@ public class InventarioVista {
         this.agregarElemento(this.inventario, elemento, fila, columna);
 
     }
-
+*/
 
 }

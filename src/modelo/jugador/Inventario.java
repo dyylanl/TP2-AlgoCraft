@@ -40,7 +40,6 @@ public class Inventario {
 
         while((!herramientaEncontrada) && (indice < herramientas.size())){
 
-
             if (herramienta.esEquivalente(this.herramientas.get(indice))) {
 
                 herramientaEncontrada = true;

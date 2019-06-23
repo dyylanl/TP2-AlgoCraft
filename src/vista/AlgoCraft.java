@@ -73,14 +73,33 @@ public class AlgoCraft extends Application {
             primaryStage.setScene(scene);
 
 
-            //primaryStage.show();
+            ControladorDeEscena controladorDeEscena = new ControladorDeEscena(scene);
+            InventarioVista inventarioVista = new InventarioVista(scene, controladorDeEscena);
+            JuegoVista juegoVista = new JuegoVista(controladorDeEscena);
+            CreditosVista creditosVista = new CreditosVista(scene, controladorDeEscena);
+            controladorDeEscena.agregarEscena("main", border);
+            controladorDeEscena.agregarEscena("inventario", inventarioVista.getPane());
+            controladorDeEscena.agregarEscena("juego", juegoVista.getPane());
+            controladorDeEscena.agregarEscena("creditos", creditosVista.getPane());
+            botonJugar.setOnAction(e -> {
+                controladorDeEscena.activate("juego");
+            });
+            botonCreditos.setOnAction(e -> {
+                controladorDeEscena.activate("creditos");
+            });
+            botonSalir.setOnAction(e -> {
+                Platform.exit();
+            });
+            primaryStage.show();
+
+/*
             ControladorDeEscena controladorDeEscena = new ControladorDeEscena(scene);
             JuegoVista juegoVista = new JuegoVista(controladorDeEscena);
             controladorDeEscena.agregarEscena("main", border);
             controladorDeEscena.agregarEscena("juego", juegoVista.getPane());
             
             
-            CreditosVista creditos = new CreditosVista(controladorDeEscena); 
+            CreditosVista creditos = new CreditosVista(scene,controladorDeEscena);
             controladorDeEscena.agregarEscena("creditos", creditos.getPane());
 
 
@@ -92,7 +111,7 @@ public class AlgoCraft extends Application {
             });
             botonSalir.setOnAction(e -> {
                 Platform.exit();
-            });
+            });*/
 
 
             this.juego = new Juego();
