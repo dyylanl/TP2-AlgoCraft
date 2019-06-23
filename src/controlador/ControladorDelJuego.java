@@ -18,16 +18,20 @@ public class ControladorDelJuego {
     private HashMap<Character, String> BloquesHash = new HashMap<>();
     private int jugadorPosX, jugadorPosY;
 
-    public ControladorDelJuego(JuegoVista juegoVista) {
+    public ControladorDelJuego(JuegoVista juegoVista, Juego  juego) {
 
-        this.juego = new Juego();
-        this.juego.iniciar();
+        this.juego = juego;
+        //this.juego.iniciar();
         this.juegoVista = juegoVista;
         juegoVista.setControlador(this);
         this.jugadorPosX = 0;
         this.jugadorPosY = 0;
     }
-
+    
+    public void obtenerJuegoCargado(Juego juego){
+    	juego = this.juego;
+    }
+    
     public void actualizarVista() {
 
         for(int row = 0; row < 12 ; row++)
@@ -37,38 +41,84 @@ public class ControladorDelJuego {
                 Posicion posicion = new Posicion(row,col);
                 ObjetoMinecraft objeto = juego.getMapa().obtenerObjeto(posicion);
                 String nombreImagen = objeto.getImagen();
-                System.out.println(nombreImagen);
-                juegoVista.agregarElemento(nombreImagen, row, col);
+                //System.out.println(nombreImagen);
+                juegoVista.agregarElemento(nombreImagen, col, row);
             }
         }
     }
 
-    public void moverArriba(){
-
-        juego.moverJugador(new Arriba());
-        actualizarVista();
-    }
-    public void moverAbajo(){
-
-        juego.moverJugador(new Abajo());
-        actualizarVista();
-    }
-    public void moverDerecha(GridPane mapa){
+    public void moverArriba(GridPane mapa){
+    	
+    	if(!this.juego.getMovimientos().moverJugadorArriba(this.juego.mapa)){
+    		
+    		return;
+    	}
     	
     	Node jugadorNode =  getNodeFromGridPane(mapa, this.jugadorPosX, this.jugadorPosY);
-    	Node siguiente = getNodeFromGridPane(mapa, this.jugadorPosX+1, this.jugadorPosY);
+    	Node siguiente = getNodeFromGridPane(mapa, this.jugadorPosX, this.jugadorPosY-1);
     	
     	mapa.getChildren().remove(jugadorNode);
     	mapa.getChildren().remove(siguiente);
     	
-    	this.jugadorPosX ++;
+    	this.jugadorPosY --;
     	mapa.add(jugadorNode, this.jugadorPosX, this.jugadorPosY);
-    	System.out.println(this.jugadorPosX);
-    	System.out.println(this.jugadorPosY);
-    	//juego.moverJugador(new Derecha());
+   
+    }
+    
+    public void moverAbajo(GridPane mapa){
+    	
+    	if(!this.juego.getMovimientos().moverJugadorAbajo(this.juego.mapa)){
+    		
+    		return;
+    	}
+    	
+    	Node jugadorNode =  getNodeFromGridPane(mapa, this.jugadorPosX, this.jugadorPosY);
+    	Node siguiente = getNodeFromGridPane(mapa, this.jugadorPosX, this.jugadorPosY+1);
+    	
+    	mapa.getChildren().remove(jugadorNode);
+    	mapa.getChildren().remove(siguiente);
+    	
+    	this.jugadorPosY++ ;
+    	mapa.add(jugadorNode, this.jugadorPosX, this.jugadorPosY);
+
+    }
+    
+    public void moverDerecha(GridPane mapa){
+    	
+    	if(!this.juego.getMovimientos().moverJugadorDerecha(this.juego.mapa)) return;
+    		
+	    Node jugadorNode =  getNodeFromGridPane(mapa, this.jugadorPosX, this.jugadorPosY);
+	    Node siguiente = getNodeFromGridPane(mapa, this.jugadorPosX+1, this.jugadorPosY);
+	        	
+	    mapa.getChildren().remove(jugadorNode);
+	    mapa.getChildren().remove(siguiente);
+	        	
+	    this.jugadorPosX ++;
+	        	
+	    System.out.println(this.jugadorPosX);
+	    System.out.println(this.jugadorPosY);
+	        	
+	    mapa.add(jugadorNode, this.jugadorPosX, this.jugadorPosY);
+	    		
+    	
+    	    
+    }
+    
+    
+    
+    public void moverIzquierda(GridPane mapa){
+
+    	if(!this.juego.getMovimientos().moverJugadorDerecha(this.juego.mapa)) return;
+        	
+    	Node jugadorNode =  getNodeFromGridPane(mapa, this.jugadorPosX, this.jugadorPosY);
+        Node siguiente = getNodeFromGridPane(mapa, this.jugadorPosX-1, this.jugadorPosY);
         
-        //actualizarVista();
-        
+       	mapa.getChildren().remove(jugadorNode);
+       	mapa.getChildren().remove(siguiente);
+        	
+       	this.jugadorPosX --;
+       	mapa.add(jugadorNode, this.jugadorPosX, this.jugadorPosY);    		
+    	
     }
     
     private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {
@@ -80,11 +130,5 @@ public class ControladorDelJuego {
         return null;
     }
     
-    
-    public void moverIzquierda(){
-
-        juego.moverJugador(new Izquierda());
-        actualizarVista();
-    }
 
 }

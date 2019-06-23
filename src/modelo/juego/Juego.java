@@ -1,9 +1,8 @@
 package modelo.juego;
 
-import javafx.scene.image.ImageView;
 import modelo.Direccion.Direccion;
 import modelo.interfaz.ObjetoMinecraft;
-import modelo.jugador.Jugador;
+import modelo.jugador.*;
 import modelo.mapas.Mapa;
 import modelo.materiales.*;
 import modelo.posicion.Posicion;
@@ -15,20 +14,21 @@ public class Juego {
 
     public Mapa mapa;
     public Jugador jugador;
-
-    public void Juego(){
+    public MovimientosJugador movs;
+    
+    public Juego(){
 
         iniciar();
 
     }
 
-    public Jugador getJugador(){ return this.jugador;}
-
+    public MovimientosJugador getMovimientos(){ return this.movs;}
+    public Jugador getJugador(){return this.jugador;}
 
     public void iniciar(){
 
         this.mapa = new Mapa();
-        Jugador jugador = cargarJugador();
+        this.jugador = this.cargarJugador();
         cargarTerreno();
 
     }
@@ -38,8 +38,11 @@ public class Juego {
 
         Jugador jugador = new Jugador();
         this.mapa.posicionarJugador(jugador);
+        
+        this.movs = new MovimientosJugador(jugador);
+        		
         return jugador;
-
+       
     }
 
 

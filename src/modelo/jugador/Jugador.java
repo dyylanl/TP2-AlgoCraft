@@ -64,8 +64,8 @@ public class Jugador implements ObjetoMinecraft{
 	public Posicion moverDerecha() {
 
 
-		this.posicionActual = posicionActual.getPosicionDerecha();
-		return this.posicionActual;
+		//this.posicionActual = posicionActual.getPosicionDerecha();
+		return this.posicionActual.getPosicionDerecha();
 
 	}
 

@@ -1,6 +1,7 @@
 package modelo.juego;
 
 import modelo.jugador.Jugador;
+import modelo.materiales.*;
 import modelo.mapas.Mapa;
 import modelo.posicion.Posicion;
 import org.junit.Assert;
@@ -31,16 +32,30 @@ public class JuegoTest {
         Assert.assertTrue(true);
 
     }
-
 /*
     @Test
     public void jugadorSeIniciaEnElOrigen(){
 
         Juego juego = new Juego();
         juego.iniciar();
+        
+        Material madera = new Madera();
         Mapa mapa = juego.getMapa();
-        Posicion origen = new Posicion(0,0);
-        Assert.assertTrue(mapa.obtenerObjeto(origen) instanceof Jugador);
+        
+        Posicion posMadera = new Posicion(3, 0);
+        
+        mapa.posicionarMaterial(madera, posMadera);
+        Jugador jugador = juego.getJugador();
+        
+        System.out.println(jugador.miPosicion().x);
+        System.out.println(jugador.miPosicion().y);
+        juego.getMovimientos().moverJugadorDerecha(mapa);
+        System.out.println(jugador.miPosicion().x);
+        System.out.println(jugador.miPosicion().y);
+        
+ 
+        //Assert.assertTrue();
+        Assert.assertTrue(juego.getMovimientos().moverJugadorDerecha(mapa));
 
     }
 */

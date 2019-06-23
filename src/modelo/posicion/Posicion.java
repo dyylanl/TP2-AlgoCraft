@@ -41,22 +41,22 @@ public class Posicion{
 
 
 	public Posicion getPosicionArriba() {
-		return new Posicion(this.x, this.y + 1);
+		return new Posicion(this.x, this.y-1);
 	}
 
 
 	public Posicion getPosicionAbajo() {
-		return new Posicion(this.x, this.y -1);
+		return new Posicion(this.x, this.y+1);
 	}
 
 
 	public Posicion getPosicionDerecha() {
-		return new Posicion(this.x + 1, this.y);
+		return new Posicion(this.x+1, this.y);
 	}
 
 
 	public Posicion getPosicionIzquierda() {
-		return new Posicion(this.x - 1, this.y + 1);
+		return new Posicion(this.x-1, this.y);
 	}
 
 
