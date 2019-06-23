@@ -39,32 +39,27 @@ public class Jugador implements ObjetoMinecraft{
 
     public void moverArriba() {
 
-		Posicion posicionFutura = new Posicion(this.posicionActual.x+1,this.posicionActual.y);
-		this.posicionActual = posicionFutura;
+    	this.posicionActual = posicionActual.getPosicionArriba();
 
     }
 
 	public void moverDerecha() {
 
 
-		Posicion posicionFutura = new Posicion(this.posicionActual.x,this.posicionActual.y+1);
-		this.posicionActual = posicionFutura;
-
+		this.posicionActual = posicionActual.getPosicionDerecha();
 
 
 	}
 
 	public void moverIzquierda() {
 
-		Posicion posicionFutura = new Posicion(this.posicionActual.x-1,this.posicionActual.y);
-		this.posicionActual = posicionFutura;
+		this.posicionActual = posicionActual.getPosicionIzquierda();
 
 	}
 
 	public void moverAbajo() {
 
-		Posicion posicionFutura = new Posicion(this.posicionActual.x,this.posicionActual.y-1);
-		this.posicionActual = posicionFutura;
+		this.posicionActual = posicionActual.getPosicionAbajo();
 
 
 	}
