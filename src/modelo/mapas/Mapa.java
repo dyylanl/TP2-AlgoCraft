@@ -102,6 +102,7 @@ public class Mapa{
 	public boolean posicionarJugador(Jugador unJugador, Posicion unaPosicion) {
 
 		if (this.posicionInvalida(unaPosicion)) return false;
+		this.terreno.remove(unJugador.miPosicion());
 		this.terreno.put(unaPosicion, unJugador);
 		unJugador.moverAUnaPosicion(unaPosicion);
 		System.out.println("jugador se movio");

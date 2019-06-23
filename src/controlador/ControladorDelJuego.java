@@ -107,7 +107,7 @@ public class ControladorDelJuego {
     
     public void moverIzquierda(GridPane mapa){
 
-    	if(!this.juego.getMovimientos().moverJugadorDerecha(this.juego.mapa)) return;
+    	if(!this.juego.getMovimientos().moverJugadorIzquierda(this.juego.mapa)) return;
         	
     	Node jugadorNode =  getNodeFromGridPane(mapa, this.jugadorPosX, this.jugadorPosY);
         Node siguiente = getNodeFromGridPane(mapa, this.jugadorPosX-1, this.jugadorPosY);
