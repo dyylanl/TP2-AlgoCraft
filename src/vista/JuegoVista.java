@@ -19,6 +19,7 @@ public class JuegoVista {
         this.main.setId("juego");
 
         this.mapa = new GridPane();
+        this.mapa.setStyle(("-fx-background-image: url('fondo.png')"));
         this.mapa.setAlignment(Pos.CENTER);
 
         HBox menu = new HBox();
