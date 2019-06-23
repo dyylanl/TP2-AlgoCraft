@@ -3,32 +3,41 @@ import modelo.mapas.*;
 import modelo.posicion.Posicion;
 
 public class MovimientosJugador {
-
-	public boolean moverJugadorArriba(Jugador unJugador, Mapa mapa){
+	
+	public Jugador jugador;
+	public Posicion posActual;
+	
+	public MovimientosJugador(Jugador unJugador){
+		this.jugador = unJugador;
+		this.posActual = unJugador.miPosicion();
+	}
+	
+	public boolean moverJugadorArriba(Mapa mapa){
 		
-		Posicion posNueva = unJugador.miPosicion().getPosicionArriba();
-		return mapa.posicionarJugador(unJugador, posNueva);
+		
+		Posicion posNueva = this.jugador.miPosicion().getPosicionArriba();
+		return mapa.posicionarJugador(this.jugador, posNueva);
 			
 	}
 	
-	public boolean moverJugadorAbajo(Jugador unJugador, Mapa mapa){
+	public boolean moverJugadorAbajo(Mapa mapa){
 		
-		Posicion posNueva = unJugador.miPosicion().getPosicionAbajo();
-		
-		return mapa.posicionarJugador(unJugador, posNueva);
+		Posicion posNueva = this.jugador.miPosicion().getPosicionAbajo();
+		return mapa.posicionarJugador(this.jugador, posNueva);
 
 	}
 
-	public boolean moverJugadorDerecha(Jugador unJugador, Mapa mapa){
-		Posicion posNueva = unJugador.miPosicion().getPosicionDerecha();
+	public boolean moverJugadorDerecha(Mapa mapa){
+		System.out.println("entre en movjugador derecha");
 		
-		return mapa.posicionarJugador(unJugador, posNueva);
+		Posicion posNueva = this.jugador.miPosicion().getPosicionDerecha();
+		return mapa.posicionarJugador(this.jugador, posNueva);
 	}
 
-	public boolean moverJugadorIzquierda(Jugador unJugador, Mapa mapa){
-		Posicion posNueva = unJugador.miPosicion().getPosicionIzquierda();
+	public boolean moverJugadorIzquierda(Mapa mapa){
 		
-		return mapa.posicionarJugador(unJugador, posNueva);
+		Posicion posNueva = this.jugador.miPosicion().getPosicionIzquierda();
+		return mapa.posicionarJugador(this.jugador, posNueva);
 	}
 
 	

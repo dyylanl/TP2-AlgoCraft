@@ -21,7 +21,8 @@ public class JuegoVista {
         this.main.setId("juego");
 
         this.mapa = new GridPane();
-        this.mapa.setStyle("-fx-background-image: url('vacio.png')");
+
+        this.mapa.setStyle("-fx-background-image: url('fondo.png')");
         this.mapa.setAlignment(Pos.CENTER);
 
         HBox menu = new HBox();
@@ -48,16 +49,16 @@ public class JuegoVista {
         Boton btnArriba = new Boton("W");
         flechas.getChildren().addAll(btnArriba, flechasAbajo);
         btnIzquierda.setOnAction( e -> {
-        	controlador.moverIzquierda();
+        	controlador.moverIzquierda(this.mapa);
         });
         btnDerecha.setOnAction( e -> {
-            controlador.moverDerecha();
+            controlador.moverDerecha(this.mapa);
         });
         btnAbajo.setOnAction( e -> {
-            controlador.moverAbajo();
+            controlador.moverAbajo(this.mapa);
         });
         btnArriba.setOnAction( e -> {
-            controlador.moverArriba();
+            controlador.moverArriba(this.mapa);
         });
         
         this.main.setTop(menu);

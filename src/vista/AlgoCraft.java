@@ -10,9 +10,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import modelo.juego.Juego;
@@ -21,6 +19,7 @@ public class AlgoCraft extends Application {
 
     public static double width;
     public static double heigth;
+    private Juego juego;
     /*private Group root;
     private static PlayerView player;*/
 
@@ -36,7 +35,7 @@ public class AlgoCraft extends Application {
 
     }
 
-
+    
     public void loadMainMenu(Stage primaryStage) {
 
 
@@ -72,9 +71,13 @@ public class AlgoCraft extends Application {
             Scene scene = new Scene(border, 900, 600);
             primaryStage.setTitle("Algocraft");
             primaryStage.setScene(scene);
+<<<<<<< HEAD
 
 
             int a = 3/0;
+=======
+            
+>>>>>>> 572e493ec70b57ccb1e7f46eb929faa0902f985e
             //primaryStage.show();
             ControladorDeEscena controladorDeEscena = new ControladorDeEscena(scene);
             JuegoVista juegoVista = new JuegoVista(controladorDeEscena);
@@ -97,8 +100,10 @@ public class AlgoCraft extends Application {
             });
 
 
-            ControladorDelJuego controladorJuego = new ControladorDelJuego(juegoVista);
+            this.juego = new Juego();
+            ControladorDelJuego controladorJuego = new ControladorDelJuego(juegoVista, juego);
             controladorJuego.actualizarVista();
+
             primaryStage.show();
 
 

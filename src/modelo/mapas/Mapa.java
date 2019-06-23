@@ -51,7 +51,7 @@ public class Mapa{
 
 		Posicion posicion = this.posicionesVacias.get(this.indicePosicionVacia);
 		this.posicionesVacias.remove(this.indicePosicionVacia);
-		this.indicePosicionVacia = (int)(Math.random() * 150) + 1;
+		this.indicePosicionVacia = (int)(Math.random() * 144) + 1;
 		return posicion;
 
 	}
@@ -84,7 +84,7 @@ public class Mapa{
 
 
 	public void posicionarMaterial(Material unMaterial, Posicion unaPosicion){
-
+		if (this.posicionInvalida(unaPosicion)) return ;
 		this.terreno.put(unaPosicion, unMaterial);
 
 	}
@@ -104,6 +104,7 @@ public class Mapa{
 		if (this.posicionInvalida(unaPosicion)) return false;
 		this.terreno.put(unaPosicion, unJugador);
 		unJugador.moverAUnaPosicion(unaPosicion);
+		System.out.println("jugador se movio");
 		return true;
 
 	}
