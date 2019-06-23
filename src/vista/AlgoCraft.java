@@ -17,8 +17,8 @@ public class AlgoCraft extends Application {
 
     public static double width;
     public static double heigth;
-    private Group root;
-    private static PlayerView player;
+    /*private Group root;
+    private static PlayerView player;*/
 
 
     public static void main(String[] args) {
