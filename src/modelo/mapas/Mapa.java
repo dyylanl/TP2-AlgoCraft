@@ -99,9 +99,9 @@ public class Mapa{
 	}
 
 
-	public boolean posicionarJugador(Jugador unJugador, Posicion unaPosicion){
+	public boolean posicionarJugador(Jugador unJugador, Posicion unaPosicion) {
 
-		if(this.posicionInvalida(unaPosicion)) return false;
+		if (this.posicionInvalida(unaPosicion)) return false;
 		this.terreno.put(unaPosicion, unJugador);
 		unJugador.moverAUnaPosicion(unaPosicion);
 		return true;

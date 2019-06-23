@@ -1,4 +1,5 @@
 package modelo.jugador;
+import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import modelo.herramientas.*;
 import modelo.posicion.*;
@@ -9,15 +10,15 @@ public class Jugador implements ObjetoMinecraft{
 	
 	protected HachaDeMadera herramientaEquipada;
 	public String imagen;
-	
-	Posicion posicionActual;
+	public Posicion posicionActual;
 
 	public Jugador() {
 		
 		herramientaEquipada = new HachaDeMadera();
 		this.imagen = "jugador.png";
 	}
-	
+
+
 	public HachaDeMadera getHerramientaEquipada() {
 		return herramientaEquipada;
 	}
@@ -37,30 +38,31 @@ public class Jugador implements ObjetoMinecraft{
 	public String getImagen(){ return this.imagen;}
 
 
-    public void moverArriba() {
+    public Posicion moverArriba() {
 
     	this.posicionActual = posicionActual.getPosicionArriba();
+    	return this.posicionActual;
 
     }
 
-	public void moverDerecha() {
+	public Posicion moverDerecha() {
 
 
 		this.posicionActual = posicionActual.getPosicionDerecha();
-
+		return this.posicionActual;
 
 	}
 
-	public void moverIzquierda() {
+	public Posicion moverIzquierda() {
 
 		this.posicionActual = posicionActual.getPosicionIzquierda();
-
+		return this.posicionActual;
 	}
 
-	public void moverAbajo() {
+	public Posicion moverAbajo() {
 
 		this.posicionActual = posicionActual.getPosicionAbajo();
-
+		return this.posicionActual;
 
 	}
 }

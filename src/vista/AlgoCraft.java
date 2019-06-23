@@ -82,7 +82,6 @@ public class AlgoCraft extends Application {
                 Platform.exit();
             });
 
-            
             //primaryStage.show();
             ControladorDelJuego controladorJuego = new ControladorDelJuego(juegoVista);
             controladorJuego.actualizarVista();
@@ -90,8 +89,12 @@ public class AlgoCraft extends Application {
         }
         catch (Exception e) {
 
-            System.out.println("Ups... Algo salio mal :( ");
-            System.out.println("Error: " + e);
+            BorderPane border = new BorderPane();
+            Scene scene = new Scene(border,900, 600);
+            primaryStage.setTitle("ERROR");
+            primaryStage.setScene(scene);
+            Boton botonError = new Boton("Salir");
+            primaryStage.show();
 
         }
     }
