@@ -1,6 +1,8 @@
 package modelo.jugador;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
+import modelo.constructores.MesaDeCrafteo;
+import modelo.materiales.*;
 import modelo.herramientas.*;
 import modelo.posicion.*;
 import modelo.mapas.*;
@@ -8,34 +10,47 @@ import modelo.interfaz.*;
 
 public class Jugador implements ObjetoMinecraft{
 	
-	protected HachaDeMadera herramientaEquipada;
+	public Herramienta herramientaEquipada;
 	public String imagen;
 	public Posicion posicionActual;
+	private MesaDeCrafteo mesaDeCrafteo;
+	private Inventario inventario;
+
 
 	public Jugador() {
 		
-		herramientaEquipada = new HachaDeMadera();
+		this.herramientaEquipada = new HachaDeMadera();
 		this.imagen = "jugador.png";
+		this.posicionActual = new Posicion(0,0);
+		this.mesaDeCrafteo = new MesaDeCrafteo();
+		this.inventario = new Inventario();
+
 	}
 
 
-	public HachaDeMadera getHerramientaEquipada() {
+	public Herramienta getHerramientaEquipada() {
 		return herramientaEquipada;
 	}
 
 
-	public void moverAUnaPosicion(Posicion nuevaPosicion){	 
+	public void moverAUnaPosicion(Posicion nuevaPosicion) {
+
 		this.posicionActual = nuevaPosicion;
 		
 	}
 
 
-	public Posicion miPosicion(){
+	public Posicion miPosicion() {
+
 		return posicionActual;
 	}
 
 
-	public String getImagen(){ return this.imagen;}
+	public String getImagen() {
+
+		return this.imagen;
+
+	}
 
 
     public Posicion moverArriba() {
@@ -45,6 +60,7 @@ public class Jugador implements ObjetoMinecraft{
 
     }
 
+
 	public Posicion moverDerecha() {
 
 
@@ -53,11 +69,13 @@ public class Jugador implements ObjetoMinecraft{
 
 	}
 
+
 	public Posicion moverIzquierda() {
 
 		this.posicionActual = posicionActual.getPosicionIzquierda();
 		return this.posicionActual;
 	}
+
 
 	public Posicion moverAbajo() {
 
@@ -65,4 +83,27 @@ public class Jugador implements ObjetoMinecraft{
 		return this.posicionActual;
 
 	}
+
+
+	public void setHerramientaEquipada(Herramienta nuevaHerramienta){
+
+		this.herramientaEquipada = nuevaHerramienta;
+
+	}
+
+
+	public void agregarMaterialAInventario(Material material) {
+
+		this.inventario.setMaterial(material);
+
+	}
+
+
+	public void agregarHerramientaAInventario(Herramienta herramienta) {
+
+		this.inventario.setHerramienta(herramienta);
+
+	}
+
+
 }
