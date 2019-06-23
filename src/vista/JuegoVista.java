@@ -27,7 +27,7 @@ public class JuegoVista {
 
         this.mapa = new GridPane();
 
-        this.mapa.setStyle("-fx-background-image: url('negro.png')");
+        this.mapa.setStyle("-fx-background-image: url('fondo.png')");
         this.mapa.setAlignment(Pos.CENTER);
 
         HBox menu = new HBox();
@@ -67,6 +67,28 @@ public class JuegoVista {
         btnArriba.setOnAction( e -> {
             controlador.moverArriba(this.mapa);
         });
+
+        
+        main.setOnKeyPressed(new EventHandler<KeyEvent>() {
+		    public void handle(KeyEvent event) {
+		        if(event.getCode() == KeyCode.W) {
+		        	controlador.moverArriba(mapa);
+		        }
+		        if( event.getCode() == KeyCode.S) {
+		        	controlador.moverAbajo(mapa);
+		        }
+		        if (event.getCode() == KeyCode.D) {
+		        	controlador.moverDerecha(mapa);
+		        }
+		        if (event.getCode() == KeyCode.A) {
+		        	controlador.moverIzquierda(mapa);
+		        } 
+		        event.consume();
+		    }
+			
+		});
+        
+        
         
         this.main.setTop(menu);
         this.main.setBottom(flechas);
