@@ -3,7 +3,6 @@ package controlador;
 import javafx.geometry.Pos;
 import javafx.scene.layout.*;
 import javafx.scene.*;
-import modelo.Direccion.*;
 import modelo.interfaz.ObjetoMinecraft;
 import modelo.juego.Juego;
 import modelo.posicion.Posicion;
