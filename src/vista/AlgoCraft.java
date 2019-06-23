@@ -53,7 +53,6 @@ public class AlgoCraft extends Application {
             Boton botonCreditos = new Boton("Creditos");
             Boton botonSalir = new Boton("Salir del Juego");
 
-
             BotonSalirEventHandler botonSalirEventHandler = new BotonSalirEventHandler(botonSalir);
             botonSalir.setOnAction(botonSalirEventHandler);
             botonJugar.setMaxWidth(Double.MAX_VALUE);
@@ -75,6 +74,7 @@ public class AlgoCraft extends Application {
             primaryStage.setScene(scene);
 
 
+            int a = 3/0;
             //primaryStage.show();
             ControladorDeEscena controladorDeEscena = new ControladorDeEscena(scene);
             JuegoVista juegoVista = new JuegoVista(controladorDeEscena);
