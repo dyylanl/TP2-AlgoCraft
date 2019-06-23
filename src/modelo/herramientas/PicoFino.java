@@ -54,4 +54,9 @@ public class PicoFino extends Pico{
 
 	}
 
+	@Override
+	public String getIdentificador() {
+		return "Pico fino";
+	}
+
 }

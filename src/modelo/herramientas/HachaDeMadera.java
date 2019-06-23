@@ -11,6 +11,9 @@ public class HachaDeMadera extends Hacha  {
 		this.factorDeDesgaste = 1.0f;
 	}
 
-	
-	
+
+	@Override
+	public String getIdentificador() {
+		return "Hacha de madera";
+	}
 }

@@ -14,4 +14,9 @@ public class SinMaterial extends Material{
 	@Override
 	public void recibeGolpeDe(Herramienta unaHerramienta) {
 	}
+
+	@Override
+	public Character getIdentificador() {
+		return 'v';
+	}
 }

@@ -9,5 +9,9 @@ public class HachaDeMetal extends Hacha  {
 		this.factorDeDesgaste = 0.5f;
 	}
 
-	
+
+	@Override
+	public String getIdentificador() {
+		return "Hacha de metal";
+	}
 }

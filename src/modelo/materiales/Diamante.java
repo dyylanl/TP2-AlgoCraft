@@ -20,4 +20,9 @@ public class Diamante extends Material{
 
 	}
 
+	@Override
+	public Character getIdentificador() {
+		return 'd';
+	}
+
 }

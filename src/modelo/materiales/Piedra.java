@@ -14,5 +14,10 @@ public class Piedra extends Material {
 		unaHerramienta.golpear(this);
 	}
 
+	@Override
+	public Character getIdentificador() {
+		return 'p';
+	}
+
 }
 

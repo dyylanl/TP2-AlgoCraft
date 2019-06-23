@@ -17,4 +17,9 @@ public class Metal extends Material {
 	public void recibeGolpeDe(Herramienta unaHerramienta) {
 		unaHerramienta.golpear(this);
 	}
+
+	@Override
+	public Character getIdentificador() {
+		return 'M';
+	}
 }

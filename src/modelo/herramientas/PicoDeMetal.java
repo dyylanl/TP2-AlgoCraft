@@ -34,4 +34,9 @@ public class PicoDeMetal extends Pico{
 	public void golpear(Diamante unaDiamante) {
 		this.desgastarse();
 	}
+
+	@Override
+	public String getIdentificador() {
+		return "Pico de metal";
+	}
 }

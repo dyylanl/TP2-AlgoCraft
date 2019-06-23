@@ -8,9 +8,13 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import modelo.juego.Juego;
 
 public class AlgoCraft extends Application {
@@ -42,10 +46,13 @@ public class AlgoCraft extends Application {
             border.setPadding(new Insets(25, 0, 25, 25));
             border.setId("background");
 
+
             Boton botonJugar = new Boton("Jugar");
             Boton botonOpciones = new Boton("Opciones");
             Boton botonCreditos = new Boton("Creditos");
             Boton botonSalir = new Boton("Salir del Juego");
+
+
             BotonSalirEventHandler botonSalirEventHandler = new BotonSalirEventHandler(botonSalir);
             botonSalir.setOnAction(botonSalirEventHandler);
             botonJugar.setMaxWidth(Double.MAX_VALUE);
@@ -65,7 +72,8 @@ public class AlgoCraft extends Application {
             Scene scene = new Scene(border, 900, 600);
             primaryStage.setTitle("Algocraft");
             primaryStage.setScene(scene);
-            
+
+
             //primaryStage.show();
             ControladorDeEscena controladorDeEscena = new ControladorDeEscena(scene);
             JuegoVista juegoVista = new JuegoVista(controladorDeEscena);
@@ -75,7 +83,8 @@ public class AlgoCraft extends Application {
             
             CreditosVista creditos = new CreditosVista(controladorDeEscena); 
             controladorDeEscena.agregarEscena("creditos", creditos.getPane());
-            
+
+
             botonJugar.setOnAction(e -> {
                 controladorDeEscena.activate("juego");
             });
@@ -86,17 +95,21 @@ public class AlgoCraft extends Application {
                 Platform.exit();
             });
 
+
             ControladorDelJuego controladorJuego = new ControladorDelJuego(juegoVista);
             controladorJuego.actualizarVista();
             primaryStage.show();
+
+
         }
         catch (Exception e) {
 
-            BorderPane border = new BorderPane();
-            Scene scene = new Scene(border,900, 600);
-            primaryStage.setTitle("ERROR");
-            primaryStage.setScene(scene);
-            primaryStage.show();
+            Alert error = new Alert(Alert.AlertType.INFORMATION);
+            error.setTitle("ERROR");
+            error.setHeaderText("Algo salio mal en tiempo de ejecucion...");
+            error.setContentText("Tipo de error: " + e);
+            error.initStyle(StageStyle.UTILITY);
+            error.showAndWait();
 
         }
     }
