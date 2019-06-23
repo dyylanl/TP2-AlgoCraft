@@ -1,6 +1,5 @@
 package modelo.juego;
 
-import modelo.Direccion.Direccion;
 import modelo.interfaz.ObjetoMinecraft;
 import modelo.jugador.*;
 import modelo.mapas.Mapa;
@@ -103,7 +102,6 @@ public class Juego {
     }
 
 
-    public void moverJugador(Direccion direccion){}
 
 
     public Mapa getMapa(){
