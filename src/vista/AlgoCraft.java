@@ -72,6 +72,10 @@ public class AlgoCraft extends Application {
             controladorDeEscena.agregarEscena("main", border);
             controladorDeEscena.agregarEscena("juego", juegoVista.getPane());
             
+            
+            CreditosVista creditos = new CreditosVista(controladorDeEscena); 
+            controladorDeEscena.agregarEscena("creditos", creditos.getPane());
+            
             botonJugar.setOnAction(e -> {
                 controladorDeEscena.activate("juego");
             });
@@ -82,7 +86,6 @@ public class AlgoCraft extends Application {
                 Platform.exit();
             });
 
-            //primaryStage.show();
             ControladorDelJuego controladorJuego = new ControladorDelJuego(juegoVista);
             controladorJuego.actualizarVista();
             primaryStage.show();
