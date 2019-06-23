@@ -14,11 +14,12 @@ public class Mapa{
 	public ArrayList<Posicion> posicionesVacias;
 	protected HashMap<Posicion, ObjetoMinecraft> terreno;
 	private int indicePosicionVacia;
+	protected ObjetoMinecraft sinMaterial;
 	//Maximo en x y en y igual a 12.
 
 
 	public Mapa(){
-
+		this.sinMaterial = new SinMaterial();
 		this.indicePosicionVacia = 0;
 		this.posicionesVacias = new ArrayList<Posicion>();
 		this.terreno = new HashMap<Posicion, ObjetoMinecraft>();
@@ -35,9 +36,10 @@ public class Mapa{
 
 				Posicion posicion = new Posicion(i,j);
 				this.posicionesVacias.add(posicion);
+				/*
 				SinMaterial vacio = new SinMaterial();
 				this.terreno.put(posicion,vacio);
-
+				*/
 			}
 
 		}
@@ -56,8 +58,10 @@ public class Mapa{
 
 	
 	public ObjetoMinecraft obtenerObjeto(Posicion unaPos){
-		
-		return this.terreno.get(unaPos);		
+		if(terreno.containsKey(unaPos)) {
+			return this.terreno.get(unaPos);	
+		}
+		return this.sinMaterial;
 			
 	}
 

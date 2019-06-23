@@ -40,7 +40,7 @@ public class MapasTest {
 
 		
 	}
-	
+	/*
 	@Test
 	public void mapaSeInicializaVacio() {
 
@@ -56,5 +56,5 @@ public class MapasTest {
 
 		}
 	}
-
+*/
 }
