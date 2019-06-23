@@ -45,16 +45,16 @@ public class JuegoVista {
         Boton btnArriba = new Boton("W");
         flechas.getChildren().addAll(btnArriba, flechasAbajo);
         btnIzquierda.setOnAction( e -> {
-        	//controlador.moverIzquierda();
+        	controlador.moverIzquierda();
         });
         btnDerecha.setOnAction( e -> {
-            //controlador.moverDerecha();
+            controlador.moverDerecha();
         });
         btnAbajo.setOnAction( e -> {
-            //controlador.moverAbajo();
+            controlador.moverAbajo();
         });
         btnArriba.setOnAction( e -> {
-            //controlador.moverArriba();
+            controlador.moverArriba();
         });
         
         this.main.setTop(menu);

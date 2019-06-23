@@ -30,7 +30,7 @@ public class ControladorDelJuego {
 
     public void actualizarVista() {
 
-        for(int row = 0; row < 13 ; row++)
+        for(int row = 0; row < 12 ; row++)
         {
             for(int col = 0; col < 13; col++)
             {
@@ -44,22 +44,22 @@ public class ControladorDelJuego {
 
     public void moverArriba(){
 
-        juego.moverJugador(new Arriba());
+        juego.getJugador().moverArriba();
         actualizarVista();
     }
     public void moverAbajo(){
 
-        juego.moverJugador(new Abajo());
+        juego.getJugador().moverAbajo();
         actualizarVista();
     }
     public void moverDerecha(){
 
-        juego.moverJugador(new Derecha());
+        juego.getJugador().moverDerecha();
         actualizarVista();
     }
     public void moverIzquierda(){
 
-        juego.moverJugador(new Izquierda());
+        juego.getJugador().moverIzquierda();
         actualizarVista();
     }
 
