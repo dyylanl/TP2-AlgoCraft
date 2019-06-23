@@ -71,13 +71,8 @@ public class AlgoCraft extends Application {
             Scene scene = new Scene(border, 900, 600);
             primaryStage.setTitle("Algocraft");
             primaryStage.setScene(scene);
-<<<<<<< HEAD
 
 
-            int a = 3/0;
-=======
-            
->>>>>>> 572e493ec70b57ccb1e7f46eb929faa0902f985e
             //primaryStage.show();
             ControladorDeEscena controladorDeEscena = new ControladorDeEscena(scene);
             JuegoVista juegoVista = new JuegoVista(controladorDeEscena);
