@@ -45,6 +45,7 @@ public class AlgoCraft extends Application {
             BorderPane border = new BorderPane();
             border.setPadding(new Insets(25, 0, 25, 25));
             border.setId("background");
+            border.setStyle("-fx-background-image: url('fondo.png')");
 
 
             Boton botonJugar = new Boton("Jugar");

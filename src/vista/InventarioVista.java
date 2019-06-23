@@ -103,7 +103,6 @@ public class InventarioVista {
 
         return contenedor;
 
-
     }
 
 
