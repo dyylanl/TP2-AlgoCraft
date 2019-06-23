@@ -37,9 +37,7 @@ public class ControladorDelJuego {
                 Posicion posicion = new Posicion(row,col);
                 ObjetoMinecraft objeto = juego.getMapa().obtenerObjeto(posicion);
                 String nombreImagen = objeto.getImagen();
-                if(nombreImagen == null){}
-                else{
-                juegoVista.agregarElemento(nombreImagen,row, col);}
+                juegoVista.agregarElemento(nombreImagen,row, col);
             }
         }
     }
