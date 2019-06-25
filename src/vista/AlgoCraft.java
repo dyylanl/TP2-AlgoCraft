@@ -82,9 +82,8 @@ public class AlgoCraft extends Application {
 
             // Inicialiazo controlador de escena y vistas
             ControladorDeEscena controladorDeEscena = new ControladorDeEscena(scene);
-            System.out.println("inicializando selector de herramientas");
+            System.out.println("Inicializando selector de herramientas");
             SelectorDeHerramientas selectorHerramientas = new SelectorDeHerramientas();
-            System.out.println("lo inicio");
             InventarioVista inventarioVista = new InventarioVista(controladorDeEscena);
             System.out.println("Se inicio inventario vista");
             JuegoVista juegoVista = new JuegoVista(controladorDeEscena, selectorHerramientas);
@@ -104,19 +103,21 @@ public class AlgoCraft extends Application {
             });
 
             // PRUEBA
-            System.out.println("va a iniciar el juego");
+            System.out.println("Iniciando el juego");
             Juego juego = new Juego();
             Jugador jugador = juego.getJugador();
             ControladorDeInventario controladorDeInventario = new ControladorDeInventario(jugador.getInventario(), inventarioVista, selectorHerramientas);
+            System.out.println("Controlado de inventario iniciado");
             controladorDeInventario.actualizarVista();
 
+            System.out.println("Iniciando controlador del juego...");
             ControladorDelJuego controladorJuego = new ControladorDelJuego(juegoVista, juego, controladorDeInventario);
             controladorJuego.actualizarVista();
 
             selectorHerramientas.setOnMouseClicked(e -> {
                 Integer posicion = selectorHerramientas.getPosicion(e);
                 if (posicion != null) {
-                    System.out.println(posicion);
+                    System.out.println("Posicion del selector de herramientas: "+posicion);
                     jugador.seleccionarHerramienta(posicion);
                 }
             });

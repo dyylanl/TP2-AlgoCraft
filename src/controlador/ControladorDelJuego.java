@@ -40,7 +40,7 @@ public class ControladorDelJuego {
                 Posicion posicion = new Posicion(row,col);
                 ObjetoMinecraft objeto = juego.getMapa().obtenerObjeto(posicion);
                 String nombreImagen = objeto.getImagen();
-                //System.out.println(nombreImagen);
+                System.out.println(nombreImagen);
                 juegoVista.agregarElemento(nombreImagen, col, row);
             }
         }

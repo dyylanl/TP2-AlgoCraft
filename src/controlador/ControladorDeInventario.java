@@ -8,9 +8,9 @@ import modelo.materiales.*;
 import modelo.materiales.Material;
 import vista.InventarioVista;
 import vista.SelectorDeHerramientas;
-
 import java.util.ArrayList;
 import java.util.HashMap;
+
 
 public class ControladorDeInventario {
 
@@ -22,6 +22,7 @@ public class ControladorDeInventario {
     private MesaDeCrafteo mesaCrafteo = new MesaDeCrafteo();
 
     public ControladorDeInventario(Inventario inventario, InventarioVista inventarioVista, SelectorDeHerramientas selectorHerramientas) {
+        System.out.println("Iniciando constructor de Controlador de inventario");
         this.materiales = inventario.getMateriales();
         this.herramientas = inventario.getHerramientas();
         this.selectorHerramientas = selectorHerramientas;
@@ -31,19 +32,26 @@ public class ControladorDeInventario {
     }
 
     public void actualizarVista() {
+        System.out.println("Actualizando vista de controlador de inventario");
         this.inventarioVista.limpiar();
+        System.out.println("inventarioVista limpiado");
         int j = -1;
         for (int i = 0; i < this.materiales.size(); i++) {
             if (i % 9 == 0) {
                 j++;
             }
             inventarioVista.agregar(materialesHash.get(this.materiales.get(i).getIdentificador()), i % 9, j);
+            System.out.println("Se agregaron los materiales al inventario vista");
         }
 
         this.selectorHerramientas.limpiar();
+        System.out.println("Selector de herramientas limpio");
         for (int i = 0; i < herramientas.size(); i++) {
+            System.out.println("Agregando herramientas al selector");
+            System.out.println("El identificador de la herramienta es: "+herramientas.get(i).getIdentificador());
             this.selectorHerramientas.agregar(herramientas.get(i).getIdentificador(), i);
         }
+        System.out.println("Saliendo de vista de controlador de inventario");
     }
 
     private void inicializarHash() {

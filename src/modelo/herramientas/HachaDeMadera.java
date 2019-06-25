@@ -14,7 +14,7 @@ public class HachaDeMadera extends Hacha  {
 
 	@Override
 	public String getIdentificador() {
-		return "Hacha de madera";
+		return "hachaDeMadera.png";
 	}
 
 	@Override

@@ -28,6 +28,8 @@ public class JuegoVista {
         this.mapa = new GridPane();
         mapa.setAlignment(Pos.CENTER);
 
+        this.mapa.setStyle("-fx-background-image: url('fondo.png')");
+
         // Top menu
         HBox menu = new HBox();
         menu.setAlignment(Pos.CENTER);
@@ -120,8 +122,10 @@ public class JuegoVista {
 
 
     public void agregarElemento(String nombreImagen, int fila, int col) {
-        ImageView img = new ImageView(new Image(getClass().getResourceAsStream(nombreImagen), 32, 0, true, true));
+        System.out.println("La imagen que se esta agregando en mapa es: "+nombreImagen);
+        ImageView img = new ImageView(new Image(nombreImagen, 32, 0, true, true));
         mapa.add(img, col, fila);
+
     }
 
 

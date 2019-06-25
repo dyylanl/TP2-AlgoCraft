@@ -102,9 +102,10 @@ public class InventarioVista {
 
     private void agregarElemento(GridPane inventario, String elemento, int fila, int columna) {
 
+        System.out.println("En inventario vista agregarElemento recibe como elemento: "+elemento);
         if (elemento == null) return;
         StackPane stack = new StackPane();
-        Image itemImage = new Image(getClass().getResourceAsStream(elemento), 38, 0, true, true);
+        Image itemImage = new Image(elemento, 38, 0, true, true);
         ImageView imageView = new ImageView(itemImage);
         imageView.setId(String.valueOf(elemento.charAt(0)));
         stack.getChildren().add(imageView);

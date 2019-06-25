@@ -25,6 +25,7 @@ public class SelectorDeHerramientas extends GridPane {
     }
 
     public void agregar(String elemento, int pos) {
+
         System.out.println("el elemento es: "+elemento);
         ImageView imageView = new ImageView(new Image((elemento), 38, 0, true, true));
         this.add(imageView, pos, 0);
