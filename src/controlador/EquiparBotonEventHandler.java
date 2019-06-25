@@ -6,7 +6,7 @@ import modelo.herramientas.Herramienta;
 import modelo.jugador.Jugador;
 import vista.BotoneraInventario;
 import vista.InventarioVista;
-
+/*
 public class EquiparBotonEventHandler implements EventHandler<ActionEvent> {
 
     BotoneraInventario botonera;
@@ -31,3 +31,4 @@ public class EquiparBotonEventHandler implements EventHandler<ActionEvent> {
         this.vistaInventario.actualizar(this.jugador.obtenerInventario());
     }
 }
+*/

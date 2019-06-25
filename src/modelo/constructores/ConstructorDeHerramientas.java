@@ -6,7 +6,7 @@ import java.util.List;
 import modelo.herramientas.*;
 
 public class ConstructorDeHerramientas {
-
+/*
 	Mesa mesa;
 
 	public boolean puedeConstruir(Mesa otraMesa) {
@@ -75,5 +75,5 @@ public class ConstructorDeHerramientas {
 		return constructorDePicoFino.ConstruirHerramienta();
 
 	}
-
+*/
 }

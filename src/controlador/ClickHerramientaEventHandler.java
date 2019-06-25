@@ -6,7 +6,7 @@ import modelo.herramientas.Herramienta;
 import modelo.jugador.Jugador;
 import vista.BotoneraInventario;
 import vista.InventarioVista;
-
+/*
 public class ClickHerramientaEventHandler implements EventHandler<MouseEvent> {
     BotoneraInventario botonera;
     Herramienta herramienta;
@@ -32,4 +32,4 @@ public class ClickHerramientaEventHandler implements EventHandler<MouseEvent> {
                 vistaInventario);
         botonera.botonEquipar.setOnAction(equiparBotonEventHandler);
     }
-}
+}*/

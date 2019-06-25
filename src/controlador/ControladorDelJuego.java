@@ -16,20 +16,18 @@ public class ControladorDelJuego {
     private JuegoVista juegoVista;
     private HashMap<Character, String> BloquesHash = new HashMap<>();
     private int jugadorPosX, jugadorPosY;
+    private ControladorDeInventario controladorDeInventario;
 
-    public ControladorDelJuego(JuegoVista juegoVista, Juego  juego) {
 
+    public ControladorDelJuego(JuegoVista juegoVista, Juego  juego, ControladorDeInventario controladorDeInventario) {
+
+        this.controladorDeInventario = controladorDeInventario;
         this.juego = juego;
         //this.juego.iniciar();
         this.juegoVista = juegoVista;
         juegoVista.setControlador(this);
         this.jugadorPosX = 0;
         this.jugadorPosY = 0;
-    }
-
-
-    public void obtenerJuegoCargado(Juego juego){
-    	juego = this.juego;
     }
 
 
@@ -124,6 +122,34 @@ public class ControladorDelJuego {
     	
     }
 
+/*
+    public void golpearIzquierda() {
+        juego.getJugador().golpear(new HaciaIzquierda());
+        actualizarVista();
+        controladorDeInventario.actualizarVista();
+    }
+
+
+    public void golpearDerecha() {
+        juego.getJugador().golpear(new HaciaDerecha());
+        actualizarVista();
+        controladorDeInventario.actualizarVista();
+    }
+
+
+    public void golpearArriba() {
+        juego.getJugador().golpear(new HaciaArriba());
+        actualizarVista();
+        controladorDeInventario.actualizarVista();
+    }
+
+
+    public void golpearAbajo() {
+        juego.getJugador().golpear(new HaciaAbajo());
+        actualizarVista();
+        controladorDeInventario.actualizarVista();
+    }
+*/
 
     private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {
         for (Node node : gridPane.getChildren()) {

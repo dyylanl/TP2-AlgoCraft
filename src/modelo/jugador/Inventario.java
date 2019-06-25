@@ -7,38 +7,87 @@ import modelo.materiales.Material;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.ArrayList;
+import java.util.ArrayList;
+
 public class Inventario {
 
+    private ArrayList<Herramienta> herramientas;
+    private ArrayList<Material> materiales;
+    private int posicionHerramientaSeleccionada;
 
-    private List<ObjetoMinecraft> elementos = new ArrayList<ObjetoMinecraft>();
+    public Inventario() {
+        this.herramientas = new ArrayList<>();
+        this.materiales = new ArrayList<>();
+        this.posicionHerramientaSeleccionada = 0;
+    }
 
+    public void agregarHerramienta(Herramienta herramienta) {
+        this.herramientas.add(herramienta);
+    }
 
-    public int obtenerCantidadDeObjetos() {
+    public void agregarMaterial(Material material) {
+        this.materiales.add(material);
+    }
 
-        return elementos.size();
+    public boolean contieneHerramienta(Herramienta herramienta) {
+
+        int indice = 0;
+        boolean herramientaEncontrada = false;
+
+        while((!herramientaEncontrada) && (indice < herramientas.size())){
+
+            if (herramienta.getClass() == this.herramientas.get(indice).getClass()) {
+                herramientaEncontrada = true;
+            }
+
+            indice++;
 
         }
 
+        return herramientaEncontrada;
+    }
 
-   public void agregarAlInventario(ObjetoMinecraft material) {
+    public boolean contieneMaterial(Material material) {
 
-        elementos.add(material);
+        int indice = 0;
+        boolean materialEncontrado = false;
+
+        while((!materialEncontrado) && (indice < materiales.size())){
+
+            if (material.getClass() == this.materiales.get(indice).getClass()) {
+                materialEncontrado = true;
+            }
+
+            indice++;
 
         }
 
+        return materialEncontrado;
+    }
 
-   public ObjetoMinecraft obtenerGuardable(int posicion) {
+    public Material seleccionarMaterial(int posicion) {
+        return materiales.get(posicion);
+    }
 
-        return elementos.get(posicion);
+    public Herramienta seleccionarHerramienta(int posicion) {
+        this.posicionHerramientaSeleccionada = posicion;
+        return herramientas.get(posicion);
 
     }
 
+    public ArrayList<Herramienta> getHerramientas(){
 
-   public void removerGuardable(ObjetoMinecraft material) {
+        return this.herramientas;
 
-        elementos.remove(material);
+    }
 
-        }
+    public ArrayList<Material> getMateriales() {
+        return materiales;
+    }
 
+    public void desecharHerramientaRota() {
 
+        this.herramientas.remove(posicionHerramientaSeleccionada);
+    }
 }

@@ -10,6 +10,8 @@ import modelo.materiales.Material;
 import vista.BotoneraInventario;
 import vista.InventarioVista;
 
+
+/*
 public class ClickMaterialInventarioEventHandler implements EventHandler<MouseEvent> {
    InventarioVista vistaInventario;
     Inventario inventario;
@@ -43,3 +45,4 @@ public class ClickMaterialInventarioEventHandler implements EventHandler<MouseEv
         this.botonera.botonPonerEn.setOnAction(boton);
     }
 }
+*/

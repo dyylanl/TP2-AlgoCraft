@@ -1,53 +1,50 @@
 package controlador;
 
 
+import modelo.constructores.MesaDeCrafteo;
 import modelo.herramientas.Herramienta;
 import modelo.jugador.Inventario;
+import modelo.materiales.*;
 import modelo.materiales.Material;
 import vista.InventarioVista;
+import vista.SelectorDeHerramientas;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ControladorDeInventario {
 
-    private Inventario inventario;
+    private SelectorDeHerramientas selectorHerramientas;
+    private ArrayList<Material> materiales;
+    private ArrayList<Herramienta> herramientas;
     private InventarioVista inventarioVista;
     private HashMap<Character, String> materialesHash = new HashMap<>();
+    private MesaDeCrafteo mesaCrafteo = new MesaDeCrafteo();
 
-
-    public ControladorDeInventario(Inventario inventario, InventarioVista inventarioVista) {
-
-        this.inventario = inventario;
+    public ControladorDeInventario(Inventario inventario, InventarioVista inventarioVista, SelectorDeHerramientas selectorHerramientas) {
+        this.materiales = inventario.getMateriales();
+        this.herramientas = inventario.getHerramientas();
+        this.selectorHerramientas = selectorHerramientas;
         this.inventarioVista = inventarioVista;
         inicializarHash();
-
+        inventarioVista.setControlador(this);
     }
-
 
     public void actualizarVista() {
-
-        ArrayList<Material> materiales = inventario.getMateriales();
-        ArrayList<Herramienta> herramientas = inventario.getHerramientas();
-/*
-        int columna = -1;
-        for (int fila = 0; fila < materiales.size(); fila++) {
-
-            if (fila % 9 == 0) {
-                columna++;
+        this.inventarioVista.limpiar();
+        int j = -1;
+        for (int i = 0; i < this.materiales.size(); i++) {
+            if (i % 9 == 0) {
+                j++;
             }
-
-            inventarioVista.agregar(materialesHash.get(materiales.get(fila).getIdentificador()), fila % 9, columna);
-
+            inventarioVista.agregar(materialesHash.get(this.materiales.get(i).getIdentificador()), i % 9, j);
         }
 
+        this.selectorHerramientas.limpiar();
         for (int i = 0; i < herramientas.size(); i++) {
-            inventarioVista.agregar(herramientas.get(i).getIdentificador(), i, i % 9);
-
-        }*/
-
+            this.selectorHerramientas.agregar(herramientas.get(i).getIdentificador(), i);
+        }
     }
-
 
     private void inicializarHash() {
         this.materialesHash.put('m', "madera");
@@ -56,5 +53,24 @@ public class ControladorDeInventario {
         this.materialesHash.put('d', "diamante");
     }
 
+    public void agregarAMesaCrafteo(char identificador, int pos){
+        Material[] materiales = new Material[4];
+        materiales[0] = new Madera();
+        materiales[1] = new Metal();
+        materiales[2] = new Piedra();
+        materiales[3] = new Diamante();
+        Material material = null;
+        int index = 0;
+        while (material == null || index < 4){
+            if (identificador == materiales[index].getIdentificador()){
+                material = materiales[index];
+            }
+            index++;
+        }
+        mesaCrafteo.colocar(material, pos);
+    }
 
+    public Herramienta crearHerramienta() {
+        return mesaCrafteo.construir();
+    }
 }

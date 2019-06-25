@@ -5,7 +5,7 @@ import modelo.materiales.Material;
 import modelo.posicion.Posicion;
 
 import java.util.HashMap;
-
+/*
 public abstract class CrafteoHerramientas {
 
     protected HashMap<Posicion, Material> crafteo = new HashMap<Posicion, Material>();
@@ -34,4 +34,4 @@ public abstract class CrafteoHerramientas {
 
         return igual;
     }
-}
+}*/

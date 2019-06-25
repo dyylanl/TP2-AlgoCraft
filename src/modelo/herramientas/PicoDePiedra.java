@@ -42,4 +42,19 @@ public class PicoDePiedra extends Pico{
 	public String getIdentificador() {
 		return "Pico de piedra";
 	}
+
+	@Override
+	public void desgastar(int danio) {
+
+	}
+
+	@Override
+	public void usarContra(Material materialARecolectar) {
+
+	}
+
+	@Override
+	public String getImagen() {
+		return null;
+	}
 }

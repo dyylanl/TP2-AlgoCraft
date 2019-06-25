@@ -6,7 +6,7 @@ import modelo.materiales.Material;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-
+/*
 public class CrafteadorHerramientas {
 
     List<ConstructorDeHerramientas> crafteos = Arrays.asList(
@@ -35,3 +35,4 @@ public class CrafteadorHerramientas {
         return herramienta;
     }
 }
+*/

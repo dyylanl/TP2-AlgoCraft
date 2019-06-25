@@ -4,7 +4,7 @@ import modelo.herramientas.Golpe;
 import modelo.herramientas.Hacha;
 import modelo.herramientas.Pico;
 import modelo.herramientas.PicoFino;
-
+/*
 public class ConstructorHerramientas {
     public static Pico construirPicoDeMadera(){
         Golpe golpeDePico = new GolpePico(2);
@@ -55,4 +55,4 @@ public class ConstructorHerramientas {
         return hacha;
     }
 
-}
+}*/

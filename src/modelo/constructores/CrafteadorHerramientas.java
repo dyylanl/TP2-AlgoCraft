@@ -8,7 +8,7 @@ import java.lang.reflect.Constructor;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-
+/*
 public class CrafteadorHerramientas {
 
     List<CrafteoHerramientas> crafteos = Arrays.asList(
@@ -37,4 +37,4 @@ public class CrafteadorHerramientas {
 
         return herramienta;
     }
-}
+}*/

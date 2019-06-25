@@ -15,7 +15,7 @@ public class CreditosVista {
     BorderPane pane;
     ControladorDeEscena controladorDeEscena;
 
-    public CreditosVista(Scene scene, ControladorDeEscena controladorDeEscena) {
+    public CreditosVista(ControladorDeEscena controladorDeEscena) {
         this.controladorDeEscena = controladorDeEscena;
         pane = new BorderPane();
         pane.setId("background");

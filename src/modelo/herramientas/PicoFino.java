@@ -59,4 +59,18 @@ public class PicoFino extends Pico{
 		return "Pico fino";
 	}
 
+	@Override
+	public void desgastar(int danio) {
+
+	}
+
+	@Override
+	public void usarContra(Material materialARecolectar) {
+
+	}
+
+	@Override
+	public String getImagen() {
+		return null;
+	}
 }

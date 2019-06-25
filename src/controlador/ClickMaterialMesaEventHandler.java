@@ -7,7 +7,7 @@ import modelo.jugador.Inventario;
 import modelo.materiales.Material;
 import modelo.posicion.Posicion;
 import vista.InventarioVista;
-
+/*
 public class ClickMaterialMesaEventHandler implements EventHandler<MouseEvent> {
     Posicion posicion;
     InventarioVista vistaInventario;
@@ -33,4 +33,4 @@ public class ClickMaterialMesaEventHandler implements EventHandler<MouseEvent> {
         this.mesaDeCrafteo.removerMaterial(posicion);
         this.vistaInventario.actualizar(this.inventario);
     }
-}
+}*/

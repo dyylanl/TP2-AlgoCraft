@@ -6,7 +6,7 @@ import modelo.constructores.MesaDeCrafteo;
 import modelo.herramientas.Herramienta;
 import modelo.jugador.Jugador;
 import vista.InventarioVista;
-
+/*
 public class ConstruirHerramientaEventHandler implements EventHandler<ActionEvent> {
 
     InventarioVista vistaInventario;
@@ -32,4 +32,4 @@ public class ConstruirHerramientaEventHandler implements EventHandler<ActionEven
             this.vistaInventario.actualizar(this.jugador.obtenerInventario());
         }
     }
-}
+}*/

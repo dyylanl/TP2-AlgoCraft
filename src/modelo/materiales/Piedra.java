@@ -19,5 +19,10 @@ public class Piedra extends Material {
 		return 'p';
 	}
 
+	@Override
+	public void golpear(Golpe golpe) {
+
+	}
+
 }
 

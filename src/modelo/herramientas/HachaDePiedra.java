@@ -1,5 +1,7 @@
 package modelo.herramientas;
 
+import modelo.materiales.Material;
+
 public class HachaDePiedra extends Hacha {
 	
 	public HachaDePiedra() {
@@ -11,5 +13,20 @@ public class HachaDePiedra extends Hacha {
 	@Override
 	public String getIdentificador() {
 		return "Hacha de piedra";
+	}
+
+	@Override
+	public void desgastar(int danio) {
+
+	}
+
+	@Override
+	public void usarContra(Material materialARecolectar) {
+
+	}
+
+	@Override
+	public String getImagen() {
+		return null;
 	}
 }

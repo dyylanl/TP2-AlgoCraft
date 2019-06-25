@@ -1,5 +1,6 @@
 package modelo.materiales;
 
+import modelo.herramientas.Golpe;
 import modelo.herramientas.Hacha;
 import modelo.herramientas.Herramienta;
 import modelo.herramientas.Pico;
@@ -34,6 +35,11 @@ public class Madera extends Material{
 	@Override
 	public Character getIdentificador() {
 		return 'm';
+	}
+
+	@Override
+	public void golpear(Golpe golpe) {
+
 	}
 
 
