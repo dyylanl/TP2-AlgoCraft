@@ -1,90 +1,44 @@
 package modelo.jugador;
 
 import modelo.herramientas.Herramienta;
+import modelo.interfaz.ObjetoMinecraft;
 import modelo.materiales.Material;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Inventario {
 
-    private ArrayList<Herramienta> herramientas;
-    private ArrayList<Material> materiales;
+
+    private List<ObjetoMinecraft> elementos = new ArrayList<ObjetoMinecraft>();
 
 
-    public Inventario() {
+    public int obtenerCantidadDeObjetos() {
 
-        this.herramientas = new ArrayList<>();
-        this.materiales = new ArrayList<>();
-
-    }
-
-
-    public void setHerramienta(Herramienta herramienta) {
-
-        this.herramientas.add(herramienta);
-
-    }
-
-
-    public void setMaterial(Material material) {
-
-        this.materiales.add(material);
-
-    }
-
-
-    public boolean contieneHerramienta(Herramienta herramienta) {
-
-        int indice = 0;
-        boolean herramientaEncontrada = false;
-
-        while((!herramientaEncontrada) && (indice < herramientas.size())){
-
-            if (herramienta.esEquivalente(this.herramientas.get(indice))) {
-
-                herramientaEncontrada = true;
-
-            }
-
-            indice++;
+        return elementos.size();
 
         }
 
-        return herramientaEncontrada;
-    }
 
+   public void agregarAlInventario(ObjetoMinecraft material) {
 
-    public boolean contieneMaterial(Material material) {
-
-        int indice = 0;
-        boolean materialEncontrado = false;
-
-        while((!materialEncontrado) && (indice < materiales.size())){
-
-            if (material.esEquivalante(this.materiales.get(indice))) {
-                materialEncontrado = true;
-            }
-
-            indice++;
+        elementos.add(material);
 
         }
 
-        return materialEncontrado;
-    }
 
+   public ObjetoMinecraft obtenerGuardable(int posicion) {
 
-    public ArrayList<Herramienta> getHerramientas(){
-
-        return this.herramientas;
+        return elementos.get(posicion);
 
     }
 
 
-    public ArrayList<Material> getMateriales() {
+   public void removerGuardable(ObjetoMinecraft material) {
 
-        return materiales;
+        elementos.remove(material);
 
-    }
+        }
 
 
 }

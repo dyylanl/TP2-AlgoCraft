@@ -2,6 +2,9 @@ package modelo.jugador;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import modelo.constructores.MesaDeCrafteo;
+import modelo.excepciones.HerramientaRotaException;
+import modelo.excepciones.JugarSinHerramientaEquipadaException;
+import modelo.excepciones.MaterialRotoException;
 import modelo.materiales.*;
 import modelo.herramientas.*;
 import modelo.posicion.*;
@@ -22,7 +25,6 @@ public class Jugador implements ObjetoMinecraft{
 		this.herramientaEquipada = new HachaDeMadera();
 		this.imagen = "jugador.png";
 		this.posicionActual = new Posicion(0,0);
-		this.mesaDeCrafteo = new MesaDeCrafteo();
 		this.inventario = new Inventario();
 
 	}
@@ -92,18 +94,32 @@ public class Jugador implements ObjetoMinecraft{
 	}
 
 
-	public void agregarMaterialAInventario(Material material) {
+    public Inventario obtenerInventario() {
+		return this.inventario;
+    }
 
-		this.inventario.setMaterial(material);
 
+	public void golpearMaterial(Material material) {
+		try {
+			if (this.herramientaEquipada == null) {
+				throw new JugarSinHerramientaEquipadaException();
+			}
+			this.herramientaEquipada.usarContra(material);
+		} catch (MaterialRotoException ex) {
+			this.inventario.agregarAlInventario(material);
+			throw ex;
+		} catch (HerramientaRotaException ex) {
+			this.herramientaEquipada = null;
+			throw ex;
+		}
 	}
 
 
-	public void agregarHerramientaAInventario(Herramienta herramienta) {
-
-		this.inventario.setHerramienta(herramienta);
-
+	public void equipar(Herramienta herramienta) {
+		if (this.herramientaEquipada != null) {
+			this.inventario.agregarAlInventario(this.herramientaEquipada);
+		}
+		this.inventario.removerGuardable(herramienta);
+		this.herramientaEquipada = herramienta;
 	}
-
-
 }

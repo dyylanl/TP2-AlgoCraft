@@ -1,6 +1,7 @@
 package modelo.herramientas;
 
 
+import modelo.interfaz.ObjetoMinecraft;
 import modelo.materiales.Diamante;
 import modelo.materiales.Madera;
 import modelo.materiales.Material;
@@ -8,7 +9,7 @@ import modelo.materiales.Metal;
 import modelo.materiales.Piedra;
 
 
-public abstract class Herramienta{
+public abstract class Herramienta implements ObjetoMinecraft {
 
 
     protected float durabilidad;
@@ -54,4 +55,7 @@ public abstract class Herramienta{
 
     }
 
+    public abstract void desgastar(int danio);
+
+    public abstract void usarContra(Material materialARecolectar);
 }
