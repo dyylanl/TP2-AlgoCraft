@@ -1,21 +1,16 @@
 package controlador;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import modelo.herramientas.Herramienta;
-import modelo.jugador.Jugador;
-import vista.BotoneraInventario;
 import vista.InventarioVista;
 /*
 public class EquiparBotonEventHandler implements EventHandler<ActionEvent> {
 
-    BotoneraInventario botonera;
+    BotonesInventario botonera;
     Herramienta herramienta;
     Jugador jugador;
     InventarioVista vistaInventario;
 
     public EquiparBotonEventHandler(Jugador jugador,
-                                    BotoneraInventario botonera,
+                                    BotonesInventario botonera,
                                     Herramienta herramienta,
                                     InventarioVista vistaInventario) {
         this.botonera = botonera;

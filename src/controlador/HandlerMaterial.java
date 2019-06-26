@@ -1,13 +1,6 @@
 package controlador;
 
 
-import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import modelo.constructores.MesaDeCrafteo;
-import modelo.jugador.Inventario;
-import modelo.materiales.Material;
-import vista.BotoneraInventario;
 import vista.InventarioVista;
 
 
@@ -17,11 +10,11 @@ public class ClickMaterialInventarioEventHandler implements EventHandler<MouseEv
     Inventario inventario;
     Material material;
     MesaDeCrafteo mesaDeCrafteo;
-    BotoneraInventario botonera;
+    BotonesInventario botonera;
     BorderPane borderPane;
 
     public ClickMaterialInventarioEventHandler(Inventario inventario, Material material, MesaDeCrafteo mesaDeCrafteo,
-                                               InventarioVista vistaInventario, BotoneraInventario botonera,
+                                               InventarioVista vistaInventario, BotonesInventario botonera,
                                                BorderPane borderPane) {
         this.vistaInventario = vistaInventario;
         this.inventario = inventario;

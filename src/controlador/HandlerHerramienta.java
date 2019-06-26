@@ -1,20 +1,15 @@
 package controlador;
 
-import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
-import modelo.herramientas.Herramienta;
-import modelo.jugador.Jugador;
-import vista.BotoneraInventario;
 import vista.InventarioVista;
 /*
 public class ClickHerramientaEventHandler implements EventHandler<MouseEvent> {
-    BotoneraInventario botonera;
+    BotonesInventario botonera;
     Herramienta herramienta;
     Jugador jugador;
     InventarioVista vistaInventario;
 
     public ClickHerramientaEventHandler(Jugador jugador,
-                                        BotoneraInventario botonera,
+                                        BotonesInventario botonera,
                                         Herramienta herramienta,
                                         InventarioVista vistaInventario) {
         this.botonera = botonera;

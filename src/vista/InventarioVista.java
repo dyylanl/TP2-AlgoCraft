@@ -1,316 +1,183 @@
 package vista;
 
-import modelo.excepciones.DispocisionNoExisteException;
-
-import javafx.geometry.Pos;
+import javafx.collections.FXCollections;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import modelo.constructores.MesaDeCrafteo;
 import modelo.herramientas.Herramienta;
+import modelo.jugador.Inventario;
+import modelo.jugador.Jugador;
+import modelo.materiales.Material;
+import modelo.posicion.Posicion;
 
-public class InventarioVista {
+public class VistaInventario extends Stage {
+
+    GridPane inventario;
+    GridPane panel;
+    Scene scene;
+    BorderPane borderPane;
+    Jugador jugador;
+    MesaDeCrafteo mesaDeCrafteo = new MesaDeCrafteo();
+
+    BotonesInventario botones = new BotonesInventario();
 
 
-    private BorderPane root;
-    private ImageView seleccionado = null;
-    private GridPane inventario;
-    private ControladorDeInventario controlador;
+    public VistaInventario(Stage parent, Jugador jugador) {
+
+        this.setTitle("Inventario");
+        this.initOwner(parent);
+
+        this.inventario = new GridPane();
+        this.panel = new GridPane();
+        this.jugador = jugador;
+        this.borderPane = new BorderPane();
 
 
+        inventario.setHgap(2);
+        inventario.setVgap(2);
 
-    public InventarioVista(Escenario escenario) {
-        root = new BorderPane();
-        root.setId("background");
+        panel.setHgap(2);
+        panel.setVgap(2);
 
-        VBox contenedor = new VBox();
-        contenedor.setAlignment(Pos.CENTER);
-        contenedor.setId("contenedor-casillas");
+        VBox contenedorMedio = new VBox(new Label("Inventario"), this.inventario,
+                new Label("Mesa Crafteo"),
+                this.panel);
+        contenedorMedio.setSpacing(10);
+        borderPane.setCenter(contenedorMedio);
+        this.setBotonera(jugador);
+        scene = new Scene(borderPane, 640, 480);
 
-        Label titulo1 = new Label("Crafting");
-        titulo1.setId("titulo-inventario");
-        this.inventario = crearInventario(3, 9);
-        Label titulo2 = new Label("Inventario");
-        titulo2.setId("titulo-inventario");
-        HBox mesaDeCrafteo = crearMesa();
-
-        contenedor.getChildren().addAll(titulo1, mesaDeCrafteo, titulo2, inventario);
-
-        HBox menu = new HBox();
-        menu.setAlignment(Pos.CENTER);
-        Boton cerrar = new Boton("Cerrar - [E]");
-        cerrar.setOnAction(e -> {
-            escenario.activate("juego");
-        });
-        menu.getChildren().addAll(cerrar);
-
-        root.setTop(menu);
-        root.setCenter(contenedor);
-
-        root.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.E) {
-                escenario.activate("juego");
-            }
-        });
     }
 
-    public Pane getPane() {
-        return this.root;
+    public void mostrar(Inventario inventario) {
+        this.actualizar(inventario);
+        this.setScene(scene);
+        this.showAndWait();
     }
 
-    private GridPane crearInventario(int maxFil, int maxCol) {
+    private void setBotonera(Jugador jugador) {
 
-        GridPane inventario = new GridPane();
-        inventario.setAlignment(Pos.CENTER);
-        // Agrego casillas
-        for(int fila = 0; fila < maxFil; fila++) {
-            for(int col = 0; col < maxCol; col++) {
-                agregarCasilla(inventario, col, fila);
-            }
+        String rutaDeImagen = "invnetario.png";
+
+        Herramienta herramienta = jugador.getHerramientaEquipada();
+        if (herramienta != null) {
+            rutaDeImagen = herramienta.getImagen();
         }
 
-        return inventario;
+
+        this.botones.botonEquipar = new Button();
+        this.botones.botonEquipar.setText("Equipar");
+        this.botones.botonEquipar.setDisable(true);
+
+
+        this.botones.construirCrafteo = new Button();
+        this.botones.construirCrafteo.setText("Craftear");
+        this.botones.construirCrafteo.setOnAction(new HandlerConstruir(this, this.mesaDeCrafteo, this.jugador));
+
+
+        this.botones.imagenHerramientaEquipada = new ImageView();
+        Image imagen = new Image(rutaDeImagen);
+
+        this.botones.imagenHerramientaEquipada.setImage(imagen);
+        this.botones.imagenHerramientaEquipada.setFitWidth(32);
+        this.botones.imagenHerramientaEquipada.setFitHeight(32);
+
+
+        botones.filaPonerMesa = new ChoiceBox();
+        botones.filaPonerMesa.setItems(FXCollections.observableArrayList(1, 2, 3));
+        botones.columnaPonerMesa = new ChoiceBox();
+        botones.columnaPonerMesa.setItems(FXCollections.observableArrayList(1, 2, 3));
+
+        botones.filaPonerMesa.setValue(1);
+        botones.columnaPonerMesa.setValue(1);
+
+        botones.mensajeError = new Label("");
+        botones.mensajeError.setStyle("-fx-color: red");
+
+        VBox contenedorVertical = new VBox(new Label("Herramienta"), this.botones.imagenHerramientaEquipada,
+                this.botones.botonEquipar, this.botones.botonPonerEn,
+                new Label("Fila: "), botones.filaPonerMesa,
+                new Label("Columna: "), botones.columnaPonerMesa,
+                botones.construirCrafteo,
+                botones.mensajeError);
+
+        contenedorVertical.setSpacing(10);
+        contenedorVertical.setPadding(new Insets(15));
+        borderPane.setLeft(contenedorVertical);
     }
 
-    private HBox crearMesa() {
+    public void actualizar(Inventario inventario) {
 
-        HBox contenedor = new HBox(10);
-        contenedor.setAlignment(Pos.CENTER);
-        GridPane mesa = crearInventario(3, 3);
 
-        ImageView flecha = getImagen("flecha.png", 48);
-        ImageView resultado = getImagen("casilla.png", 64);
-        resultado.setId("casilla");
+        this.actualizar(inventario);
+        this.dibujarMesaCrafteo();
+        String path = "inventario.png";
 
-        Boton crear = new Boton("Crear");
-        crear.setOnAction(e -> {
-            try {
-                Herramienta nuevaHerramienta = controlador.crearHerramienta();
-                ImageView herramienta = getImagen(nuevaHerramienta.getIdentificador(), 40);
-                contenedor.getChildren().add(herramienta);
-            } catch (DispocisionNoExisteException ex) {
-            }
-        });
+        Herramienta herramienta = jugador.getHerramientaEquipada();
+        if (herramienta != null) {
+            path = herramienta.getImagen();
+        }
+        Image imagen = new Image(path);
 
-        contenedor.getChildren().addAll(mesa, flecha,crear , resultado);
-
-        return contenedor;
-    }
-
-    private void agregarElemento(GridPane inventario, String elemento, int fila, int columna) {
-
-        System.out.println("En inventario vista agregarElemento recibe como elemento: "+elemento);
-        if (elemento == null) return;
-        StackPane stack = new StackPane();
-        Image itemImage = new Image(elemento, 38, 0, true, true);
-        ImageView imageView = new ImageView(itemImage);
-        imageView.setId(String.valueOf(elemento.charAt(0)));
-        stack.getChildren().add(imageView);
-        inventario.add(stack, fila, columna);
-        stack.setId("casilla");
-        imageView.setOnMouseClicked(e -> {
-            System.out.println("IMAGEN");
-            stack.getChildren().clear();
-            this.seleccionado = imageView;
-        });
-        stack.setOnMouseReleased(e -> {
-            if (this.seleccionado != null) {
-                System.out.println("PONGO");
-                stack.getChildren().add(this.seleccionado);
-                this.seleccionado = null;
-            }
-        });
-    }
-
-    private void agregarCasilla(GridPane inventario, int col, int fila) {
-
-        StackPane stackBack = new StackPane();
-        ImageView imageView = new ImageView(new Image(("casilla.png"), 48, 0, true, true));
-        stackBack.getChildren().add(imageView);
-        inventario.add(stackBack, col, fila);
-        stackBack.setId("casilla");
-        stackBack.setOnMouseReleased(e -> {
-            if (this.seleccionado != null) {
-                System.out.println("BACK");
-                stackBack.getChildren().add(this.seleccionado);
-                int pos = (fila * 3) + col;
-                this.controlador.agregarAMesaCrafteo(this.seleccionado.getId().charAt(0),pos);
-                this.seleccionado = null;
-            }
-        });
+        this.botones.imagenHerramientaEquipada.setImage(imagen);
+        this.botones.imagenHerramientaEquipada.setFitWidth(32);
+        this.botones.imagenHerramientaEquipada.setFitHeight(32);
 
     }
 
-    private ImageView getImagen(String nombre, int tamanio) {
-        return new ImageView(new Image((nombre), tamanio, 0, true, true));
-    }
+    public void crearInventario(Inventario inventario) {
 
-    public void agregar(String elemento, int fila, int columna) {
-        this.agregarElemento(this.inventario, elemento, fila, columna);
-    }
 
-    public void limpiar() {
 
-        this.inventario.getChildren().clear();
-        for(int fila = 0; fila < 3; fila++) {
-            for(int col = 0; col < 9; col++) {
-                agregarCasilla(this.inventario, col, fila);
+        int i=0;
+        for (int y = 0; y < 3; y++) {
+            for (int x = 0; x < 9; x++) {
+                ObjetoMinecraft objeto = null;
+                ImageView imageView = new ImageView();
+                if (index < inventario.obtenerCantidad()) {
+                    objeto = inventario.obtenerObjeto(index);
+                    i++;
+                }
+                Image imagen = new Image("inventario.png");
+                if (objeto != null) {
+                    if (objeto instanceof Herramienta) {
+                        Herramienta herramienta = (Herramienta) objeto;
+                        String ruta = herramienta.getImagen();
+                        HandlerHerramienta handler = new HandlerHerramienta(jugador,
+                                botones,
+                                herramienta,
+                                this);
+                        imageView.setOnMouseClicked(handler);
+                        imagen = new Image(ruta);
+                    } else {
+                        Material material = (Material) objeto;
+                        String ruta = material.getImagen();
+                        HandlerMaterialEnMesa handler = new HandlerMaterialEnMesa(inventario,
+                                material,
+                                mesaDeCrafteo,
+                                this, botones, borderPane);
+                        imageView.setOnMouseClicked(handler);
+                        imagen = new Image(ruta);
+                    }
+                }
+
+                imageView.setImage(imagen);
+                imageView.setFitWidth(32);
+                imageView.setFitHeight(32);
+
+                inventario.add(imageView, x, y);
+
             }
         }
     }
 
-    public void setControlador(ControladorDeInventario controladorDeInventario) {
-        this.controlador = controladorDeInventario;
-    }
 }
-
-
-    /*
-    public InventarioVista(Scene scene, Escenario escenario) {
-
-
-
-        this.scene = scene;
-        root = new BorderPane();
-        root.setId("background");
-
-
-        VBox contenedor = new VBox();
-        contenedor.setAlignment(Pos.CENTER);
-        contenedor.setId("contenedor-casillas");
-
-
-        Label titulo1 = new Label("Crafting");
-        titulo1.setId("titulo-inventario");
-       // this.inventario = crearInventario(3, 9);
-        Label titulo2 = new Label("Inventario");
-        titulo2.setId("titulo-inventario");
-        //HBox mesaDeCrafteo = crearMesa();
-
-       // contenedor.getChildren().addAll(titulo1, mesaDeCrafteo, titulo2, inventario);
-
-
-        HBox menu = new HBox();
-        menu.setAlignment(Pos.CENTER);
-        Boton cerrar = new Boton("Cerrar - [E]");
-        cerrar.setOnAction(e -> {
-            escenario.activate("juego");
-        });
-        menu.getChildren().addAll(cerrar);
-
-
-        root.setTop(menu);
-        root.setCenter(contenedor);
-
-
-        root.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.E) {
-                escenario.activate("juego");
-            }
-        });
-    }
-
-
-    public Pane getPane() {
-
-        return this.root;
-
-    }
-
-/*
-    private GridPane crearInventario(int maxFil, int maxCol) {
-
-        GridPane inventario = new GridPane();
-        inventario.setAlignment(Pos.CENTER);
-
-        for(int fila = 0; fila < maxFil; fila++) {
-
-            for(int col = 0; col < maxCol; col++) {
-
-                agregarCasilla(inventario, col, fila);
-
-            }
-        }
-
-        return inventario;
-
-    }
-
-
-    private HBox crearMesa() {
-
-
-        HBox contenedor = new HBox(10);
-        contenedor.setAlignment(Pos.CENTER);
-        GridPane mesa = crearInventario(3, 3);
-
-        ImageView flecha = getImagen("flecha", 48);
-        ImageView casilla = getImagen("casilla", 64);
-        casilla.setId("casilla");
-
-        contenedor.getChildren().addAll(mesa, flecha, casilla);
-
-        return contenedor;
-
-    }
-
-
-    private void agregarElemento(GridPane inventario, String elemento, int fila, int columna) {
-
-        if (elemento == null) return;
-
-        StackPane stack = new StackPane();
-        Image itemImage = new Image(getClass().getResourceAsStream(elemento), 38, 0, true, true);
-        ImageView imageView = new ImageView(itemImage);
-        stack.getChildren().add(imageView);
-        inventario.add(stack, fila, columna);
-        stack.setId("casilla");
-
-        imageView.setOnMouseClicked(e -> {
-            stack.getChildren().clear();
-            this.seleccionado = imageView;
-        });
-
-        stack.setOnMouseReleased(e -> {
-            if (this.seleccionado != null) {
-                stack.getChildren().add(this.seleccionado);
-                this.seleccionado = null;
-            }
-        });
-
-    }
-
-
-    private void agregarCasilla(GridPane inventario, int col, int fila) {
-
-        StackPane stackBack = new StackPane();
-        ImageView imageView = new ImageView(new Image("casilla.png", 48, 0, true, true));
-        stackBack.getChildren().add(imageView);
-        inventario.add(stackBack, col, fila);
-        stackBack.setId("casilla");
-        stackBack.setOnMouseReleased(e -> {
-
-            if (this.seleccionado != null) {
-                stackBack.getChildren().add(this.seleccionado);
-                this.seleccionado = null;
-
-            }
-        });
-
-    }
-
-
-    private ImageView getImagen(String nombre, int tamanio) {
-
-        return new ImageView(new Image(nombre, tamanio, 0, true, true));
-
-    }
-
-
-    public void agregar(String elemento, int fila, int columna) {
-
-        this.agregarElemento(this.inventario, elemento, fila, columna);
-
-    }
-*/
