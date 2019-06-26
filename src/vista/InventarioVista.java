@@ -12,12 +12,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import modelo.constructores.MesaDeCrafteo;
+import modelo.constructores.Mesa;
 import modelo.herramientas.Herramienta;
 import modelo.jugador.Inventario;
 import modelo.jugador.Jugador;
 import modelo.materiales.Material;
-import modelo.posicion.Posicion;
 
 public class VistaInventario extends Stage {
 
@@ -26,7 +25,7 @@ public class VistaInventario extends Stage {
     Scene scene;
     BorderPane borderPane;
     Jugador jugador;
-    MesaDeCrafteo mesaDeCrafteo = new MesaDeCrafteo();
+    Mesa mesaDeCrafteo = new Mesa();
 
     BotonesInventario botones = new BotonesInventario();
 
@@ -53,7 +52,7 @@ public class VistaInventario extends Stage {
                 this.panel);
         contenedorMedio.setSpacing(10);
         borderPane.setCenter(contenedorMedio);
-        this.setBotonera(jugador);
+        this.cargarBotones(jugador);
         scene = new Scene(borderPane, 640, 480);
 
     }
@@ -64,7 +63,7 @@ public class VistaInventario extends Stage {
         this.showAndWait();
     }
 
-    private void setBotonera(Jugador jugador) {
+    private void cargarBotones(Jugador jugador) {
 
         String rutaDeImagen = "invnetario.png";
 
@@ -119,7 +118,7 @@ public class VistaInventario extends Stage {
 
 
         this.actualizar(inventario);
-        this.dibujarMesaCrafteo();
+        this.crearInventario();
         String path = "inventario.png";
 
         Herramienta herramienta = jugador.getHerramientaEquipada();

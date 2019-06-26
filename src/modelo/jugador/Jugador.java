@@ -1,7 +1,5 @@
 package modelo.jugador;
-import modelo.constructores.MesaDeCrafteo;
-import modelo.excepciones.HerramientaRotaException;
-import modelo.excepciones.JugarSinHerramientaEquipadaException;
+import modelo.constructores.Mesa;
 import modelo.materiales.*;
 import modelo.herramientas.*;
 import modelo.posicion.*;
@@ -12,7 +10,7 @@ public class Jugador {
 	public Herramienta herramientaEquipada;
 	public String imagen;
 	public Posicion posicionActual;
-	private MesaDeCrafteo mesaDeCrafteo;
+	private Mesa mesaDeCrafteo;
 	private Inventario inventario;
 	public boolean estaPosicionado;
 	public Herramienta herramientaSeleccionada;
@@ -90,19 +88,11 @@ public class Jugador {
     }
 
 
-	public void golpearMaterial(Material material) {
-		try {
-			if (this.herramientaEquipada == null) {
-				throw new JugarSinHerramientaEquipadaException();
-			}
-			this.herramientaEquipada.usarContra(material);
-		} catch (MaterialRotoException ex) {
-			this.inventario.agregarMaterial(material);
-			throw ex;
-		} catch (HerramientaRotaException ex) {
-			this.herramientaEquipada = null;
-			throw ex;
-		}
+    public void golpear(Material unMaterial){
+
+		Herramienta herramienta = this.getHerramientaEquipada();
+		herramienta.usarContra(unMaterial);
+
 	}
 
 
@@ -123,7 +113,7 @@ public class Jugador {
 	public Jugador(){
 
 		this.herramientaEquipada = new HachaDeMadera();
-		this.mesaDeCrafteo = new MesaDeCrafteo();
+		this.mesaDeCrafteo = new Mesa(9);
 		this.inventario = new Inventario();
 		this.posicionActual = new Posicion(0,0);
 		this.inventario.agregarHerramienta(new HachaDeMadera());
@@ -135,7 +125,7 @@ public class Jugador {
 
 	public Jugador(Mapa mapa) {
 
-		this.mesaDeCrafteo = new MesaDeCrafteo();
+		this.mesaDeCrafteo = new Mesa(9);
 		this.inventario = new Inventario();
 		this.posicionActual = new Posicion(0,0);
 		this.inventario.agregarHerramienta(new HachaDeMadera());
@@ -143,88 +133,6 @@ public class Jugador {
 		this.mapa = mapa;
 		this.herramientaSeleccionada = new HachaDeMadera();
 
-	}
-
-	public boolean inventarioContieneHerramienta(Herramienta herramienta) {
-		return this.inventario.contieneHerramienta(herramienta);
-	}
-
-	public boolean inventarioContieneMaterial(Material material) {
-		return this.inventario.contieneMaterial(material);
-	}
-
-
-	public void setPosicion(int fila, int columna) {
-
-		this.posicionActual.x =(columna);
-		this.posicionActual.y =(fila);
-		this.estaPosicionado = true;
-	}
-
-	public int getPosicionColumna() {
-		return this.posicionActual.x;
-	}
-
-	public int getPosicionFila() {
-		return this.posicionActual.y;
-	}
-
-	public void seleccionarMaterial(int posicion) {
-
-		this.materialSeleccionado = this.inventario.seleccionarMaterial(posicion);
-
-	}
-
-	public void seleccionarHerramienta(int posicion) {
-
-		this.herramientaSeleccionada = this.inventario.seleccionarHerramienta(posicion);
-
-	}
-
-	public void deseleccionarHerramienta(){
-
-		this.herramientaSeleccionada = null;
-	}
-
-	public void colocarEnMesa(int posicion) {
-		this.mesaDeCrafteo.colocar(this.materialSeleccionado, posicion);
-	}
-
-	public void craftear() {
-
-		this.inventario.agregarHerramienta(this.mesaDeCrafteo.construir());
-	}
-
-	public void agregarMaterialAInventario(Material material) {
-		this.inventario.agregarMaterial(material);
-	}
-
-	public void agregarHerramientaAInventario(Herramienta herramienta) {
-		this.inventario.agregarHerramienta(herramienta);
-	}
-
-	public boolean estaPosicionado(){
-		return this.estaPosicionado;
-	}
-
-	// ---------- EL JUGADOR TENDRIA QUE TENER ESTOS METODOS:
-
-/*	public void golpear(Direccion direccion){
-
-		if(this.herramientaSeleccionada == null){
-			throw new HerramientaNoSeleccionadaException();
-		}
-		direccion.golpear(mapa, herramientaSeleccionada, this);
-		if(herramientaSeleccionada.getDurabilidad() <= 0){
-
-			inventario.desecharHerramientaRota();
-			this.herramientaSeleccionada = null;
-		}
-	}
-
-*/
-	public double getDurabilidadHerramientaActual() {
-		return this.herramientaSeleccionada.getDurabilidad();
 	}
 
 

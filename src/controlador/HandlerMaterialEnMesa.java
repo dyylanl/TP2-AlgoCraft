@@ -2,12 +2,12 @@ package controlador;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-import modelo.constructores.MesaDeCrafteo;
 import modelo.jugador.Inventario;
 import modelo.materiales.Material;
 import modelo.posicion.Posicion;
 import vista.InventarioVista;
-/*
+
+
 public class ClickMaterialMesaEventHandler implements EventHandler<MouseEvent> {
     Posicion posicion;
     InventarioVista vistaInventario;
@@ -33,4 +33,4 @@ public class ClickMaterialMesaEventHandler implements EventHandler<MouseEvent> {
         this.mesaDeCrafteo.removerMaterial(posicion);
         this.vistaInventario.actualizar(this.inventario);
     }
-}*/
+}

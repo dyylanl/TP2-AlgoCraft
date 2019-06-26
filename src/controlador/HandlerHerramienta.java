@@ -1,7 +1,8 @@
 package controlador;
 
 import vista.InventarioVista;
-/*
+
+
 public class ClickHerramientaEventHandler implements EventHandler<MouseEvent> {
     BotonesInventario botonera;
     Herramienta herramienta;
@@ -27,4 +28,4 @@ public class ClickHerramientaEventHandler implements EventHandler<MouseEvent> {
                 vistaInventario);
         botonera.botonEquipar.setOnAction(equiparBotonEventHandler);
     }
-}*/
+}

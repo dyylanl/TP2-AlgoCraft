@@ -1,7 +1,8 @@
 package controlador;
 
 import vista.InventarioVista;
-/*
+
+
 public class EquiparBotonEventHandler implements EventHandler<ActionEvent> {
 
     BotonesInventario botonera;
@@ -26,4 +27,3 @@ public class EquiparBotonEventHandler implements EventHandler<ActionEvent> {
         this.vistaInventario.actualizar(this.jugador.obtenerInventario());
     }
 }
-*/

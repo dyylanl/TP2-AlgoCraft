@@ -1,5 +1,6 @@
 package vista;
 
+import controlador.HandlerMover;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -33,34 +34,20 @@ public class Principal extends Application {
     }
 
 
-
-
-    }
     
     public void loadMainMenu(Stage primaryStage) {
 
 
         try {
 
-            primaryStage.setTitle("TP2 ALGOCRAFT");
+            primaryStage.setTitle("ALGOCRAFT");
             Juego juego = new Juego();
-            Marco contenedorPrincipal = new ContenedorPrincipal(stage, juego.obtenerJugador());
+            Marco contenedorPrincipal = new Marco(primaryStage, juego.getJugador());
             Scene escenaJuego = new Scene(contenedorPrincipal, 640, 480);
-
-
-            ControlesJugadorKeyPressEventHandler controlesEventHandler = new ControlesJugadorKeyPressEventHandler(contenedorPrincipal.obtenerVistaJugador(), juego.obtenerJugador());
+            HandlerMover controlesEventHandler = new HandlerMover(contenedorPrincipal.obtenerVistaJugador(), juego.getJugador());
             escenaJuego.setOnKeyPressed(controlesEventHandler);
+            primaryStage.show();
 
-            ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, escenaJuego);
-            Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 640, 480);
-
-            // add handler to this:
-            // stage.setOnCloseRequest()
-
-            stage.setScene(escenaBienvenidos);
-
-
-            stage.show();
         }
 
         catch (Exception e) {
@@ -74,4 +61,6 @@ public class Principal extends Application {
 
         }
     }
+
+
 }

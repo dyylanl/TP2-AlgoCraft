@@ -1,6 +1,7 @@
 package vista;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.layout.BorderPane;
@@ -11,20 +12,15 @@ import modelo.jugador.Jugador;
 
 public class Marco extends BorderPane {
 
-    Menu menuBar;
-    JugadorVista vistaJugador;
+    Menu menu;
+    VistaJugador vistaJugador;
     VistaInventario vistaInventario;
-    GridPane gridPane;
-    VBox contenedorCentral;
 
     Stage stage;
 
     public Marco(Stage stage, Jugador Jugador) {
         this.setControles(stage, Jugador);
-        this.setMenu(stage);
-        this.setCentro(Jugador);
-        this.setConsola();
-        this.setBotonera(Jugador);
+        this.cargarBotones(Jugador);
         this.stage = stage;
     }
 
@@ -32,12 +28,12 @@ public class Marco extends BorderPane {
 
     }
 
-    private void setBotonera(Jugador Jugador) {
+    private void cargarBotones(Jugador Jugador) {
 
         Button botonMostrarInventario = new Button();
         botonMostrarInventario.setText("Mostrar inventario");
         this.vistaInventario = new VistaInventario(stage,Jugador);
-        BotonInventarioHandler moveButtonHandler = new BotonInventarioHandler(vistaInventario, Jugador);
+        HandlerInventario moveButtonHandler = new HandlerInventario(vistaInventario, Jugador);
         botonMostrarInventario.setOnAction(moveButtonHandler);
 
         VBox contenedorVertical = new VBox(botonMostrarInventario);
@@ -48,38 +44,22 @@ public class Marco extends BorderPane {
 
     }
 
-    private void setMenu(Stage stage) {
-        this.menuBar = new Menu(stage);
-        this.setTop(menuBar);
-    }
 
-    private void setCentro(Jugador Jugador) {
-        this.gridPane = new GridPane();
 
-        vistaJugador = new VistaJugador(Jugador, gridPane);
-        vistaJugador.dibujar();
 
-        contenedorCentral = new VBox(gridPane);
-        contenedorCentral.setAlignment(Pos.CENTER);
-        contenedorCentral.setSpacing(20);
-        contenedorCentral.setPadding(new Insets(25));
-
-        this.setCenter(contenedorCentral);
-    }
-
-    private void setConsola() {
+    private void establecerConsola() {
 
 
         VBox marco = new VBox();
         marco.setSpacing(10);
         marco.setPadding(new Insets(15));
-        marco.setStyle("-fx-background-color: black;");
-
         this.setBottom(marco);
     }
 
     public Menu obtenerMenu() {
-        return menuBar;
+
+        return menu;
+
     }
 
     public VistaJugador obtenerVistaJugador() {

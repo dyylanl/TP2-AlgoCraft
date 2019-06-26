@@ -9,7 +9,7 @@ import vista.*;
 
 public class HandlerMover implements EventHandler<KeyEvent>{
 	
-	JuegoVista juegoVista;
+	VistaJuego juegoVista;
 	GridPane mapa;
 	
 	public HandlerMover(JuegoVista juegoVista, GridPane mapa) {
