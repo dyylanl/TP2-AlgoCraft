@@ -5,10 +5,10 @@ import javafx.scene.layout.*;
 import javafx.scene.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import modelo.interfaz.ObjetoMinecraft;
 import modelo.juego.Juego;
 import modelo.posicion.Posicion;
 import vista.JuegoVista;
+import modelo.materiales.*;
 
 
 public class ControladorDelJuego {
@@ -38,7 +38,7 @@ public class ControladorDelJuego {
             for(int col = 0; col < 12; col++)
             {
                 Posicion posicion = new Posicion(row,col);
-                ObjetoMinecraft objeto = juego.getMapa().obtenerObjeto(posicion);
+                Material objeto = juego.getMapa().obtenerObjeto(posicion);
                 String nombreImagen = objeto.getImagen();
                 //System.out.println(nombreImagen);
                 juegoVista.agregarElemento(nombreImagen, col, row);

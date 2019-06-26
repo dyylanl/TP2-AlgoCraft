@@ -1,7 +1,6 @@
 package modelo.jugador;
 
 import modelo.herramientas.Herramienta;
-import modelo.interfaz.ObjetoMinecraft;
 import modelo.materiales.Material;
 
 import java.util.ArrayList;
