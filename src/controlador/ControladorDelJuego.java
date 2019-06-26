@@ -3,18 +3,18 @@ package controlador;
 import javafx.geometry.Pos;
 import javafx.scene.layout.*;
 import javafx.scene.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import modelo.interfaz.ObjetoMinecraft;
 import modelo.juego.Juego;
 import modelo.posicion.Posicion;
 import vista.JuegoVista;
 
-import java.util.HashMap;
 
 public class ControladorDelJuego {
 
     private Juego juego;
     private JuegoVista juegoVista;
-    private HashMap<Character, String> BloquesHash = new HashMap<>();
     private int jugadorPosX, jugadorPosY;
 
     public ControladorDelJuego(JuegoVista juegoVista, Juego  juego) {
@@ -41,7 +41,7 @@ public class ControladorDelJuego {
                 ObjetoMinecraft objeto = juego.getMapa().obtenerObjeto(posicion);
                 String nombreImagen = objeto.getImagen();
                 //System.out.println(nombreImagen);
-                juegoVista.agregarElemento(nombreImagen, col, row);
+                juegoVista.agregarElemento(nombreImagen, row, col);
             }
         }
     }
@@ -58,6 +58,8 @@ public class ControladorDelJuego {
     	
     	mapa.getChildren().remove(jugadorNode);
     	mapa.getChildren().remove(siguiente);
+    	
+    	//this.juegoVista.agregarElemento("negro.png", this.jugadorPosX, this.jugadorPosY);
     	
     	this.jugadorPosY --;
     	mapa.add(jugadorNode, this.jugadorPosX, this.jugadorPosY);
@@ -77,6 +79,8 @@ public class ControladorDelJuego {
     	mapa.getChildren().remove(jugadorNode);
     	mapa.getChildren().remove(siguiente);
     	
+    	//this.juegoVista.agregarElemento("negro.png", this.jugadorPosX, this.jugadorPosY);
+    	
     	this.jugadorPosY++ ;
     	mapa.add(jugadorNode, this.jugadorPosX, this.jugadorPosY);
 
@@ -92,10 +96,9 @@ public class ControladorDelJuego {
 	    mapa.getChildren().remove(jugadorNode);
 	    mapa.getChildren().remove(siguiente);
 	        	
+	    //this.juegoVista.agregarElemento("negro.png", this.jugadorPosX, this.jugadorPosY);
+	    
 	    this.jugadorPosX ++;
-	        	
-	    System.out.println(this.jugadorPosX);
-	    System.out.println(this.jugadorPosY);
 	        	
 	    mapa.add(jugadorNode, this.jugadorPosX, this.jugadorPosY);
 	    		
@@ -114,7 +117,9 @@ public class ControladorDelJuego {
         
        	mapa.getChildren().remove(jugadorNode);
        	mapa.getChildren().remove(siguiente);
-        	
+        
+       	//this.juegoVista.agregarElemento("negro.png", this.jugadorPosX, this.jugadorPosY);       	
+       	
        	this.jugadorPosX --;
        	mapa.add(jugadorNode, this.jugadorPosX, this.jugadorPosY);    		
     	

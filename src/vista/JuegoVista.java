@@ -1,7 +1,6 @@
 package vista;
 
-import controlador.ControladorDeEscena;
-import controlador.ControladorDelJuego;
+import controlador.*;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
@@ -13,8 +12,8 @@ import javafx.scene.layout.*;
 public class JuegoVista {
 
 
-    GridPane mapa;
-    ControladorDelJuego controlador;
+    public GridPane mapa;
+    public ControladorDelJuego controlador;
     private BorderPane main;
 
 
@@ -64,26 +63,9 @@ public class JuegoVista {
             controlador.moverArriba(this.mapa);
         });
 
-        
-        main.setOnKeyPressed(new EventHandler<KeyEvent>() {
-		    public void handle(KeyEvent event) {
-		        if(event.getCode() == KeyCode.W) {
-		        	controlador.moverArriba(mapa);
-		        }
-		        if( event.getCode() == KeyCode.S) {
-		        	controlador.moverAbajo(mapa);
-		        }
-		        if (event.getCode() == KeyCode.D) {
-		        	controlador.moverDerecha(mapa);
-		        }
-		        if (event.getCode() == KeyCode.A) {
-		        	controlador.moverIzquierda(mapa);
-		        } 
-		        event.consume();
-		    }
-			
-		});
-        
+
+        MoverJugadorEventHandler movimientosASDWHandler = new MoverJugadorEventHandler(this);
+        main.setOnKeyPressed(movimientosASDWHandler);
         
         
         this.main.setTop(menu);
@@ -99,7 +81,7 @@ public class JuegoVista {
 
     public void agregarElemento(String nombreImagen, int fila, int col) {
         ImageView img = new ImageView(new Image(nombreImagen,50,0,true,true));
-        mapa.add(img, col, fila);
+        mapa.add(img, fila, col);
     }
 
 
