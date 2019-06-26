@@ -7,12 +7,12 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import vista.*;
 
-public class MoverJugadorEventHandler implements EventHandler<KeyEvent>{
+public class HandlerMover implements EventHandler<KeyEvent>{
 	
 	JuegoVista juegoVista;
 	GridPane mapa;
 	
-	public MoverJugadorEventHandler(JuegoVista juegoVista, GridPane mapa) {
+	public HandlerMover(JuegoVista juegoVista, GridPane mapa) {
 		this.juegoVista = juegoVista;
 		this.mapa = mapa;
 	}

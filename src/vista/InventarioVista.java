@@ -2,8 +2,6 @@ package vista;
 
 import modelo.excepciones.DispocisionNoExisteException;
 
-import controlador.ControladorDeEscena;
-import controlador.ControladorDeInventario;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -22,7 +20,7 @@ public class InventarioVista {
 
 
 
-    public InventarioVista(ControladorDeEscena controladorDeEscena) {
+    public InventarioVista(Escenario escenario) {
         root = new BorderPane();
         root.setId("background");
 
@@ -43,7 +41,7 @@ public class InventarioVista {
         menu.setAlignment(Pos.CENTER);
         Boton cerrar = new Boton("Cerrar - [E]");
         cerrar.setOnAction(e -> {
-            controladorDeEscena.activate("juego");
+            escenario.activate("juego");
         });
         menu.getChildren().addAll(cerrar);
 
@@ -52,7 +50,7 @@ public class InventarioVista {
 
         root.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.E) {
-                controladorDeEscena.activate("juego");
+                escenario.activate("juego");
             }
         });
     }
@@ -169,7 +167,7 @@ public class InventarioVista {
 
 
     /*
-    public InventarioVista(Scene scene, ControladorDeEscena controladorDeEscena) {
+    public InventarioVista(Scene scene, Escenario escenario) {
 
 
 
@@ -197,7 +195,7 @@ public class InventarioVista {
         menu.setAlignment(Pos.CENTER);
         Boton cerrar = new Boton("Cerrar - [E]");
         cerrar.setOnAction(e -> {
-            controladorDeEscena.activate("juego");
+            escenario.activate("juego");
         });
         menu.getChildren().addAll(cerrar);
 
@@ -208,7 +206,7 @@ public class InventarioVista {
 
         root.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.E) {
-                controladorDeEscena.activate("juego");
+                escenario.activate("juego");
             }
         });
     }

@@ -1,11 +1,7 @@
 package modelo.jugador;
-import javafx.geometry.Pos;
-import javafx.scene.image.Image;
 import modelo.constructores.MesaDeCrafteo;
-import modelo.excepciones.HerramientaNoSeleccionadaException;
 import modelo.excepciones.HerramientaRotaException;
 import modelo.excepciones.JugarSinHerramientaEquipadaException;
-import modelo.excepciones.MaterialRotoException;
 import modelo.materiales.*;
 import modelo.herramientas.*;
 import modelo.posicion.*;
