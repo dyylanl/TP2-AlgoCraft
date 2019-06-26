@@ -7,7 +7,7 @@ import org.junit.Test;
 import junit.framework.Assert;
 import modelo.herramientas.*;
 import modelo.materiales.*;
-
+/*
 public class MesaDeCrafteoTest{
 	
 	@Test
@@ -103,4 +103,4 @@ public class MesaDeCrafteoTest{
 		Assert.assertTrue(picoFino instanceof PicoFino);
 	}
 
-}
+}*/

@@ -1,6 +1,7 @@
 package vista;
 
 import controlador.ControladorDeEscena;
+import controlador.ControladorDeInventario;
 import controlador.ControladorDelJuego;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -10,10 +11,12 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import modelo.juego.Juego;
+import modelo.jugador.Jugador;
 
 public class AlgoCraft extends Application {
 
@@ -42,67 +45,84 @@ public class AlgoCraft extends Application {
         try {
 
             BorderPane border = new BorderPane();
-            border.setPadding(new Insets(25, 0, 25, 25));
+            border.setPadding(new Insets(20, 0, 20, 20));
             border.setId("background");
-            border.setStyle("-fx-background-image: url('fondo.png')");
 
 
-            Boton botonJugar = new Boton("Jugar");
-            Boton botonOpciones = new Boton("Opciones");
-            Boton botonCreditos = new Boton("Creditos");
-            Boton botonSalir = new Boton("Salir del Juego");
+            // Botones
+            Boton btnJugar = new Boton("Jugar");
+            Boton btnCreditos = new Boton("Creditos");
+            Boton btnSalir = new Boton("Salir del Juego");
 
-            BotonSalirEventHandler botonSalirEventHandler = new BotonSalirEventHandler(botonSalir);
-            botonSalir.setOnAction(botonSalirEventHandler);
-            botonJugar.setMaxWidth(Double.MAX_VALUE);
-            botonOpciones.setMaxWidth(Double.MAX_VALUE);
-            botonCreditos.setMaxWidth(Double.MAX_VALUE);
-            botonSalir.setMaxWidth(Double.MAX_VALUE);
+            btnJugar.setMaxWidth(Double.MAX_VALUE);
+            btnCreditos.setMaxWidth(Double.MAX_VALUE);
+            btnSalir.setMaxWidth(Double.MAX_VALUE);
 
-
+            // Agrego botones a VBox
             VBox vbButtons = new VBox();
             vbButtons.setAlignment(Pos.CENTER);
             vbButtons.setSpacing(10);
-            vbButtons.setPadding(new Insets(0, 25, 15, 25));
-            vbButtons.getChildren().addAll(botonJugar, botonOpciones, botonCreditos, botonSalir);
+            vbButtons.setPadding(new Insets(0, 20, 10, 20));
+            vbButtons.getChildren().addAll(btnJugar, btnCreditos, btnSalir);
+
+            // Copyright
+            Label copyright = new Label("TP2 Algoritmos 3 FIUBA. Do not distribute!");
+            copyright.setAlignment(Pos.BOTTOM_CENTER);
+
+            // Agrego lo anterior al BorderPane
             border.setCenter(vbButtons);
+            border.setBottom(copyright);
 
-
-            Scene scene = new Scene(border, 900, 600);
-            primaryStage.setTitle("Algocraft");
+            Scene scene = new Scene(border, 832, 512);
+            primaryStage.setTitle("Algocraft 0.0.1");
+            //primaryStage.getIcons().add(new Image(AlgoCraft.class.getResourceAsStream("../../../res/icon.png")));
             primaryStage.setScene(scene);
+            //scene.getStylesheets().add(AlgoCraft.class.getResource("../../../res/AlgoCraft.css").toExternalForm());
+            primaryStage.show();
 
-
-            //primaryStage.show();
+            // Inicialiazo controlador de escena y vistas
             ControladorDeEscena controladorDeEscena = new ControladorDeEscena(scene);
-            JuegoVista juegoVista = new JuegoVista(controladorDeEscena);
+            System.out.println("Inicializando selector de herramientas");
+            SelectorDeHerramientas selectorHerramientas = new SelectorDeHerramientas();
+            InventarioVista inventarioVista = new InventarioVista(controladorDeEscena);
+            System.out.println("Se inicio inventario vista");
+            JuegoVista juegoVista = new JuegoVista(controladorDeEscena, selectorHerramientas);
+            CreditosVista creditosVista = new CreditosVista(controladorDeEscena);
             controladorDeEscena.agregarEscena("main", border);
+            controladorDeEscena.agregarEscena("inventario", inventarioVista.getPane());
             controladorDeEscena.agregarEscena("juego", juegoVista.getPane());
-            
-            
-            CreditosVista creditos = new CreditosVista(controladorDeEscena); 
-            controladorDeEscena.agregarEscena("creditos", creditos.getPane());
-
-
-            botonJugar.setOnAction(e -> {
+            controladorDeEscena.agregarEscena("creditos", creditosVista.getPane());
+            btnJugar.setOnAction(e -> {
                 controladorDeEscena.activate("juego");
             });
-            botonCreditos.setOnAction(e -> {
+            btnCreditos.setOnAction(e -> {
                 controladorDeEscena.activate("creditos");
             });
-            botonSalir.setOnAction(e -> {
+            btnSalir.setOnAction(e -> {
                 Platform.exit();
             });
 
+            // PRUEBA
+            System.out.println("Iniciando el juego");
+            Juego juego = new Juego();
+            Jugador jugador = juego.getJugador();
+            ControladorDeInventario controladorDeInventario = new ControladorDeInventario(jugador.getInventario(), inventarioVista, selectorHerramientas);
+            System.out.println("Controlado de inventario iniciado");
+            controladorDeInventario.actualizarVista();
 
-            this.juego = new Juego();
-            ControladorDelJuego controladorJuego = new ControladorDelJuego(juegoVista, juego);
+            System.out.println("Iniciando controlador del juego...");
+            ControladorDelJuego controladorJuego = new ControladorDelJuego(juegoVista, juego, controladorDeInventario);
             controladorJuego.actualizarVista();
 
-            primaryStage.show();
-
-
+            selectorHerramientas.setOnMouseClicked(e -> {
+                Integer posicion = selectorHerramientas.getPosicion(e);
+                if (posicion != null) {
+                    System.out.println("Posicion del selector de herramientas: "+posicion);
+                    jugador.seleccionarHerramienta(posicion);
+                }
+            });
         }
+
         catch (Exception e) {
 
             Alert error = new Alert(Alert.AlertType.INFORMATION);

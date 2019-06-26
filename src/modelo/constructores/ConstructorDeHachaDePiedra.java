@@ -2,22 +2,22 @@ package modelo.constructores;
 
 import modelo.materiales.*;
 import modelo.herramientas.*;
+import modelo.posicion.Posicion;
 
 public class ConstructorDeHachaDePiedra extends ConstructorDeHerramientas{
 
 	public ConstructorDeHachaDePiedra() {
-		int cantidadDeMateriales = 9;
-		mesa = new Mesa(cantidadDeMateriales);
-		mesa.agregarMaterialEnPosicion(new Piedra(), 0);
-		mesa.agregarMaterialEnPosicion(new Piedra(), 1);
-		mesa.agregarMaterialEnPosicion(new Piedra(), 3);
-		mesa.agregarMaterialEnPosicion(new Madera(), 4);
-		mesa.agregarMaterialEnPosicion(new Madera(), 7);
+/*
+		crafteo.put(new Posicion(0,0), new Madera());
+		crafteo.put(new Posicion(0,1), new Madera());
+		crafteo.put(new Posicion(1,0), new Madera());
+		crafteo.put(new Posicion(1,1), new Madera());
+		crafteo.put(new Posicion(1,2), new Madera());*/
 	}
-	
+	/*
 	@Override
-	public Herramienta ConstruirHerramienta() {
+	public Herramienta crearHerramienta() {
 		return new HachaDePiedra();
-	}
+	}*/
 
 }

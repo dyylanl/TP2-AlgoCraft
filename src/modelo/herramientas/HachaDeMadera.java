@@ -14,6 +14,21 @@ public class HachaDeMadera extends Hacha  {
 
 	@Override
 	public String getIdentificador() {
-		return "Hacha de madera";
+		return "hachaDeMadera.png";
+	}
+
+	@Override
+	public void desgastar(int danio) {
+
+	}
+
+	@Override
+	public void usarContra(Material materialARecolectar) {
+
+	}
+
+	@Override
+	public String getImagen() {
+		return null;
 	}
 }

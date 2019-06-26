@@ -62,8 +62,8 @@ public class Posicion{
 
 	public boolean estaEnLimmites(int limiteInfX, int limiteInfY ,int limiteSupX ,int limiteSupY) {
 		
-		boolean ok1 = (this.x >= limiteInfX && this.x <= limiteSupX);
-		boolean ok2 = (this.y >= limiteInfY && this.y <= limiteSupY);
+		boolean ok1 = (this.x >= limiteInfX && this.x < limiteSupX);
+		boolean ok2 = (this.y >= limiteInfY && this.y < limiteSupY);
 		
 		return (ok1 && ok2);
 	}

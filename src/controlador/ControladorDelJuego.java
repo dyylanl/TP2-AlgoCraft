@@ -16,9 +16,12 @@ public class ControladorDelJuego {
     private Juego juego;
     private JuegoVista juegoVista;
     private int jugadorPosX, jugadorPosY;
+    private ControladorDeInventario controladorDeInventario;
 
-    public ControladorDelJuego(JuegoVista juegoVista, Juego  juego) {
 
+    public ControladorDelJuego(JuegoVista juegoVista, Juego  juego, ControladorDeInventario controladorDeInventario) {
+
+        this.controladorDeInventario = controladorDeInventario;
         this.juego = juego;
         //this.juego.iniciar();
         this.juegoVista = juegoVista;
@@ -26,11 +29,8 @@ public class ControladorDelJuego {
         this.jugadorPosX = 0;
         this.jugadorPosY = 0;
     }
-    
-    public void obtenerJuegoCargado(Juego juego){
-    	juego = this.juego;
-    }
-    
+
+
     public void actualizarVista() {
 
         for(int row = 0; row < 12 ; row++)
@@ -41,10 +41,13 @@ public class ControladorDelJuego {
                 ObjetoMinecraft objeto = juego.getMapa().obtenerObjeto(posicion);
                 String nombreImagen = objeto.getImagen();
                 //System.out.println(nombreImagen);
-                juegoVista.agregarElemento(nombreImagen, row, col);
+                juegoVista.agregarElemento(nombreImagen, col, row);
             }
         }
     }
+
+    
+    
 
     public void moverArriba(GridPane mapa){
     	
@@ -65,7 +68,8 @@ public class ControladorDelJuego {
     	mapa.add(jugadorNode, this.jugadorPosX, this.jugadorPosY);
    
     }
-    
+
+
     public void moverAbajo(GridPane mapa){
     	
     	if(!this.juego.getMovimientos().moverJugadorAbajo(this.juego.mapa)){
@@ -85,7 +89,8 @@ public class ControladorDelJuego {
     	mapa.add(jugadorNode, this.jugadorPosX, this.jugadorPosY);
 
     }
-    
+
+
     public void moverDerecha(GridPane mapa){
     	
     	if(!this.juego.getMovimientos().moverJugadorDerecha(this.juego.mapa)) return;
@@ -106,8 +111,7 @@ public class ControladorDelJuego {
     	    
     }
     
-    
-    
+
     public void moverIzquierda(GridPane mapa){
 
     	if(!this.juego.getMovimientos().moverJugadorIzquierda(this.juego.mapa)) return;
@@ -123,6 +127,42 @@ public class ControladorDelJuego {
        	this.jugadorPosX --;
        	mapa.add(jugadorNode, this.jugadorPosX, this.jugadorPosY);    		
     	
+    }
+
+/*
+    public void golpearIzquierda() {
+        juego.getJugador().golpear(new HaciaIzquierda());
+        actualizarVista();
+        controladorDeInventario.actualizarVista();
+    }
+
+
+    public void golpearDerecha() {
+        juego.getJugador().golpear(new HaciaDerecha());
+        actualizarVista();
+        controladorDeInventario.actualizarVista();
+    }
+
+
+    public void golpearArriba() {
+        juego.getJugador().golpear(new HaciaArriba());
+        actualizarVista();
+        controladorDeInventario.actualizarVista();
+    }
+
+
+    public void golpearAbajo() {
+        juego.getJugador().golpear(new HaciaAbajo());
+        actualizarVista();
+        controladorDeInventario.actualizarVista();
+    }
+*/
+    public void limpiarPantalla(GridPane mapa){
+    	
+    	
+    	mapa.getChildren().removeAll(mapa.getChildren());
+    	//actualizarVista();
+    
     }
     
     private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {

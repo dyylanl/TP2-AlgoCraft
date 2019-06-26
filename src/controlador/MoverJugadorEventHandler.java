@@ -10,27 +10,31 @@ import vista.*;
 public class MoverJugadorEventHandler implements EventHandler<KeyEvent>{
 	
 	JuegoVista juegoVista;
+	GridPane mapa;
 	
-	
-	public MoverJugadorEventHandler(JuegoVista juegoVista) {
+	public MoverJugadorEventHandler(JuegoVista juegoVista, GridPane mapa) {
 		this.juegoVista = juegoVista;
+		this.mapa = mapa;
 	}
 	
 	
 	@Override
 	public void handle(KeyEvent event) {
+		
         if(event.getCode() == KeyCode.W) {
-        	this.juegoVista.controlador.moverArriba(this.juegoVista.mapa);
+        	this.juegoVista.controlador().moverArriba(mapa);
         }
         if( event.getCode() == KeyCode.S) {
-        	this.juegoVista.controlador.moverAbajo(this.juegoVista.mapa);
+        	this.juegoVista.controlador().moverAbajo(mapa);
         }
         if (event.getCode() == KeyCode.D) {
-        	this.juegoVista.controlador.moverDerecha(this.juegoVista.mapa);
+        	this.juegoVista.controlador().moverDerecha(mapa);
         }
         if (event.getCode() == KeyCode.A) {
-        	this.juegoVista.controlador.moverIzquierda(this.juegoVista.mapa);
+        	this.juegoVista.controlador().moverIzquierda(mapa);
         } 
+        
         //event.consume();
-    }
+		
+	}
 }

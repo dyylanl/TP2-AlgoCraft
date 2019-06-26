@@ -30,16 +30,13 @@ public class Mapa{
 
 	private void cargarMapa(){
 
-		for(int i = 0; i <= 12; i++){
+		for(int i = 0; i < 12; i++){
 
-			for(int j = 0; j <= 12; j++){
+			for(int j = 0; j < 12; j++){
 
 				Posicion posicion = new Posicion(i,j);
 				this.posicionesVacias.add(posicion);
-				/*
-				SinMaterial vacio = new SinMaterial();
-				this.terreno.put(posicion,vacio);
-				*/
+
 			}
 
 		}
@@ -51,7 +48,7 @@ public class Mapa{
 
 		Posicion posicion = this.posicionesVacias.get(this.indicePosicionVacia);
 		this.posicionesVacias.remove(this.indicePosicionVacia);
-		this.indicePosicionVacia = (int)(Math.random() * 144) + 1;
+		this.indicePosicionVacia = (int)(Math.random() * this.posicionesVacias.size()-1) + 1;
 		return posicion;
 
 	}

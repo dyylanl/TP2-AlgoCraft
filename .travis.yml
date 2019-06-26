@@ -9,6 +9,9 @@ script:
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
+ignore:
+  - module-info.java
+
 notifications:
   email:
     recipients:

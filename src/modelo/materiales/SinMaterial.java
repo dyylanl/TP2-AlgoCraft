@@ -1,6 +1,7 @@
 package modelo.materiales;
 
 import javafx.scene.image.Image;
+import modelo.herramientas.Golpe;
 import modelo.herramientas.Herramienta;
 
 public class SinMaterial extends Material{
@@ -18,5 +19,10 @@ public class SinMaterial extends Material{
 	@Override
 	public Character getIdentificador() {
 		return 'v';
+	}
+
+	@Override
+	public void golpear(Golpe golpe) {
+
 	}
 }
