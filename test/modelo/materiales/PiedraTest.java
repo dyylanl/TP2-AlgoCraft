@@ -40,7 +40,7 @@ public class PiedraTest {
 	@Test
 	public void hachaDeMaderaGolpeaPiedraYPiedraNoReduceSuDurabilidad() {
 		Hacha hachaDeMadera = new HachaDeMadera();
-		Material piedra= new Piedra();	
+		Material piedra = new Piedra();	
 		
 		int durabilidadIni = piedra.getDurabilidad();
 		
@@ -52,7 +52,7 @@ public class PiedraTest {
 	@Test
 	public void hachaDePiedraGolpeaPiedraYPiedraNoReduceSuDurabilidad() {
 		Hacha hachaDePiedra = new HachaDePiedra();
-		Material piedra= new Piedra();	
+		Material piedra = new Piedra();	
 		
 		int durabilidadIni = piedra.getDurabilidad();
 		
@@ -64,7 +64,7 @@ public class PiedraTest {
 	@Test
 	public void hachaDeMetalGolpeaPiedraYPiedraNoReduceSuDurabilidad() {
 		Hacha hachaDeMetal = new HachaDeMetal();
-		Material piedra= new Piedra();	
+		Material piedra = new Piedra();	
 		
 		int durabilidadIni = piedra.getDurabilidad();
 		

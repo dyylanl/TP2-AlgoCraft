@@ -5,16 +5,16 @@ import java.util.*;
 import modelo.jugador.*;
 import modelo.posicion.*;
 import modelo.materiales.*;
-import modelo.interfaz.*;
 
 
 public class Mapa{
 
 
 	public ArrayList<Posicion> posicionesVacias;
-	protected HashMap<Posicion, ObjetoMinecraft> terreno;
+	protected HashMap<Posicion, Material> terreno;
 	private int indicePosicionVacia;
-	protected ObjetoMinecraft sinMaterial;
+	protected Material sinMaterial;
+	private int maximo = 12;
 	//Maximo en x y en y igual a 12.
 
 
@@ -22,7 +22,7 @@ public class Mapa{
 		this.sinMaterial = new SinMaterial();
 		this.indicePosicionVacia = 0;
 		this.posicionesVacias = new ArrayList<Posicion>();
-		this.terreno = new HashMap<Posicion, ObjetoMinecraft>();
+		this.terreno = new HashMap<Posicion, Material>();
 		cargarMapa();
 
 	}
@@ -30,9 +30,9 @@ public class Mapa{
 
 	private void cargarMapa(){
 
-		for(int i = 0; i < 12; i++){
+		for(int i = 0; i < maximo; i++){
 
-			for(int j = 0; j < 12; j++){
+			for(int j = 0; j < maximo; j++){
 
 				Posicion posicion = new Posicion(i,j);
 				this.posicionesVacias.add(posicion);
@@ -54,7 +54,7 @@ public class Mapa{
 	}
 
 	
-	public ObjetoMinecraft obtenerObjeto(Posicion unaPos){
+	public Material obtenerObjeto(Posicion unaPos){
 		if(terreno.containsKey(unaPos)) {
 			return this.terreno.get(unaPos);	
 		}
@@ -87,10 +87,11 @@ public class Mapa{
 	}
 
 
-	public Posicion posicionarJugador(ObjetoMinecraft unJugador){
+	public Posicion posicionarJugador(Jugador unJugador){
 
 		Posicion posicion = getPosicionVacia();
-		this.terreno.put(posicion, unJugador);
+		unJugador.moverAUnaPosicion(posicion);
+		this.terreno.put(posicion, new MaterialJugador());
 		return posicion;
 
 	}
@@ -100,9 +101,9 @@ public class Mapa{
 
 		if (this.posicionInvalida(unaPosicion)) return false;
 		this.terreno.remove(unJugador.miPosicion());
-		this.terreno.put(unaPosicion, unJugador);
 		unJugador.moverAUnaPosicion(unaPosicion);
 		System.out.println("jugador se movio");
+		this.terreno.put(unaPosicion, new MaterialJugador());
 		return true;
 
 	}

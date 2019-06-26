@@ -1,14 +1,10 @@
 package modelo.materiales;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import modelo.herramientas.*;
-import modelo.interfaz.*;
 import modelo.posicion.*;
-import modelo.materiales.*;
-import modelo.mapas.*;
 
-public abstract class Material implements ObjetoMinecraft{
+
+public abstract class Material{
 
 	//Atributos:
 	protected String identidad;
@@ -47,4 +43,9 @@ public abstract class Material implements ObjetoMinecraft{
     public abstract Character getIdentificador();
 
     public abstract void golpear(Golpe golpe);
+    
+    public boolean estaDestruido() {
+    	return (this.durabilidad <= 0);
+    }
+    
 }

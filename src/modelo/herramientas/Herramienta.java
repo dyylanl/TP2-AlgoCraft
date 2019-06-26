@@ -1,7 +1,6 @@
 package modelo.herramientas;
 
 
-import modelo.interfaz.ObjetoMinecraft;
 import modelo.materiales.Diamante;
 import modelo.materiales.Madera;
 import modelo.materiales.Material;
@@ -9,7 +8,7 @@ import modelo.materiales.Metal;
 import modelo.materiales.Piedra;
 
 
-public abstract class Herramienta implements ObjetoMinecraft {
+public abstract class Herramienta {
 
 
     protected float durabilidad;
@@ -31,13 +30,11 @@ public abstract class Herramienta implements ObjetoMinecraft {
         return this.durabilidad;
 
     }
+    
+    public void usar(Material unMaterial) {
+        unMaterial.recibeGolpeDe(this);
 
-
-	public void usar(Material unMaterial) {
-		unMaterial.recibeGolpeDe(this);
-		
-	}
-
+    }
 
 	public abstract void golpear(Madera unaMadera);
 	
@@ -58,4 +55,10 @@ public abstract class Herramienta implements ObjetoMinecraft {
     public abstract void desgastar(int danio);
 
     public abstract void usarContra(Material materialARecolectar);
+    
+    public boolean estaDestruido() {
+    	return (this.durabilidad <= 0);
+    }
+    
+    public abstract String getImagen();
 }

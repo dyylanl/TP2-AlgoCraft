@@ -20,12 +20,6 @@ public class Madera extends Material{
 
 	}
 
-	public void reducirDurabilidad(int conFuerza){
-
-		this.durabilidad = this.durabilidad - conFuerza;
-
-	}
-
 	public String getIdentidad(){
 
 		return this.identidad;

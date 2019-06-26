@@ -1,6 +1,5 @@
 package modelo.juego;
 
-import modelo.interfaz.ObjetoMinecraft;
 import modelo.jugador.*;
 import modelo.mapas.Mapa;
 import modelo.materiales.*;

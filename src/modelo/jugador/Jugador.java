@@ -10,9 +10,8 @@ import modelo.materiales.*;
 import modelo.herramientas.*;
 import modelo.posicion.*;
 import modelo.mapas.*;
-import modelo.interfaz.*;
 
-public class Jugador implements ObjetoMinecraft{
+public class Jugador {
 	
 	public Herramienta herramientaEquipada;
 	public String imagen;
