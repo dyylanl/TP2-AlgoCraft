@@ -15,11 +15,6 @@ import modelo.jugador.Jugador;
 
 public class Principal extends Application {
 
-    public static double width;
-    public static double heigth;
-    private Juego juego;
-    /*private Group root;
-    private static PlayerView player;*/
 
 
     public static void main(String[] args) {
@@ -32,7 +27,6 @@ public class Principal extends Application {
         loadMainMenu(primaryStage);
 
     }
-
 
     
     public void loadMainMenu(Stage primaryStage) {

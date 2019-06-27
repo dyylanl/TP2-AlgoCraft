@@ -11,15 +11,10 @@ import java.util.ArrayList;
 
 public class Inventario {
 
-    private ArrayList<Herramienta> herramientas;
-    private ArrayList<Material> materiales;
-    private int posicionHerramientaSeleccionada;
+    private ArrayList<Herramienta> herramientas = new ArrayList<>();
+    private ArrayList<Material> materiales = new ArrayList<>();
+    private int posicionHerramientaSeleccionada = 0;
 
-    public Inventario() {
-        this.herramientas = new ArrayList<>();
-        this.materiales = new ArrayList<>();
-        this.posicionHerramientaSeleccionada = 0;
-    }
 
     public void agregarHerramienta(Herramienta herramienta) {
         this.herramientas.add(herramienta);
@@ -31,48 +26,12 @@ public class Inventario {
 
     public boolean contieneHerramienta(Herramienta herramienta) {
 
-        int indice = 0;
-        boolean herramientaEncontrada = false;
-
-        while((!herramientaEncontrada) && (indice < herramientas.size())){
-
-            if (herramienta.getClass() == this.herramientas.get(indice).getClass()) {
-                herramientaEncontrada = true;
-            }
-
-            indice++;
-
-        }
-
-        return herramientaEncontrada;
+        return herramientas.contains(herramienta);
     }
 
     public boolean contieneMaterial(Material material) {
 
-        int indice = 0;
-        boolean materialEncontrado = false;
-
-        while((!materialEncontrado) && (indice < materiales.size())){
-
-            if (material.getClass() == this.materiales.get(indice).getClass()) {
-                materialEncontrado = true;
-            }
-
-            indice++;
-
-        }
-
-        return materialEncontrado;
-    }
-
-    public Material seleccionarMaterial(int posicion) {
-        return materiales.get(posicion);
-    }
-
-    public Herramienta seleccionarHerramienta(int posicion) {
-        this.posicionHerramientaSeleccionada = posicion;
-        return herramientas.get(posicion);
-
+        return materiales.contains(material);
     }
 
     public ArrayList<Herramienta> getHerramientas(){
@@ -85,8 +44,5 @@ public class Inventario {
         return materiales;
     }
 
-    public void desecharHerramientaRota() {
 
-        this.herramientas.remove(posicionHerramientaSeleccionada);
-    }
 }
